@@ -1,0 +1,34 @@
+{
+  "canisters": {
+    "nifities": {
+      "main": "src/nifities/main.mo",
+      "type": "motoko"
+    },
+    "nifities_assets": {
+      "dependencies": [
+        "nifities"
+      ],
+      "frontend": {
+        "entrypoint": "src/nifities_assets/src/index.html"
+      },
+      "source": [
+        "src/nifities_assets/assets",
+        "dist/nifities_assets/"
+      ],
+      "type": "assets"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "networks": {
+    "local": {
+      "bind": "127.0.0.1:8000",
+      "type": "ephemeral"
+    }
+  },
+  "version": 1
+}
