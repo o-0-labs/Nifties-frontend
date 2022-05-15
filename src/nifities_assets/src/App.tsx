@@ -1,8 +1,9 @@
-import React, { Suspense } from 'react'
+import React from 'react'
 import Routers from './router';
 import { Provider } from "mobx-react";
 import { storesContext } from "./store";
-import {Spin} from 'antd'
+import { ConfigProvider } from 'antd'
+import zhCN from 'antd/es/locale/zh_CN';
 import './App.scss'
 
 const store = {
@@ -10,11 +11,11 @@ const store = {
 };
 const App = () => {
     return (
-        <Provider store={store}>
-            <Suspense fallback={<Spin />}>
+        <ConfigProvider locale={zhCN}>
+            <Provider store={store}>
                 <Routers />
-            </Suspense>
-        </Provider>
+            </Provider>
+        </ConfigProvider>
     )
 }
 

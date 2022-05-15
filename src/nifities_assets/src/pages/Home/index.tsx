@@ -13,7 +13,7 @@ const Home = () => {
     const inputRef = useRef<any>();
 
     useEffect(() => {
-        GlobalStore.creatConnect()
+        // GlobalStore.creatConnect()
     }, [])
 
     const handleSubmit = async (e: any) => {
