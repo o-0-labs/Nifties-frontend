@@ -1,0 +1,40 @@
+/*
+ * @Author: huangying
+ * @Date: 2018-08-22 20:49:12
+ * @Last Modified by: huangying
+ * @Last Modified time: 2018-11-08 15:44:38
+ */
+@each $member in 0, 1, 2, 3, 4, 5, 6, 8, 10, 12, 14, 15, 16, 18, 20, 22, 24, 25, 30,
+  31, 32, 35, 40, 42, 45, 50, 55, 58, 60, 65, 70, 75, 80, 85, 100, 150, 155, 160, 200
+{
+  .mt-#{$member} {
+    margin-top: #{$member}px !important;
+  }
+  .ml-#{$member} {
+    margin-left: #{$member}px !important;
+  }
+  .mb-#{$member} {
+    margin-bottom: #{$member}px !important;
+  }
+  .mr-#{$member} {
+    margin-right: #{$member}px !important;
+  }
+  .m-#{$member} {
+    margin: #{$member}px !important;
+  }
+  .pt-#{$member} {
+    padding-top: #{$member}px !important;
+  }
+  .pl-#{$member} {
+    padding-left: #{$member}px !important;
+  }
+  .pb-#{$member} {
+    padding-bottom: #{$member}px !important;
+  }
+  .pr-#{$member} {
+    padding-right: #{$member}px !important;
+  }
+  .p-#{$member} {
+    padding: #{$member}px !important;
+  }
+}

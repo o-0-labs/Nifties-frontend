@@ -63,6 +63,10 @@ module.exports = {
       events: require.resolve("events/"),
       stream: require.resolve("stream-browserify/"),
       util: require.resolve("util/"),
+    },
+    alias: {
+      store: path.resolve(__dirname, 'src/nifities_assets/src/store'),
+      components: path.resolve(__dirname, 'src/nifities_assets/src/components')
     }
   },
   output: {
@@ -100,7 +104,34 @@ module.exports = {
               },
             },
           },
+          {
+            loader: 'sass-resources-loader',
+            options: {
+              resources: [
+                path.resolve(__dirname, 'src/nifities_assets/src/style/color.scss')
+              ]
+            }
+          }
         ],
+      },
+      {
+        test: /\.less$/,
+        use: [
+          {
+            loader: 'style-loader', // creates style nodes from JS strings
+          },
+          {
+            loader: 'css-loader',
+          },
+          {
+            loader: 'less-loader',
+            options: {
+              lessOptions: {
+                javascriptEnabled: true,
+              },
+            }
+          },
+        ]
       },
     ],
   },

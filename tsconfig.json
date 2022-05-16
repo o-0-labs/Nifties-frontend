@@ -10,6 +10,15 @@
     ],
     "module": "commonjs",
     "strict": true,
-    "target": "es2020"
+    "target": "es2020",
+    "baseUrl": "src",
+    "paths": {
+      "store/*": [
+        "nifities_assets/src/store/*"
+      ],
+      "components/*": [
+        "nifities_assets/src/components/*"
+      ],
+    }
   }
 }

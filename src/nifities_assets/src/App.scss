@@ -1,1 +1,165 @@
-@import '~antd/dist/antd.css';
+@import './style/mixins/interval.scss';
+@import './style/mixins/fontSize.scss';
+@import './style/color.scss';
+
+#root {
+  height: 100%;
+}
+
+html {
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+    border: none;
+  }
+
+  :focus {
+    outline: none !important;
+  }
+}
+
+.ant-layout {
+  background: #f5f6fa;
+}
+
+p {
+  margin-bottom: 0 !important;
+}
+
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td,
+hr,
+button,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  margin: 0;
+  padding: 0;
+}
+
+div,
+dl,
+dt,
+dd,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span {
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+a {
+
+  &:hover,
+  &:link,
+  &:visited,
+  &:active {
+    text-decoration: none;
+  }
+}
+
+.flex_sb {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex_sa {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+/* 垂直居中 */
+.flex_right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.flex_left {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.flex_c {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 省略 */
+.wes,
+.wes_1 {
+  /* 多出部分用省略号表示 , 用于一行 */
+  overflow: hidden;
+  word-wrap: normal;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  word-break: break-all;
+}
+
+.wes_2 {
+  /* 适用于webkit内核和移动端 */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  word-break: break-all;
+}
+
+.wes_3 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  word-break: break-all;
+}

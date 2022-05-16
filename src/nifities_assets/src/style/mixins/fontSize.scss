@@ -1,0 +1,11 @@
+/*
+ * @Author: huangying
+ * @Date: 2018-08-22 20:49:26
+ * @Last Modified by: huangying
+ * @Last Modified time: 2018-08-28 11:22:07
+ */
+@for $fs from 10 through 50 {
+    .fs-#{$fs} {
+      font-size: #{$fs}px!important;
+    }
+  }

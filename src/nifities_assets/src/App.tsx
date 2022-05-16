@@ -3,15 +3,16 @@ import Routers from './router';
 import { Provider } from "mobx-react";
 import { storesContext } from "./store";
 import { ConfigProvider } from 'antd'
-import zhCN from 'antd/es/locale/zh_CN';
+import en_GB from 'antd/es/locale/en_GB';
 import './App.scss'
+import './style/antd/theme.less'
 
 const store = {
     storesContext
 };
 const App = () => {
     return (
-        <ConfigProvider locale={zhCN}>
+        <ConfigProvider locale={en_GB}>
             <Provider store={store}>
                 <Routers />
             </Provider>
