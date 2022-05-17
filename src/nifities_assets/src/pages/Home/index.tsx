@@ -68,6 +68,10 @@ const Home = () => {
                     <h3 className='sub_title'>On the world's Best NFT incubator</h3>
                     <Button type="primary" className="create_btn">Create</Button>
                 </div>
+                <div className='bg_text'>NFT</div>
+                <div className='float_menu flex_sb'>
+
+                </div>
             </div>
         </div >
     )
