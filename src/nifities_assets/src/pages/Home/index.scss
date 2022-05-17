@@ -1,7 +1,72 @@
 .home_wrap {
    .header_wrap {
+      position: relative;
       height: 830px;
       padding: 0 36px;
       background: linear-gradient(134.66deg, #FFF0D5 -5.13%, #CFE0E6 93.57%);
+
+      .header {
+         padding: 32px 0;
+      }
+
+      .login {
+         margin: 0;
+      }
+
+      .menu_left {
+         margin-left: 150px;
+         font-size: 18px;
+      }
+
+      .menu_item {
+         color: #04091E;
+         margin-left: 30px;
+
+         &:hover {
+            color: #1890ff;
+         }
+      }
+
+      .menu_icon {
+         font-size: 14px;
+      }
+
+      .profile {
+         width: 36px;
+         height: 36px;
+         border-radius: 18px;
+      }
+
+      .user_name {
+         color: #000;
+         margin-left: 10px;
+         font-size: 16px;
+      }
+   }
+
+   .sloga_wrap {
+      text-align: center;
+      width: 760px;
+      margin: auto;
+      color: #04091E;
+      margin-top: 116px;
+
+      .sloga {
+         font-size: 72px;
+         margin-bottom: 22px;
+         line-height: 130%;
+         font-weight: bold;
+      }
+
+      .sub_title {
+         font-size: 20px;
+         margin-bottom: 54px;
+      }
+
+      .create_btn {
+         width: 120px;
+         height: 48px;
+         border-radius: 8px;
+      }
    }
 }
