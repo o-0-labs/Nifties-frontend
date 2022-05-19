@@ -66,12 +66,82 @@ const Home = () => {
                     <h2 className='sloga'>Explore, Collect, and
                         Manege NFTs</h2>
                     <h3 className='sub_title'>On the world's Best NFT incubator</h3>
-                    <Button type="primary" className="create_btn">Create</Button>
+                    {/* <Button type="primary" className="create_btn">Create</Button> */}
                 </div>
                 <div className='bg_text'>NFT</div>
-                <div className='float_menu flex_sb'>
-
+                <div className='float_block_wrap flex_sb'>
+                    <div className='float_block_left flex_left'>
+                        <div className='block_list'>
+                            <div className='block_item'>
+                                <div className='title'>
+                                    Bounties
+                                </div>
+                                <div className='descript'>Design resources
+                                    at  your finger tips</div>
+                                <div className='tips mt-25'>Coming soon</div>
+                            </div>
+                            <div className='block_item mt-50 border_left_0'>
+                                <div className='title'>Grants</div>
+                                <div className='descript'>Crowdfunding
+                                    for open resources</div>
+                                <div className='enter_btn mt-25'>Enter</div>
+                            </div>
+                        </div>
+                        <div className='block_list ml-36 mt-228'>
+                            <div className='block_item border_right_0'>
+                                <div className='title'>
+                                    Hackathons
+                                </div>
+                                <div className='descript'>Creat
+                                    the coolest NFT projects</div>
+                                <div className='enter_btn mt-25'>Enter</div>
+                            </div>
+                            <div className='block_item mt-50'>
+                                <div className='title'>Agora</div>
+                                <div className='descript'>Post events such as
+                                    whitelist, mint, etc</div>
+                                <div className='enter_btn mt-25'>Enter</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='float_block_right flex_right'>
+                        <div className='block_list mr-36 mt-228'>
+                            <div className='block_item border_left_0'>
+                                <div className='title'>
+                                    Bounties
+                                </div>
+                                <div className='descript'>Design resources
+                                    at  your finger tips</div>
+                                <div className='tips mt-25'>Coming soon</div>
+                            </div>
+                            <div className='block_item mt-50'>
+                                <div className='title'>Grants</div>
+                                <div className='descript'>Crowdfunding
+                                    for open resources</div>
+                                <div className='enter_btn mt-25'>Enter</div>
+                            </div>
+                        </div>
+                        <div className='block_list'>
+                            <div className='block_item'>
+                                <div className='title'>
+                                    Bounties
+                                </div>
+                                <div className='descript'>Design resources
+                                    at  your finger tips</div>
+                                <div className='tips mt-25'>Coming soon</div>
+                            </div>
+                            <div className='block_item mt-50 border_right_0'>
+                                <div className='title'>Grants</div>
+                                <div className='descript'>Crowdfunding
+                                    for open resources</div>
+                                <div className='enter_btn mt-25'>Enter</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+            </div>
+            <div className='footer_wrap'>
+                <div className='logo_wrap'></div>
             </div>
         </div >
     )

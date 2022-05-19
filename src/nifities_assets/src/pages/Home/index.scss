@@ -47,7 +47,7 @@
 
    .sloga_wrap {
       text-align: center;
-      width: 760px;
+      width: 720px;
       margin: auto;
       color: #04091E;
       margin-top: 116px;
@@ -56,7 +56,7 @@
          font-size: 72px;
          margin-bottom: 22px;
          line-height: 130%;
-         font-weight: bold;
+         font-weight: 600;
       }
 
       .sub_title {
@@ -75,14 +75,91 @@
       position: absolute;
       bottom: -118px;
       width: 100%;
-      font-size: 320px;
+      font-size: 360px;
       color: #F4F8F7;
       text-align: center;
       line-height: 1;
+      letter-spacing: 16px;
    }
 
-   .float_menu {
+   .float_block_wrap {
       position: absolute;
+      width: 100%;
+      padding: 0 90px;
+      top: 172px;
       z-index: 2;
+
+      .float_block_left,
+      .float_block_right {
+         align-items: flex-start;
+      }
+
+      .block_item {
+         width: 180px;
+         height: 320px;
+         background-color: #fff;
+         box-shadow: 0px 30px 50px 50px rgba(4, 9, 30, 0.02);
+         border-radius: 100px;
+         padding: 30px 24px;
+      }
+
+      .border_left_0 {
+         border-top-left-radius: 0;
+      }
+
+      .border_right_0 {
+         border-top-right-radius: 0;
+      }
+
+      .title {
+         position: relative;
+         font-size: 28px;
+         height: 120px;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+
+         &::before {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            background: rgba(196, 196, 196, 0.28);
+            content: '';
+            border-radius: 60px;
+         }
+      }
+
+      .descript {
+         font-size: 16px;
+         margin-top: 12px;
+         text-align: center;
+         color: #747681;
+      }
+
+      .tips {
+         background: linear-gradient(95.49deg, #D6FFEE -36.87%, #C4C4C4 98.63%);
+         -webkit-background-clip: text;
+         -webkit-text-fill-color: transparent;
+         background-clip: text;
+         text-fill-color: transparent;
+         text-align: center;
+      }
+
+      .enter_btn {
+         text-align: center;
+         background: linear-gradient(95.49deg, #02FCCF -36.87%, #1448FF 98.63%);
+         -webkit-background-clip: text;
+         -webkit-text-fill-color: transparent;
+         background-clip: text;
+         text-fill-color: transparent;
+         font-weight: bold;
+      }
+   }
+
+   .footer_wrap {
+      width: 100%;
+      height: 616px;
+      background: linear-gradient(134.66deg, #FFF0D5 -5.13%, #CFE0E6 93.57%);
+      margin-top: 330px;
    }
 }
