@@ -19,6 +19,12 @@
       "components/*": [
         "nifities_assets/src/components/*"
       ],
+      "static/*": [
+        "nifities_assets/src/static/*"
+      ],
+      "pages/*": [
+        "nifities_assets/src/pages/*"
+      ],
     }
   }
 }

@@ -1,56 +1,19 @@
 .home_wrap {
    min-width: 1136px;
-
-   .header_wrap {
-      position: relative;
-      height: 830px;
-      background: linear-gradient(134.66deg, #FFF0D5 -5.13%, #CFE0E6 93.57%);
-
-      .header {
-         padding: 32px 36px;
-      }
-
-      .login {
-         margin: 0;
-      }
-
-      .menu_left {
-         margin-left: 150px;
-         font-size: 18px;
-      }
-
-      .menu_item {
-         color: #04091E;
-         margin-left: 30px;
-
-         &:hover {
-            color: #1890ff;
-         }
-      }
-
-      .menu_icon {
-         font-size: 14px;
-      }
-
-      .profile {
-         width: 36px;
-         height: 36px;
-         border-radius: 18px;
-      }
-
-      .user_name {
-         color: #000;
-         margin-left: 10px;
-         font-size: 16px;
-      }
-   }
+   height: 1166px;
+   position: relative;
+   background: linear-gradient(134.66deg, #FFF0D5 -5.13%, #CFE0E6 93.57%);
+   background-size: 100% 830px;
+   background-position: left top;
+   background-repeat: no-repeat;
+   overflow: hidden;
 
    .sloga_wrap {
       text-align: center;
       width: 720px;
       margin: auto;
       color: #04091E;
-      margin-top: 116px;
+      margin-top: 86px;
 
       .sloga {
          font-size: 72px;
@@ -61,32 +24,24 @@
 
       .sub_title {
          font-size: 20px;
-         margin-bottom: 54px;
       }
 
-      .create_btn {
-         width: 120px;
-         height: 48px;
-         border-radius: 8px;
-      }
    }
 
    .bg_text {
       position: absolute;
-      bottom: -118px;
-      width: 100%;
-      font-size: 360px;
-      color: #F4F8F7;
-      text-align: center;
-      line-height: 1;
-      letter-spacing: 16px;
+      width: 862px;
+      height: 357px;
+      left: 50%;
+      bottom: 216px;
+      transform: translate(-50%, 0);
    }
 
    .float_block_wrap {
       position: absolute;
       width: 100%;
       padding: 0 90px;
-      top: 172px;
+      top: 60px;
       z-index: 2;
 
       .float_block_left,
@@ -114,18 +69,16 @@
       .title {
          position: relative;
          font-size: 28px;
+         width: 120px;
          height: 120px;
-         display: flex;
-         align-items: center;
-         justify-content: center;
+         background: rgba(196, 196, 196, 0.28);
+         border-radius: 60px;
+         margin: 0 auto;
 
-         &::before {
+         .title_text {
             position: absolute;
-            width: 120px;
-            height: 120px;
-            background: rgba(196, 196, 196, 0.28);
-            content: '';
-            border-radius: 60px;
+            width: 180px;
+            text-align: center;
          }
       }
 
@@ -154,12 +107,5 @@
          text-fill-color: transparent;
          font-weight: bold;
       }
-   }
-
-   .footer_wrap {
-      width: 100%;
-      height: 616px;
-      background: linear-gradient(134.66deg, #FFF0D5 -5.13%, #CFE0E6 93.57%);
-      margin-top: 330px;
    }
 }

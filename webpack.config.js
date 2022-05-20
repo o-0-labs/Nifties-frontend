@@ -66,7 +66,9 @@ module.exports = {
     },
     alias: {
       store: path.resolve(__dirname, 'src/nifities_assets/src/store'),
-      components: path.resolve(__dirname, 'src/nifities_assets/src/components')
+      components: path.resolve(__dirname, 'src/nifities_assets/src/components'),
+      static: path.resolve(__dirname, 'src/nifities_assets/src/static'),
+      pages: path.resolve(__dirname, 'src/nifities_assets/src/pages'),
     }
   },
   output: {
@@ -132,6 +134,16 @@ module.exports = {
             }
           },
         ]
+      },
+      // Common Image Formats
+      {
+        test: /\.(?:ico|gif|png|jpg|jpeg|webp)$/,
+        type: 'asset',
+        parser: {
+          dataUrlCondition: {
+            maxSize: 10 * 1024, // (表示100kb以下的文件转换成base64编码)
+          },
+        },
       },
     ],
   },
