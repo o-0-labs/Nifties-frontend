@@ -18,15 +18,17 @@ class GlobalStore {
       // @ts-ignore
       const connected = await window?.ic?.plug?.isConnected();
       if (!connected) {
-        console.log(11)
         // @ts-ignore
         const publicKey = await window.ic.plug.requestConnect();
         console.log(`The connected user's public key is:`, publicKey);
+        return Promise.resolve()
       } else {
         console.log('connect success!')
+        return Promise.resolve()
       }
     } catch (e) {
       console.log(e);
+      return Promise.reject()
     }
   }
 

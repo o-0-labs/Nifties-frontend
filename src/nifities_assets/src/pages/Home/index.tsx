@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useHistory } from "react-router-dom"
 import { useStore, observer } from "store/utils";
+import { Button } from 'antd'
 import './index.scss'
 
 const nft = require('static/nft.png')
@@ -38,7 +39,9 @@ const Home = () => {
                             </div>
                             <div className='descript'>Crowdfunding
                                 for open resources</div>
-                            <div className='enter_btn mt-25'>Enter</div>
+                            <Button type="text" className='enter_btn' onClick={() => {
+                                history.push('/test')
+                            }}>Enter</Button>
                         </div>
                     </div>
                     <div className='block_list ml-36 mt-228'>
@@ -48,7 +51,7 @@ const Home = () => {
                             </div>
                             <div className='descript'>Creat
                                 the coolest NFT projects</div>
-                            <div className='enter_btn mt-25'>Enter</div>
+                            <Button type="text" className='enter_btn'>Enter</Button>
                         </div>
                         <div className='block_item mt-50'>
                             <div className='title flex_c'>
@@ -56,7 +59,7 @@ const Home = () => {
                             </div>
                             <div className='descript'>Post events such as
                                 whitelist, mint, etc</div>
-                            <div className='enter_btn mt-25'>Enter</div>
+                            <Button type="text" className='enter_btn'>Enter</Button>
                         </div>
                     </div>
                 </div>
@@ -68,7 +71,7 @@ const Home = () => {
                             </div>
                             <div className='descript'>A custom NFT
                                 educational community</div>
-                            <div className='enter_btn mt-25'>Enter</div>
+                            <Button type="text" className='enter_btn'>Enter</Button>
                         </div>
                         <div className='block_item mt-50'>
                             <div className='title flex_c'>
@@ -86,7 +89,7 @@ const Home = () => {
                             </div>
                             <div className='descript'>One-stop anagement
                                 of sns accounts</div>
-                            <div className='enter_btn mt-25'>Enter</div>
+                            <Button type="text" className='enter_btn'>Enter</Button>
                         </div>
                         <div className='block_item mt-50 border_right_0'>
                             <div className='title flex_c'>

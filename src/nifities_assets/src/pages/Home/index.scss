@@ -1,5 +1,4 @@
 .home_wrap {
-   min-width: 1136px;
    height: 1166px;
    position: relative;
    background: linear-gradient(134.66deg, #FFF0D5 -5.13%, #CFE0E6 93.57%);
@@ -55,7 +54,7 @@
          background-color: #fff;
          box-shadow: 0px 30px 50px 50px rgba(4, 9, 30, 0.02);
          border-radius: 100px;
-         padding: 30px 24px;
+         padding: 30px 22px;
       }
 
       .border_left_0 {
@@ -99,6 +98,7 @@
       }
 
       .enter_btn {
+         display: block;
          text-align: center;
          background: linear-gradient(95.49deg, #02FCCF -36.87%, #1448FF 98.63%);
          -webkit-background-clip: text;
@@ -106,6 +106,7 @@
          background-clip: text;
          text-fill-color: transparent;
          font-weight: bold;
+         margin: 25px auto 0;
       }
    }
 }
