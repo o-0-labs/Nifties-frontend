@@ -1,2 +1,6 @@
 $primary-color: #00BCC2; // 全局主色
 $main-text-color: #04091E; // 主文字色
+
+@function px2vw($px) {
+    @return $px * 100vw / 750;
+}
