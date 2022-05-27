@@ -1,11 +1,18 @@
 .home_wrap {
-   height: 1166px;
-   position: relative;
-   background: linear-gradient(134.66deg, #FFF0D5 -5.13%, #CFE0E6 93.57%);
-   background-size: 100% 830px;
-   background-position: left top;
-   background-repeat: no-repeat;
-   overflow: hidden;
+   .header_wrap {
+      height: 1166px;
+      position: relative;
+      background: linear-gradient(134.66deg, #FFF0D5 -5.13%, #CFE0E6 93.57%);
+      background-size: 100% 830px;
+      background-position: left top;
+      background-repeat: no-repeat;
+      overflow: hidden;
+   }
+
+
+   .header {
+      background: transparent;
+   }
 
    .sloga_wrap {
       text-align: center;
@@ -40,7 +47,7 @@
       position: absolute;
       width: 100%;
       padding: 0 90px;
-      top: 60px;
+      top: 170px;
       z-index: 2;
 
       .float_block_left,
@@ -107,6 +114,14 @@
          text-fill-color: transparent;
          font-weight: bold;
          margin: 25px auto 0;
+      }
+   }
+}
+
+@media only screen and (max-width: 980px) {
+   .home_wrap {
+      .float_block_wrap {
+         padding: 0 20px;
       }
    }
 }

@@ -1,0 +1,104 @@
+.header {
+    padding: 32px 36px;
+    background: linear-gradient(134.66deg, #FFF0D5 -5.13%, #CFE0E6 93.57%);
+
+    .nav_wrap {
+        width: 100%;
+    }
+
+    .login {
+        flex: 0 0 20%;
+
+        .login_img {
+            margin: 0;
+        }
+    }
+
+
+    .menu_left {
+        font-size: 18px;
+        flex: 1 1 auto;
+    }
+
+    .menu_item {
+        color: #04091E;
+        margin-right: 2vw;
+
+        &:hover {
+            color: $primary-color;
+        }
+    }
+
+    .menu_icon {
+        font-size: 14px;
+    }
+
+    .profile {
+        width: 36px;
+        height: 36px;
+        border-radius: 18px;
+    }
+
+    .menu_right {
+        .user_name {
+            color: #000;
+            margin-left: 10px;
+            font-size: 16px;
+        }
+
+        .iconfont {
+            font-size: 22px;
+
+            &:hover {
+                color: $primary-color;
+            }
+        }
+
+        .sign_btn {
+            font-size: 14px;
+        }
+
+    }
+
+    .nav_more {
+        display: none;
+    }
+
+
+}
+
+.header_dropmenu_wrap {
+    .dropmenu_item {
+        .title {
+            font-size: 14px;
+            color: #000;
+        }
+
+        .des {
+            font-size: 10px;
+            color: #747681;
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .header {
+        padding: 20px;
+
+        .menu_left {
+            font-size: 14px;
+        }
+
+        // .nav_more {
+        //     display: block;
+        // }
+
+        // .menu_left {
+        //     display: none;
+        // }
+
+        // .menu_right {
+        //     display: none;
+        // }
+    }
+}

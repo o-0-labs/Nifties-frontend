@@ -69,6 +69,7 @@ module.exports = {
       components: path.resolve(__dirname, 'src/nifities_assets/src/components'),
       static: path.resolve(__dirname, 'src/nifities_assets/src/static'),
       pages: path.resolve(__dirname, 'src/nifities_assets/src/pages'),
+      utils: path.resolve(__dirname, 'src/nifities_assets/src/utils'),
     }
   },
   output: {
