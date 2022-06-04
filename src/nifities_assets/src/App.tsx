@@ -6,6 +6,7 @@ import { ConfigProvider } from 'antd'
 import en_GB from 'antd/es/locale/en_GB';
 import './App.scss'
 import './style/antd/theme.less'
+import './index.css'
 
 const store = {
     storesContext
