@@ -1,8 +1,7 @@
 import React from 'react';
 import { QueryClient, QueryClientProvider, useQuery } from "react-query";
-import axios from 'axios';
-// import { ReactQueryDevtools } from 'react-query/devtools';
 import { Hackathon, fetchAllByStatus } from '../../../api/hackahton';
+import { ReactQueryDevtools } from 'react-query/devtools';
 
 
 const queryClient = new QueryClient();
@@ -30,7 +29,7 @@ function ListComponent(props: {
 }) {
 
     // 获取黑客松活动列表数据
-    const { status, error, data } = useQuery<Hackathon[], Error>(`hackathons${props.status}`, () => fetchAllByStatus(props.status));
+    const { status, error, data } = useQuery<Hackathon[], Error>(`hackathons/status/${props.status}`, () => fetchAllByStatus(props.status));
 
     if (status == "loading") {
         return <p>Loading...</p>
