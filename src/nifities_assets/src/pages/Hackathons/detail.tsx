@@ -51,7 +51,7 @@ function Detail() {
                             <p className="text-xl font-medium leading-loose text-brand text-Urbanist" style={{ width: 657.71, }}>{data?.date}</p>
                         </div>
                         <div className="inline-flex flex-col items-center justify-center my-auto space-y-[0.88rem] w-auto  mr-[3.38rem]">
-                            <button className="text-sm leading-snug text-brand w-[10.88rem] h-7 py-1 bg-white border rounded border-brand">Join discord</button>
+                            <a className="text-sm leading-snug text-brand w-[10.88rem] h-7 py-1 bg-white border rounded border-brand text-center" href={data?.discord_url} rel="external" title="Go to the Discroid channel" target="_blank">Join discord</a>
                             <button className="text-sm leading-snug bg-brand w-[10.88rem] h-7 py-1 border rounded text-white">Join now</button>
                         </div>
                     </div>
