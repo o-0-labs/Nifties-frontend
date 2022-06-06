@@ -35,6 +35,14 @@ const routes = [
             loading: Loading
         }),
     },
+    {
+        isExact: true,
+        path: '/hackathons',
+        component: Loadable({
+            loader: () => import('../pages/Hackathons'),
+            loading: Loading
+        }),
+    },
 ];
 
 export default routes;

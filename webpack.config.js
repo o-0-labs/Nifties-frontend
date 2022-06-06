@@ -3,6 +3,7 @@ const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
+const Dotenv = require('dotenv-webpack');
 
 function initCanisterEnv() {
   let localCanisters, prodCanisters;
@@ -41,6 +42,16 @@ const isDevelopment = process.env.NODE_ENV !== "production";
 const frontendDirectory = "nifities_assets";
 
 const asset_entry = path.join("src", frontendDirectory, "src", "index.html");
+
+// 环境变量配置
+function initEnvConfigPath(){
+  const development = path.resolve(__dirname, './.env.dev'); // 开发环境配置
+  const production = path.resolve(__dirname, './.env.prod'); // 正式环境配置
+
+  return isDevelopment ? development : production;
+  
+};
+const envConfigPath = initEnvConfigPath();
 
 module.exports = {
   target: "web",
@@ -85,7 +96,7 @@ module.exports = {
   module: {
     rules: [
       { test: /\.(ts|tsx|jsx)$/, loader: "ts-loader" },
-      { test: /\.css$/, use: ["style-loader", "css-loader"] },
+      { test: /\.css$/, use: ["style-loader", "css-loader", 'postcss-loader'] },
       {
         test: /\.(scss|sass)$/,
         use: [
@@ -169,6 +180,11 @@ module.exports = {
     new webpack.ProvidePlugin({
       Buffer: [require.resolve("buffer/"), "Buffer"],
       process: require.resolve("process/browser"),
+    }),
+    new Dotenv({
+      // path: path.resolve(__dirname, './.env'), // 配置文件路径
+      path: envConfigPath, // 根据环境配置文件路径
+      safe: false, // load .env.example (defaults to "false" which does not use dotenv-safe)
     }),
   ],
   // proxy /api to port 8000 during development
