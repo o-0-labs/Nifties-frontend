@@ -2,7 +2,6 @@
   "compilerOptions": {
     "allowJs": true,
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
     "jsx": "react",
     "lib": [
       "ES2020",
@@ -25,6 +24,19 @@
       "pages/*": [
         "nifities_assets/src/pages/*"
       ],
+      "utils/*": [
+        "nifities_assets/src/utils/*"
+      ],
     }
-  }
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "node_modules/@types/**/*.d.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/node_modules/*",
+    "dist"
+  ]
 }

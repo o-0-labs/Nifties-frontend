@@ -1,10 +1,12 @@
 @import './style/mixins/interval.scss';
 @import './style/mixins/fontSize.scss';
-@import './style/color.scss';
 @import './style/iconfonts/iconfont.css';
+@import './style/normalize.css';
 
 #root {
   height: 100%;
+  --primary-color: #00BCC2; // 全局主色
+  --main-text-color: #04091E; // 主文字色
 }
 
 html {

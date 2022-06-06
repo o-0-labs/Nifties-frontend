@@ -19,7 +19,6 @@ const Main = () => {
     return <Layout>
         <main>
             <Switch>
-                <Route path="/" exact={true} component={Home} />
                 {getRouteNodes()}
                 <Redirect to="/404" />
             </Switch>
@@ -31,6 +30,7 @@ const Router = () => {
     return (
         <HashRouter>
             <Switch>
+                <Route path="/" exact={true} component={Home} />
                 <Route component={Main} />
             </Switch>
         </HashRouter>

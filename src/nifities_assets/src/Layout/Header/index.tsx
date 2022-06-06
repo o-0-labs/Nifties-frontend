@@ -1,9 +1,15 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Dropdown, Menu, Space, Button } from 'antd'
 import { DownOutlined, MenuOutlined } from '@ant-design/icons';
 import './index.scss'
 
 const Header = () => {
+    const [loginMenuVisible, setLoginMenuVisible] = useState(false)
+    useEffect(() => {
+        document.onclick = (() => {
+            setLoginMenuVisible(false)
+        })
+    }, [])
 
     const renderMenuItem = (title: string, des: string) => {
         return <div className='dropmenu_item'>
@@ -19,6 +25,10 @@ const Header = () => {
         { label: renderMenuItem('Promotion', 'Promotion'), key: 'Promotion' },
         { label: renderMenuItem('Muse', 'Muse'), key: 'Muse' },
     ]
+
+    const createContact = () => {
+
+    }
     const items = [
         { label: '菜单项一', key: 'item-1' }, // 菜单项务必填写 key
         { label: '菜单项二', key: 'item-2' },
@@ -28,7 +38,9 @@ const Header = () => {
             children: [{ label: '子菜单项', key: 'submenu-item-1' }],
         },
     ];
-    const onSignClick = () => {
+    const onSignClick = (e: any) => {
+        e.stopPropagation()
+        setLoginMenuVisible(!loginMenuVisible)
     }
 
     return <header className='header flex_sb'>
@@ -70,7 +82,9 @@ const Header = () => {
             <img className='profile' src="http://iph.href.lu/300x100" alt="logo" />
             <span className='user_name'>Windy</span>
         </div> */}
-            <Button type='primary' className='sign_btn' ghost onClick={onSignClick}>sign in</Button>
+            <Dropdown overlay={<Menu items={magicItem} />} trigger={['click']} visible={loginMenuVisible}>
+                <Button type='primary' className='sign_btn' ghost onClick={onSignClick}>sign in</Button>
+            </Dropdown>
         </div>
         <Dropdown className='nav_more csp' overlayClassName="dropdown_nav" overlay={<Menu items={items} />} arrow={true} placement="bottomRight">
             <MenuOutlined />

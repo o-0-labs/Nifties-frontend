@@ -1,13 +1,13 @@
 .header {
     padding: 32px 36px;
-    // background: linear-gradient(134.66deg, #FFF0D5 -5.13%, #CFE0E6 93.57%);
+    background: linear-gradient(134.66deg, #FFF0D5 -5.13%, #CFE0E6 93.57%);
 
     .nav_wrap {
         width: 100%;
     }
 
     .login {
-        margin-right: px2vw(120);
+        flex: 0 0 20%;
 
         .login_img {
             margin: 0;
@@ -17,14 +17,15 @@
 
     .menu_left {
         font-size: 18px;
+        flex: 1 1 auto;
     }
 
     .menu_item {
         color: #04091E;
-        margin-right: px2vw(30);
+        margin-right: 2vw;
 
         &:hover {
-            color: $primary-color;
+            color: var(--primary-color);
         }
     }
 
@@ -49,7 +50,7 @@
             font-size: 22px;
 
             &:hover {
-                color: $primary-color;
+                color: var(--primary-color);
             }
         }
 
@@ -80,26 +81,24 @@
     }
 }
 
-@media only screen and (max-width: 980px) {
+@media only screen and (max-width: 768px) {
     .header {
+        padding: 20px;
+
         .menu_left {
             font-size: 14px;
         }
-    }
-}
 
-@media only screen and (max-width: 768px) {
-    .header {
-        .nav_more {
-            display: block;
-        }
+        // .nav_more {
+        //     display: block;
+        // }
 
-        .menu_left {
-            display: none;
-        }
+        // .menu_left {
+        //     display: none;
+        // }
 
-        .menu_right {
-            display: none;
-        }
+        // .menu_right {
+        //     display: none;
+        // }
     }
 }
