@@ -47,7 +47,7 @@ export function fetchAll(): Promise<Hackathon[]> {
     const params = {
         "page_no": 1,
         "page_size": 10,
-        "status": '1'
+        "status": ''
     };
     return request.post(`/hackathon/query`, params).then((res) => res.data.data.records);
 }
