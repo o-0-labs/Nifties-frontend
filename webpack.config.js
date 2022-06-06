@@ -107,14 +107,15 @@ module.exports = {
               },
             },
           },
-          {
-            loader: 'sass-resources-loader',
-            options: {
-              resources: [
-                path.resolve(__dirname, 'src/nifities_assets/src/style/color.scss')
-              ]
-            }
-          }
+          // 自动为每个scss文件注入公共scss变量
+          // {
+          //   loader: 'sass-resources-loader',
+          //   options: {
+          //     resources: [
+          //       path.resolve(__dirname, 'src/nifities_assets/src/style/color.scss')
+          //     ]
+          //   }
+          // }
         ],
       },
       {
