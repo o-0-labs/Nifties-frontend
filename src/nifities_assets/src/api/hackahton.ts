@@ -25,6 +25,8 @@ export interface HackathonStatus {
     "status": string;
     "image": string;
     "discord_url": string;
+    content?: string;
+    msg?: string;
 }
     
 /**
@@ -65,4 +67,18 @@ export function fetchAll(): Promise<Hackathon[]> {
         "status": status
     };
     return request.post(`/hackathon/query`, params).then((res) => res.data.data.records);
+}
+
+/**
+ 
+ *
+ * @export
+ * @param {string} id
+ * @return {*}  {Promise<Hackathon>}
+ */
+export function fetchById(id: string): Promise<Hackathon> {
+    const params = {
+        "hackathon_id": id
+    };
+    return request.post(`/hackathon/detail`, params).then((res) => res.data.data);
 }
