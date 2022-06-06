@@ -43,6 +43,14 @@ const routes = [
             loading: Loading
         }),
     },
+    {
+        isExact: true,
+        path: '/hackathons/:id',
+        component: Loadable({
+            loader: () => import('../pages/Hackathons/detail'),
+            loading: Loading
+        }),
+    },
 ];
 
 export default routes;
