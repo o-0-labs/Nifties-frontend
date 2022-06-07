@@ -51,6 +51,14 @@ const routes = [
             loading: Loading
         }),
     },
+    {
+        isExact: true,
+        path: '/grants',
+        component: Loadable({
+            loader: () => import('../pages/Grants'),
+            loading: Loading
+        }),
+    },
 ];
 
 export default routes;
