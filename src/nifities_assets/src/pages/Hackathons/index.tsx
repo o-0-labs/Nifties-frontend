@@ -4,7 +4,7 @@ import HackahtonsTab from './components/tab';
 export default function Hackathons() {
     return (
         <div className='w-screen py-[4.06rem]'>
-            <section className='px-[1rem] lg:px-[8rem]' title="Hero Section">
+            <section className='px-[1rem] lg:px-[8rem]'>
                 <div className='flex flex-col-reverse md:flex-row md:justify-between '>
                     <div className="w-[31.38rem]">
                         <p className="xl:text-5xl lg:text-4xl sm:text-3xl font-semibold font-Poppins xl:leading-[4.06rem] text-brand-text-black">
@@ -22,7 +22,7 @@ export default function Hackathons() {
                 </div>
             </section>
 
-            <section className='mt-[7.19rem] px-[1rem] lg:px-[8rem]' title="Explore Hackathons Section">
+            <section className='mt-[7.19rem] px-[1rem] lg:px-[8rem]'>
                 <HackahtonsTab />
             </section>
         </div>
