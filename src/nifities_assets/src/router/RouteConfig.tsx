@@ -59,6 +59,14 @@ const routes = [
             loading: Loading
         }),
     },
+    {
+        isExact: true,
+        path: '/agora',
+        component: Loadable({
+            loader: () => import('../pages/Agora'),
+            loading: Loading
+        }),
+    },
 ];
 
 export default routes;
