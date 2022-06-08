@@ -13,6 +13,7 @@ module.exports = {
       fontFamily: {
         'Poppins': ['Poppins', 'sans-serif'],
         'Urbanist': ['Urbanist', 'sans-serif'],
+        'Inter': ['Inter', 'sans-serif'],
       },
     },
   },
