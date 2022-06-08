@@ -67,6 +67,14 @@ const routes = [
             loading: Loading
         }),
     },
+    {
+        isExact: true,
+        path: '/muse',
+        component: Loadable({
+            loader: () => import('../pages/Muse'),
+            loading: Loading
+        }),
+    },
 ];
 
 export default routes;
