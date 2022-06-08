@@ -27,31 +27,13 @@ export default function Agora() {
                     <button className="text-sm leading-snug text-brand w-[10.88rem] h-7 bg-white border rounded border-brand">Create</button>
                 </div>
                 <div className=" pt-[1.5rem] grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-y-10 justify-items-center justify-between">
-                    <div className="inline-flex flex-col space-y-[0.4rem] items-start justify-start px-[1rem] pt-[0.88rem] bg-white border rounded-lg border-grey-300 font-Urbanis" style={{ width: 400, height: 640, }}>
-                        <div className="w-full h-[25.56rem] bg-gradient-to-b from-[#D6FFEE] via-[#EAD183] to-[#FFA114] rounded-lg relative">
+                    <div className="inline-flex flex-col space-y-[0.4rem] items-start justify-start px-[1rem] pt-[0.88rem] bg-white border rounded-lg border-grey-300 font-Urbanist " style={{ width: 400, height: 640, }}>
+                        <div className="w-full h-[25.56rem] bg-gradient-to-b from-[#D6FFEE] via-[#EFC56761] to-[#FFA11400] rounded-lg relative">
                             <p className="h-auto w-[5rem] text-sm font-semibold leading-relaxed text-center text-brand font-Urbanist absolute top-[0.90rem] left-[0.96rem] bg-white p-2">MINT</p>
                             <div className="w-auto h-auto absolute bottom-[0.90rem] right-[0.96rem] flex flex-row justify-end front-Urbanist">
-                                <img className="w-[1.5rem] aspect-square rounded-lg mr-2" src="https://via.placeholder.com/18x24" />
+                                <img className="w-[1.5rem] aspect-square rounded-lg mr-4" src="/views.svg" />
                                 <p className="text-sm font-semibold leading-relaxed text-gray-900">1.1w</p>
-                                <img className="w-[1.5rem] aspect-square rounded-lg  ml-[0.98rem]  mr-2" src="https://via.placeholder.com/18x24" />
-                                <p className="text-sm font-semibold leading-relaxed text-gray-900">400</p>
-                            </div>
-                        </div>
-                        <div className="flex flex-row justify-between w-full items-baseline h-[2.69rem]">
-                            <p className="w-auto text-2xl font-semibold leading-loose text-left text-brand-text-black">Chance to mint for free</p>
-                            <p className="w-auto text-sm leading-tight text-brand">8h</p>
-                        </div>
-                        <p className="w-full h-[5.04rem] text-sm leading-tight text-brand-text-gray font-Urbanist">$100 | 1.400.000 IDR in 8 Hours 🦄<br />- RT & Follow <br />@Free_Mint_Pass<br /> - RT, Like + Tag 3 Friends on Their 📌</p>
-                        <p className="w-auto h-5 text-sm leading-tight text-brand-text-gray font-Urbanist">by <span className='text-brand'>by Money Bears NFT</span></p>
-                        <button className="mx-auto text-sm leading-snug bg-brand w-[10.88rem] h-7 border rounded text-white mt-[50.38rem]">Join</button>
-                    </div>
-                    <div className="inline-flex flex-col space-y-[0.4rem] items-start justify-start px-[1rem] pt-[0.88rem] bg-white border rounded-lg border-grey-300 font-Urbanist" style={{ width: 400, height: 640, }}>
-                        <div className="w-full h-[25.56rem] bg-gradient-to-b from-[#D6FFEE] via-[#EAD183] to-[#FFA114] rounded-lg relative">
-                            <p className="h-auto w-[5rem] text-sm font-semibold leading-relaxed text-center text-brand font-Urbanist absolute top-[0.90rem] left-[0.96rem] bg-white p-2">MINT</p>
-                            <div className="w-auto h-auto absolute bottom-[0.90rem] right-[0.96rem] flex flex-row justify-end front-Urbanist">
-                                <img className="w-[1.5rem] aspect-square rounded-lg mr-2" src="https://via.placeholder.com/18x24" />
-                                <p className="text-sm font-semibold leading-relaxed text-gray-900">1.1w</p>
-                                <img className="w-[1.5rem] aspect-square rounded-lg  ml-[0.98rem]  mr-2" src="https://via.placeholder.com/18x24" />
+                                <img className="w-[1.5rem] aspect-square rounded-lg  ml-[0.98rem]  mr-4" src="/like.svg" />
                                 <p className="text-sm font-semibold leading-relaxed text-gray-900">400</p>
                             </div>
                         </div>
@@ -64,12 +46,12 @@ export default function Agora() {
                         <button className="mx-auto text-sm leading-snug bg-brand w-[10.88rem] h-7 border rounded text-white mt-[50.38rem]">Join</button>
                     </div>
                     <div className="inline-flex flex-col space-y-[0.4rem] items-start justify-start px-[1rem] pt-[0.88rem] bg-white border rounded-lg border-grey-300 font-Urbanist " style={{ width: 400, height: 640, }}>
-                        <div className="w-full h-[25.56rem] bg-gradient-to-b from-[#D6FFEE] via-[#EAD183] to-[#FFA114] rounded-lg relative">
+                        <div className="w-full h-[25.56rem] bg-gradient-to-b from-[#D6FFEE] via-[#EFC56761] to-[#FFA11400] rounded-lg relative">
                             <p className="h-auto w-[5rem] text-sm font-semibold leading-relaxed text-center text-brand font-Urbanist absolute top-[0.90rem] left-[0.96rem] bg-white p-2">MINT</p>
                             <div className="w-auto h-auto absolute bottom-[0.90rem] right-[0.96rem] flex flex-row justify-end front-Urbanist">
-                                <img className="w-[1.5rem] aspect-square rounded-lg mr-2" src="https://via.placeholder.com/18x24" />
+                                <img className="w-[1.5rem] aspect-square rounded-lg mr-4" src="/views.svg" />
                                 <p className="text-sm font-semibold leading-relaxed text-gray-900">1.1w</p>
-                                <img className="w-[1.5rem] aspect-square rounded-lg  ml-[0.98rem]  mr-2" src="https://via.placeholder.com/18x24" />
+                                <img className="w-[1.5rem] aspect-square rounded-lg  ml-[0.98rem]  mr-4" src="/like.svg" />
                                 <p className="text-sm font-semibold leading-relaxed text-gray-900">400</p>
                             </div>
                         </div>
@@ -81,13 +63,31 @@ export default function Agora() {
                         <p className="w-auto h-5 text-sm leading-tight text-brand-text-gray font-Urbanist">by <span className='text-brand'>by Money Bears NFT</span></p>
                         <button className="mx-auto text-sm leading-snug bg-brand w-[10.88rem] h-7 border rounded text-white mt-[50.38rem]">Join</button>
                     </div>
-                    <div className="inline-flex flex-col space-y-[0.4rem] items-start justify-start px-[1rem] pt-[0.88rem] bg-white border rounded-lg border-grey-300 font-Urbanist" style={{ width: 400, height: 640, }}>
-                        <div className="w-full h-[25.56rem] bg-gradient-to-b from-[#D6FFEE] via-[#EAD183] to-[#FFA114] rounded-lg relative">
+                    <div className="inline-flex flex-col space-y-[0.4rem] items-start justify-start px-[1rem] pt-[0.88rem] bg-white border rounded-lg border-grey-300 font-Urbanist " style={{ width: 400, height: 640, }}>
+                        <div className="w-full h-[25.56rem] bg-gradient-to-b from-[#D6FFEE] via-[#EFC56761] to-[#FFA11400] rounded-lg relative">
                             <p className="h-auto w-[5rem] text-sm font-semibold leading-relaxed text-center text-brand font-Urbanist absolute top-[0.90rem] left-[0.96rem] bg-white p-2">MINT</p>
                             <div className="w-auto h-auto absolute bottom-[0.90rem] right-[0.96rem] flex flex-row justify-end front-Urbanist">
-                                <img className="w-[1.5rem] aspect-square rounded-lg mr-2" src="https://via.placeholder.com/18x24" />
+                                <img className="w-[1.5rem] aspect-square rounded-lg mr-4" src="/views.svg" />
                                 <p className="text-sm font-semibold leading-relaxed text-gray-900">1.1w</p>
-                                <img className="w-[1.5rem] aspect-square rounded-lg  ml-[0.98rem]  mr-2" src="https://via.placeholder.com/18x24" />
+                                <img className="w-[1.5rem] aspect-square rounded-lg  ml-[0.98rem]  mr-4" src="/like.svg" />
+                                <p className="text-sm font-semibold leading-relaxed text-gray-900">400</p>
+                            </div>
+                        </div>
+                        <div className="flex flex-row justify-between w-full items-baseline h-[2.69rem]">
+                            <p className="w-auto text-2xl font-semibold leading-loose text-left text-brand-text-black">Chance to mint for free</p>
+                            <p className="w-auto text-sm leading-tight text-brand">8h</p>
+                        </div>
+                        <p className="w-full h-[5.04rem] text-sm leading-tight text-brand-text-gray font-Urbanist">$100 | 1.400.000 IDR in 8 Hours 🦄<br />- RT & Follow <br />@Free_Mint_Pass<br /> - RT, Like + Tag 3 Friends on Their 📌</p>
+                        <p className="w-auto h-5 text-sm leading-tight text-brand-text-gray font-Urbanist">by <span className='text-brand'>by Money Bears NFT</span></p>
+                        <button className="mx-auto text-sm leading-snug bg-brand w-[10.88rem] h-7 border rounded text-white mt-[50.38rem]">Join</button>
+                    </div>
+                    <div className="inline-flex flex-col space-y-[0.4rem] items-start justify-start px-[1rem] pt-[0.88rem] bg-white border rounded-lg border-grey-300 font-Urbanist " style={{ width: 400, height: 640, }}>
+                        <div className="w-full h-[25.56rem] bg-gradient-to-b from-[#D6FFEE] via-[#EFC56761] to-[#FFA11400] rounded-lg relative">
+                            <p className="h-auto w-[5rem] text-sm font-semibold leading-relaxed text-center text-brand font-Urbanist absolute top-[0.90rem] left-[0.96rem] bg-white p-2">MINT</p>
+                            <div className="w-auto h-auto absolute bottom-[0.90rem] right-[0.96rem] flex flex-row justify-end front-Urbanist">
+                                <img className="w-[1.5rem] aspect-square rounded-lg mr-4" src="/views.svg" />
+                                <p className="text-sm font-semibold leading-relaxed text-gray-900">1.1w</p>
+                                <img className="w-[1.5rem] aspect-square rounded-lg  ml-[0.98rem]  mr-4" src="/like.svg" />
                                 <p className="text-sm font-semibold leading-relaxed text-gray-900">400</p>
                             </div>
                         </div>
