@@ -75,6 +75,14 @@ const routes = [
             loading: Loading
         }),
     },
+    {
+        isExact: true,
+        path: '/pona',
+        component: Loadable({
+            loader: () => import('../pages/Pona'),
+            loading: Loading
+        }),
+    },
 ];
 
 export default routes;
