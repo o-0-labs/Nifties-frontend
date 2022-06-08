@@ -26,8 +26,8 @@ export default function Grant() {
                     <p className="text-3xl leading-10 text-left text-gray-900">Explore Grants</p>
                     <button className="text-sm leading-snug text-brand w-[10.88rem] h-7 bg-white border rounded border-brand">Great</button>
                 </div>
-                <div className=" pt-[1.5rem] grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-y-10 justify-items-center justify-between">
-                    <div className="inline-flex flex-col space-y-[0.8rem] items-start justify-start px-5 pt-7 bg-white border rounded-lg border-grey-300 font-Urbanist justify-self-start" style={{ width: 400, height: 640, }}>
+                <div className=" pt-[1.5rem] grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-y-10 justify-items-center justify-between">
+                    <div className="inline-flex flex-col space-y-[0.8rem] items-start justify-start px-5 pt-7 bg-white border rounded-lg border-grey-300 font-Urbanist" style={{ width: 400, height: 640, }}>
                         <div className="w-full h-[16.88rem] bg-gray-300 rounded-lg" >插图2.2</div>
                         <p className="w-auto h-8 text-2xl font-semibold leading-loose text-left text-brand-text-black">CoThe Daily Gwei by Anthony</p>
                         <p className="w-auto h-5 text-sm leading-tight text-brand-text-gray">by <span className='text-brand'>iniziale</span></p>
@@ -51,7 +51,7 @@ export default function Grant() {
                         </div>
                         <button className="mx-auto text-sm leading-snug bg-brand w-[10.88rem] h-7 border rounded text-white mt-[50.38rem]">Pay now</button>
                     </div>
-                    <div className="inline-flex flex-col space-y-[0.8rem] items-start justify-start px-5 pt-7 bg-white border rounded-lg border-grey-300 font-Urbanist justify-self-end" style={{ width: 400, height: 640, }}>
+                    <div className="inline-flex flex-col space-y-[0.8rem] items-start justify-start px-5 pt-7 bg-white border rounded-lg border-grey-300 font-Urbanist" style={{ width: 400, height: 640, }}>
                         <div className="w-full h-[16.88rem] bg-gray-300 rounded-lg" >插图2.2</div>
                         <p className="w-auto h-8 text-2xl font-semibold leading-loose text-left text-brand-text-black">CoThe Daily Gwei by Anthony</p>
                         <p className="w-auto h-5 text-sm leading-tight text-brand-text-gray">by <span className='text-brand'>iniziale</span></p>
@@ -63,7 +63,7 @@ export default function Grant() {
                         </div>
                         <button className="mx-auto text-sm leading-snug bg-brand w-[10.88rem] h-7 border rounded text-white mt-[50.38rem]">Pay now</button>
                     </div>
-                    <div className="inline-flex flex-col space-y-[0.8rem] items-start justify-start px-5 pt-7 bg-white border rounded-lg border-grey-300 font-Urbanist justify-self-start" style={{ width: 400, height: 640, }}>
+                    <div className="inline-flex flex-col space-y-[0.8rem] items-start justify-start px-5 pt-7 bg-white border rounded-lg border-grey-300 font-Urbanist" style={{ width: 400, height: 640, }}>
                         <div className="w-full h-[16.88rem] bg-gray-300 rounded-lg" >插图2.2</div>
                         <p className="w-auto h-8 text-2xl font-semibold leading-loose text-left text-brand-text-black">CoThe Daily Gwei by Anthony</p>
                         <p className="w-auto h-5 text-sm leading-tight text-brand-text-gray">by <span className='text-brand'>iniziale</span></p>
