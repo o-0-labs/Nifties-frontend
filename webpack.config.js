@@ -44,12 +44,12 @@ const frontendDirectory = "nifities_assets";
 const asset_entry = path.join("src", frontendDirectory, "src", "index.html");
 
 // 环境变量配置
-function initEnvConfigPath(){
+function initEnvConfigPath() {
   const development = path.resolve(__dirname, './.env.dev'); // 开发环境配置
   const production = path.resolve(__dirname, './.env.prod'); // 正式环境配置
 
   return isDevelopment ? development : production;
-  
+
 };
 const envConfigPath = initEnvConfigPath();
 
@@ -81,6 +81,7 @@ module.exports = {
       static: path.resolve(__dirname, 'src/nifities_assets/src/static'),
       pages: path.resolve(__dirname, 'src/nifities_assets/src/pages'),
       utils: path.resolve(__dirname, 'src/nifities_assets/src/utils'),
+      api: path.resolve(__dirname, 'src/nifities_assets/src/api'),
     }
   },
   output: {

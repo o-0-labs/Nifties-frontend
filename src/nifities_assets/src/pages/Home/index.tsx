@@ -43,9 +43,7 @@ const Home = () => {
                                 </div>
                                 <div className='descript'>Crowdfunding
                                     for open resources</div>
-                                <Button type="text" className='enter_btn' onClick={() => {
-                                    history.push('/test')
-                                }}>Enter</Button>
+                                <Button type="text" className='enter_btn'>Enter</Button>
                             </div>
                         </div>
                         <div className='block_list ml-36 mt-228'>
@@ -55,7 +53,9 @@ const Home = () => {
                                 </div>
                                 <div className='descript'>Creat
                                     the coolest NFT projects</div>
-                                <Button type="text" className='enter_btn'>Enter</Button>
+                                <Button type="text" className='enter_btn' onClick={() => {
+                                    history.push('/hackathons')
+                                }}>Enter</Button>
                             </div>
                             <div className='block_item mt-50'>
                                 <div className='title flex_c'>

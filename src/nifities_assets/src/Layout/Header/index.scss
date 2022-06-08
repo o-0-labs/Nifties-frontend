@@ -63,8 +63,45 @@
     .nav_more {
         display: none;
     }
+}
 
+.plugModal {
+    .title {
+        width: 167px;
+        padding: 5px 12px;
+        line-height: 36px;
+        font-size: 16px;
+        color: #898A8C;
+    }
 
+    .plug_icon {
+        margin-right: 14px;
+    }
+
+    .css-h4y409-MuiList-root {
+        padding: 0;
+    }
+}
+
+.tipsModal {
+    .tips_wrap {
+        padding: 20px;
+        width: 250px;
+
+        .title {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .content {
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .link {
+            text-decoration: underline;
+        }
+    }
 }
 
 .header_dropmenu_wrap {

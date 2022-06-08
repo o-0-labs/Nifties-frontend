@@ -27,6 +27,9 @@
       "utils/*": [
         "nifities_assets/src/utils/*"
       ],
+      "api/*": [
+        "nifities_assets/src/api/*"
+      ],
     }
   },
   "include": [

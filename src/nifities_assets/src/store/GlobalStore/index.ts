@@ -1,4 +1,5 @@
 import { makeAutoObservable } from "mobx";
+import { loginService } from 'api/login';
 
 export interface ITransfer {
   to: String,
@@ -21,16 +22,14 @@ export interface IBurnXTC {
 
 
 class GlobalStore {
-  customerId = "";
-  customerName = "Roc";
   token = "";
-
+  //合约地址
+  helloCanisterId = 's62ka-oqaaa-aaaak-qaokq-cai'
   constructor() {
     makeAutoObservable(this, {}, { autoBind: true });
   }
 
   setCustomerName(val: string) {
-    this.customerName = val;
   }
 
   /**
@@ -52,8 +51,7 @@ class GlobalStore {
   async creatConnect() {
     try {
       const params = {
-        whitelist: ['canister-id'],
-        host: 'https://network-address',
+        whitelist: [this.helloCanisterId],
         timeout: 50000
       }
       // @ts-ignore
@@ -75,6 +73,43 @@ class GlobalStore {
       console.log(e);
       return Promise.reject()
     }
+  }
+
+  async login() {
+    const idlFactory = ({ IDL }: any) => {
+      return IDL.Service({ 'sign': IDL.Func([IDL.Nat64], [IDL.Text], ['query']) });
+    };
+    //合约地址
+    const helloCanisterId = 's62ka-oqaaa-aaaak-qaokq-cai'
+    //授权钱包访问的合约白名单
+    const whitelist = [helloCanisterId];
+
+    //连接钱包
+    //@ts-ignore
+    await window.ic.plug.requestConnect({
+      whitelist,
+      timeout: 50000
+    });
+    //@ts-ignore
+    const principalId = await window.ic.plug.agent.getPrincipal();
+    console.log(`Plug's user principal Id is ${principalId}`);
+
+    //初始化actor
+    //@ts-ignore
+    const helloActor = await window.ic.plug.createActor({
+      canisterId: helloCanisterId,
+      interfaceFactory: idlFactory,
+    });
+
+    //调用合约方法
+    let result = await helloActor.sign(65);
+    console.log(principalId, '----------')
+    const res = await loginService({
+      call_name: 's5thb-y62gc-bovpz-kdik5-5qveb-62cqj-2jrvm-acsre-uft3z-rzcm2-uqe',
+      timestamp: 65,
+      signature: result
+    })
+    console.log(res)
   }
 
   /**
