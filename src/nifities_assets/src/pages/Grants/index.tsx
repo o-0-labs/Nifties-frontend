@@ -24,7 +24,7 @@ export default function Grant() {
             <section className='my-[7.19rem] px-[1rem] lg:px-[8rem]'>
                 <div className="flex flex-row justify-between w-auto">
                     <p className="text-3xl leading-10 text-left text-gray-900">Explore Grants</p>
-                    <button className="text-sm leading-snug text-brand w-[10.88rem] h-7 bg-white border rounded border-brand">Great</button>
+                    <button className="text-sm leading-snug text-brand w-[10.88rem] h-7 bg-white border rounded border-brand">Create</button>
                 </div>
                 <div className=" pt-[1.5rem] grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-y-10 justify-items-center justify-between">
                     <div className="inline-flex flex-col space-y-[0.8rem] items-start justify-start px-5 pt-7 bg-white border rounded-lg border-grey-300 font-Urbanist" style={{ width: 400, height: 640, }}>
