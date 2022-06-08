@@ -18,36 +18,36 @@ export default function Pona() {
                             <div className="w-full  h-full mx-auto grid grid-cols-3 place-items-end justify-items-center">
                                 <div className="text-center space-y-[2.20rem] pb-[2.17rem]">
                                     <div className="m-auto w-[9.88rem] h-[9.88rem] relative text-center">
-                                        <img className="m-auto w-[9.88rem] h-[9.88rem] border-[3px] rounded-full border-[#009BD6]" src="https://via.placeholder.com/158x158" />
+                                        <img className="m-auto w-[9.88rem] h-[9.88rem] border-[3px] rounded-full border-[#009BD6]" src="/avator-1.jpg" />
                                         <div className=" w-full text-center absolute bottom-0">
                                             <div className="mx-auto transform -rotate-45 w-10 h-10 bg-[#009BD6] rounded relative -bottom-[16px]" ></div>
                                         </div>
                                     </div>
-                                    <p className="m-auto text-2xl font-medium">Jackson</p>
+                                    <p className="m-auto text-2xl font-medium text-black">Jackson</p>
                                     <p className="m-auto text-3xl font-bold text-[#009BD6]">1847</p>
                                 </div>
                                 <div className="w-[19.94rem] text-center h-full place-items-start relative">
                                     <div className="w-full absolute top-0 z-10">
-                                        <img className="m-auto w-[4.93rem] h-[3.88rem]" src="https://via.placeholder.com/79x62" />
+                                        <img className="m-auto w-[4.93rem] h-[3.88rem]" src="/crown.svg" />
                                         <div className="m-auto w-[11.88rem] h-[11.88rem] relative text-center mt-[1rem]">
-                                            <img className="m-auto w-[11.88rem] h-[11.88rem] border-[3px] rounded-full border-[#FFAA00] absolute top-0" src="https://via.placeholder.com/190x190" />
+                                            <img className="m-auto w-[11.88rem] h-[11.88rem] border-[3px] rounded-full border-[#FFAA00] absolute top-0" src="/avator-2.jpg" />
                                             <div className=" w-full text-center absolute bottom-0">
-                                                <div className="mx-auto transform -rotate-45 w-10 h-10 bg-[#FFAA00] rounded relative -bottom-[16px] -z-10" ></div>
+                                                <div className="mx-auto transform -rotate-45 w-10 h-10 bg-[#FFAA00] rounded relative -bottom-[16px]" ></div>
                                             </div>
                                         </div>
-                                        <p className="m-auto text-2xl font-medium mt-[2.20rem]">Eiden</p>
+                                        <p className="m-auto text-2xl font-medium mt-[2.20rem]   text-black">Eiden</p>
                                         <p className="m-auto text-3xl font-bold text-[#FFAA00] mt-[2.20rem]">2430</p>
                                     </div>
                                     <div className="w-full h-80 bg-gradient-to-b from-[#D0E0E6] to-[#FFF0D400] rounded-tl-3xl rounded-tr-3xl absolute bottom-0" />
                                 </div>
                                 <div className=" text-center space-y-[2.20rem] pb-[2.17rem]">
                                     <div className="m-auto w-[9.88rem] h-[9.88rem] relative text-center">
-                                        <img className="m-auto w-[9.88rem] h-[9.88rem] border-[3px] rounded-full border-[#00D95F]" src="https://via.placeholder.com/158x158" />
+                                        <img className="m-auto w-[9.88rem] h-[9.88rem] border-[3px] rounded-full border-[#00D95F]" src="/avator-3.jpg" />
                                         <div className=" w-full text-center absolute bottom-0">
                                             <div className="mx-auto transform -rotate-45 w-10 h-10 bg-[#00D95F] rounded relative -bottom-[16px]" ></div>
                                         </div>
                                     </div>
-                                    <p className="m-auto text-2xl font-medium">Emma Aria</p>
+                                    <p className="m-auto text-2xl font-medium  text-black">Emma Aria</p>
                                     <p className="m-auto text-3xl font-bold text-[#00D95F]">1674</p>
                                 </div>
                             </div>
@@ -62,57 +62,35 @@ export default function Pona() {
                         <div className=" m-auto w-full mt-[1.25rem]">
                             <div className="bg-white border border-gray-300 w-full h-[5.31rem] grid grid-cols-3 justify-center place-items-center">
                                 <p>1</p>
-                                <div className="inline-flex space-x-4 items-center">
-                                    <img className="w-[3rem] h-[3rem] rounded-full" src="https://via.placeholder.com/48x48" />
-                                    <p className="text-lg font-semibold leading-loose text-gray-500">CryptoPunks</p>
+                                <div className="inline-flex space-x-4  justify-self-start place-items-center">
+                                    <img className="w-[3rem] h-[3rem] rounded-full" src="/avator-2.jpg" />
+                                    <p className="text-lg leading-loose text-gray-500">Eiden</p>
                                 </div>
                                 <div className="inline-flex space-x-1 items-center">
-                                    <img className="w-[0.63rem] h-[1rem]" src="https://via.placeholder.com/10x16" />
-                                    <p className="text-lg font-semibold leading-loose text-gray-500">133,871.43</p>
+                                    <img className="w-[1.25rem] h-[1.25rem]" src="/eth.png" />
+                                    <p className="text-lg leading-loose text-gray-500">133,871.43</p>
                                 </div>
                             </div>
                             <div className="bg-white border border-t-0 border-gray-300 w-full h-[5.31rem] grid grid-cols-3 justify-center place-items-center">
-                                <p>1</p>
-                                <div className="inline-flex space-x-4 items-center">
-                                    <img className="w-[3rem] h-[3rem] rounded-full" src="https://via.placeholder.com/48x48" />
-                                    <p className="text-lg font-semibold leading-loose text-gray-500">CryptoPunks</p>
+                                <p>2</p>
+                                <div className="inline-flex space-x-4   justify-self-start place-items-center">
+                                    <img className="w-[3rem] h-[3rem] rounded-full" src="/avator-1.jpg" />
+                                    <p className="text-lg leading-loose text-gray-500">Jackson</p>
                                 </div>
                                 <div className="inline-flex space-x-1 items-center">
-                                    <img className="w-[0.63rem] h-[1rem]" src="https://via.placeholder.com/10x16" />
-                                    <p className="text-lg font-semibold leading-loose text-gray-500">133,871.43</p>
+                                    <img className="w-[1.25rem] h-[1.25rem]" src="/eth.png" />
+                                    <p className="text-lg leading-loose text-gray-500">133,871.43</p>
                                 </div>
                             </div>
                             <div className="bg-white border border-t-0 border-gray-300 w-full h-[5.31rem] grid grid-cols-3 justify-center place-items-center">
-                                <p>1</p>
-                                <div className="inline-flex space-x-4 items-center">
-                                    <img className="w-[3rem] h-[3rem] rounded-full" src="https://via.placeholder.com/48x48" />
-                                    <p className="text-lg font-semibold leading-loose text-gray-500">CryptoPunks</p>
+                                <p>3</p>
+                                <div className="inline-flex space-x-4   justify-self-start place-items-center">
+                                    <img className="w-[3rem] h-[3rem] rounded-full" src="/avator-3.jpg" />
+                                    <p className="text-lg leading-loose text-gray-500">Emma Aria</p>
                                 </div>
                                 <div className="inline-flex space-x-1 items-center">
-                                    <img className="w-[0.63rem] h-[1rem]" src="https://via.placeholder.com/10x16" />
-                                    <p className="text-lg font-semibold leading-loose text-gray-500">133,871.43</p>
-                                </div>
-                            </div>
-                            <div className="bg-white border border-t-0 border-gray-300 w-full h-[5.31rem] grid grid-cols-3 justify-center place-items-center">
-                                <p>1</p>
-                                <div className="inline-flex space-x-4 items-center">
-                                    <img className="w-[3rem] h-[3rem] rounded-full" src="https://via.placeholder.com/48x48" />
-                                    <p className="text-lg font-semibold leading-loose text-gray-500">CryptoPunks</p>
-                                </div>
-                                <div className="inline-flex space-x-1 items-center">
-                                    <img className="w-[0.63rem] h-[1rem]" src="https://via.placeholder.com/10x16" />
-                                    <p className="text-lg font-semibold leading-loose text-gray-500">133,871.43</p>
-                                </div>
-                            </div>
-                            <div className="bg-white border border-t-0 border-gray-300 w-full h-[5.31rem] grid grid-cols-3 justify-center place-items-center">
-                                <p>1</p>
-                                <div className="inline-flex space-x-4 items-center">
-                                    <img className="w-[3rem] h-[3rem] rounded-full" src="https://via.placeholder.com/48x48" />
-                                    <p className="text-lg font-semibold leading-loose text-gray-500">CryptoPunks</p>
-                                </div>
-                                <div className="inline-flex space-x-1 items-center">
-                                    <img className="w-[0.63rem] h-[1rem]" src="https://via.placeholder.com/10x16" />
-                                    <p className="text-lg font-semibold leading-loose text-gray-500">133,871.43</p>
+                                    <img className="w-[1.25rem] h-[1.25rem]" src="/eth.png" />
+                                    <p className="text-lg leading-loose text-gray-500">133,871.43</p>
                                 </div>
                             </div>
                         </div>
