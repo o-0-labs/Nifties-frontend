@@ -10,15 +10,10 @@ export interface ILoginData {
     create_time: Date;
 }
 
-export interface IData {
-    code: number;
-    data: ILoginData
-}
-
 class _GlobalService {
     loginService(params: any) {
         return Axios.getInstance().post(`/login`, { data: params }) as Promise<IApiData>;
     }
 }
 const GlobalService = new _GlobalService();
-export default GlobalService;
+export { IApiData, GlobalService };
