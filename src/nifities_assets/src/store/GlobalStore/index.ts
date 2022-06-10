@@ -1,6 +1,7 @@
 import { makeAutoObservable } from "mobx";
 import { GlobalService } from 'api/global';
 import { message } from "antd";
+import { to } from 'utils/Tools'
 
 export interface ITransfer {
   to: String,
@@ -31,8 +32,15 @@ class GlobalStore {
   userName = ''
   profilePhoto = ''
   email = ''
+  infoVisible = false
+  confirmLoading = false
+
   constructor() {
     makeAutoObservable(this, {}, { autoBind: true });
+  }
+
+  setInfoVisible(visible: boolean) {
+    this.infoVisible = visible
   }
 
   /**
@@ -93,22 +101,26 @@ class GlobalStore {
     //@ts-ignore
     this.principalId = await window.ic.plug.agent.getPrincipal();
 
-    const { code, data } = await GlobalService.loginService({
+    const [err, res] = await to(GlobalService.login({
       call_name: `${this.principalId}`,
       timestamp: 65,
       signature: result
-    })
-    if (code === 0) {
-      this.userId = data.user_id
-      this.token = data.token
-      this.userName = data.user_name
-      this.profilePhoto = data.profile_photo
-      this.email = data.email
-      if (data.user_name) {
+    }))
+    message.destroy()
+    if (err) return
+    if (res.code === 0) {
+      this.userId = res.data.user_id
+      this.token = res.data.token
+      this.userName = res.data.user_name
+      this.profilePhoto = res.data.profile_photo
+      this.email = res.data.email
+      if (res.data.user_name) {
         message.success('登录成功！')
       } else {
-
+        this.infoVisible = true
       }
+    } else {
+      message.error('登陆失败！')
     }
   }
 
@@ -153,6 +165,30 @@ class GlobalStore {
       return Promise.resolve(result)
     } catch (error) {
       return Promise.reject()
+    }
+  }
+
+  async onSubmit(values: any) {
+    this.confirmLoading = true
+    const [err, res] = await to(GlobalService.register({
+      user_name: values.username,
+      email: values.email,
+      user_id: this.userId,
+      call_name: `${this.principalId}`,
+      profile_photo: 'https://www.datocms-assets.com/73647/1653631343-nft.png'
+    }))
+    this.confirmLoading = false
+    this.infoVisible = false
+    if (err) {
+      return
+    }
+    if (res && res.code === 0) {
+      this.userName = res.data.user_name
+      this.email = res.data.email
+      this.profilePhoto = res.data.profile_photo
+      message.success('注册成功！')
+    } else {
+      message.error('注册失败')
     }
   }
 }

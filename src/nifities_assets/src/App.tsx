@@ -4,9 +4,9 @@ import { Provider } from "mobx-react";
 import { storesContext } from "./store";
 import { ConfigProvider } from 'antd'
 import en_GB from 'antd/es/locale/en_GB';
+import './index.css'
 import './App.scss'
 import './style/antd/theme.less'
-import './index.css'
 
 const store = {
     storesContext

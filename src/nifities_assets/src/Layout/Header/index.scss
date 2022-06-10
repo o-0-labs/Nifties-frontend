@@ -34,12 +34,15 @@
     }
 
     .profile {
+        flex-shrink: 0;
         width: 36px;
         height: 36px;
         border-radius: 18px;
     }
 
     .menu_right {
+        flex: 0 0 auto;
+
         .user_name {
             color: #000;
             margin-left: 10px;
@@ -100,19 +103,6 @@
 
         .link {
             text-decoration: underline;
-        }
-    }
-}
-
-.infoModal {
-    .label {
-        width: 120px;
-        text-align: right;
-
-        span {
-            font-size: 18px;
-            color: #FF0024;
-            margin-right: 4px;
         }
     }
 }

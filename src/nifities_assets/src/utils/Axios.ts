@@ -1,6 +1,6 @@
 import axios, { AxiosError, AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
 import { message } from 'antd';
-import { useStore } from 'store/utils';
+import GlobalStore from 'store/GlobalStore';
 export enum ECode {
     OPERATION_SUCCESS = 0, // "操作成功"
 }
@@ -8,14 +8,33 @@ export interface IApiData {
     data: any;
     code: ECode;
 }
-
 const requestInterceptor = async (config: AxiosRequestConfig) => {
     if (config.url && !config.url.includes('login')) {
-        const { GlobalStore } = useStore();
-        config.headers.Authorization = GlobalStore.token;
+        config.headers.Authorization = `Bearer ${GlobalStore.token}`;
     }
-
     return config;
+};
+const responseInterceptorError = (err: AxiosError) => {
+    if (err.response) {
+        switch (err.response.status) {
+            case 400:
+                // 401 没有token
+                message.error(String(err.response.data) || '参数错误');
+                break;
+            case 401:
+                // 401 没有token
+                message.error(String(err.response.data) || '权限错误');
+                break;
+            case 500:
+                // 500 接口异常
+                message.error(String(err.response.data) || '异常');
+                break;
+            default:
+                break;
+        }
+        return Promise.reject(err);
+    }
+    return Promise.reject(err);
 };
 const requestInterceptorError = (err: AxiosError) => err;
 
@@ -37,6 +56,10 @@ class Http {
         this.session.interceptors.request.use(
             requestInterceptor,
             requestInterceptorError,
+        );
+        this.session.interceptors.response.use(
+            (response) => response,
+            responseInterceptorError,
         );
     }
     static getInstance() {
