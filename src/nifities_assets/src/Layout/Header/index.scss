@@ -104,6 +104,19 @@
     }
 }
 
+.infoModal {
+    .label {
+        width: 120px;
+        text-align: right;
+
+        span {
+            font-size: 18px;
+            color: #FF0024;
+            margin-right: 4px;
+        }
+    }
+}
+
 .header_dropmenu_wrap {
     .dropmenu_item {
         .title {

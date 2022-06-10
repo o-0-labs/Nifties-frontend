@@ -7,7 +7,11 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import TextField from '@mui/material/TextField';
 import { useStore } from 'store/utils';
+import FormControl, { useFormControl } from '@mui/material/FormControl';
 import './index.scss'
 
 const plugIcon = require('static/plug.png')
@@ -15,13 +19,16 @@ const plugIcon = require('static/plug.png')
 const Header = () => {
     const [openPlug, setOpenPlug] = useState(false)
     const [openTips, setOpenTips] = useState(false)
+    const [openInfo, setOpenInfo] = useState(true)
     const { GlobalStore } = useStore()
+    const { } = useFormControl() || {}
     useEffect(() => {
     }, [])
 
     const handleClose = () => {
         setOpenPlug(false)
         setOpenTips(false)
+        setOpenInfo(false)
     }
 
     const renderMenuItem = (title: string, des: string) => {
@@ -39,23 +46,28 @@ const Header = () => {
         { label: renderMenuItem('Muse', 'Muse'), key: 'Muse' },
     ]
 
-    const createContact = async () => {
+    const login = async () => {
+        setOpenPlug(false)
         const isInstalled = GlobalStore.checkPlugStatus()
         if (isInstalled) {
-            GlobalStore.login()
+            const res = await GlobalStore.creatConnect()
+            if (res === 'success') {
+                await GlobalStore.login()
+            }
         } else {
             setOpenTips(true)
         }
-
     }
 
-    const onSignClick = () => {
-        setOpenPlug(true)
-    }
 
     const toDownLoad = () => {
+        setOpenTips(false)
         // @ts-ignore
         window.open('https://plugwallet.ooo/', '_blank').location
+    }
+
+    const onSubmit = () => {
+
     }
 
     return <header className='header flex_sb'>
@@ -97,7 +109,7 @@ const Header = () => {
             <img className='profile' src="http://iph.href.lu/300x100" alt="logo" />
             <span className='user_name'>Windy</span>
         </div> */}
-            <Button type='primary' className='sign_btn' ghost onClick={onSignClick}>sign in</Button>
+            <Button type='primary' className='sign_btn' ghost onClick={() => setOpenPlug(true)}>sign in</Button>
         </div>
         <Dropdown className='nav_more csp' overlayClassName="dropdown_nav" overlay={<Menu items={magicItem} />} arrow={true} placement="bottomRight">
             <MenuOutlined />
@@ -106,7 +118,7 @@ const Header = () => {
             <DialogTitle className='title'>Connect wallet</DialogTitle>
             <List>
                 <ListItem disablePadding>
-                    <ListItemButton onClick={createContact}>
+                    <ListItemButton onClick={login}>
                         <img className='plug_icon' src={plugIcon} />
                         <ListItemText primary="Plug" />
                     </ListItemButton>
@@ -118,6 +130,30 @@ const Header = () => {
             <div className='tips_wrap'>
                 <div className='tc title'>You need to install Plug</div>
                 <div className='content'>You need to install Plug before using it to connect to Nifties. Go <a className='link' onClick={toDownLoad}>here</a> to install it.</div>
+            </div>
+        </Dialog>
+        <Dialog className='infoModal' open={openInfo} onClose={handleClose}>
+            <DialogTitle className='tc'>Welcome to Formfunction!</DialogTitle>
+            <DialogContent>
+                <DialogContentText className='tc'>
+                    To set up your account, you just need to choose a username and enter your email.
+                    You can always edit this info later.
+                </DialogContentText>
+                <div>
+                    <div className='mt-20 flex_left'>
+                        <div className='label'><span>*</span>UsreName</div>
+                        <TextField className='ml-32' color='primary' required id="userName" label="UsreName" />
+                    </div>
+                    <div>Minimum 4 characters, periods and underscores are allowed.</div>
+                    <div className='mt-20 flex_left'>
+                        <div className='label'><span>*</span>Email</div>
+                        <TextField className='ml-32' color='primary' required id="email" label="Email" />
+                    </div>
+                    <div>We'll use it to send useful notifications.</div>
+                </div>
+            </DialogContent>
+            <div className='flex_c mt-20 mb-18'>
+                <Button type='primary' ghost onClick={onSubmit} size="large">Explore</Button>
             </div>
         </Dialog>
     </header >

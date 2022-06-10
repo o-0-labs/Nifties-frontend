@@ -9,6 +9,7 @@
     ],
     "module": "commonjs",
     "strict": true,
+    "strictNullChecks": false,
     "target": "es2020",
     "baseUrl": "src",
     "paths": {
