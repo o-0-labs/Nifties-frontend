@@ -19,8 +19,10 @@ const Header = () => {
 
     const renderMenuItem = (title: string, des: string) => {
         return <div className='dropmenu_item'>
-            <div className='title'>{title}</div>
-            <div className='des'>{des}</div>
+            <a href={`/#/${title}`}>
+                <div className='title'>{title}</div>
+                <div className='des'>{des}</div>
+            </a>
         </div>
     }
 
