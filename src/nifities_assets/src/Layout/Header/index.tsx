@@ -9,7 +9,7 @@ import './index.scss'
 const plugIcon = require('static/plug.png')
 
 const Header = () => {
-    const [openPlug, setOpenPlug] = useState(true)
+    const [openPlug, setOpenPlug] = useState(false)
     const { GlobalStore } = useStore()
     useEffect(() => {
         document.onclick = function () {
