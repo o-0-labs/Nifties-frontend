@@ -1,6 +1,6 @@
 import axios, { AxiosError, AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
 import { message } from 'antd';
-import GlobalStore from 'store/GlobalStore';
+import { getToken } from './Auth';
 export enum ECode {
     OPERATION_SUCCESS = 0, // "操作成功"
 }
@@ -10,7 +10,7 @@ export interface IApiData {
 }
 const requestInterceptor = async (config: AxiosRequestConfig) => {
     if (config.url && !config.url.includes('login')) {
-        config.headers.Authorization = `Bearer ${GlobalStore.token}`;
+        config.headers.Authorization = `Bearer ${getToken()}`;
     }
     return config;
 };

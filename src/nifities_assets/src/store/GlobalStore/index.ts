@@ -1,7 +1,8 @@
 import { makeAutoObservable } from "mobx";
-import { GlobalService } from 'api/global';
+import { GlobalService, IApiData } from 'api/global';
 import { message } from "antd";
 import { to } from 'utils/Tools'
+import { getUserInfo } from "utils/Auth";
 
 export interface ITransfer {
   to: String,
@@ -21,20 +22,22 @@ export interface IBurnXTC {
   CanisterId: string;
 }
 
+export interface IUserInfo {
+  userId: string;
+  userName: string;
+  profilePhoto: string;
+  email: string;
+}
+
 
 
 class GlobalStore {
   //合约地址
   helloCanisterId = 's62ka-oqaaa-aaaak-qaokq-cai'
-  token = ""
   principalId = ''
-  userId = ''
-  userName = ''
-  profilePhoto = ''
-  email = ''
   infoVisible = false
   confirmLoading = false
-
+  userInfo: IUserInfo = getUserInfo()
   constructor() {
     makeAutoObservable(this, {}, { autoBind: true });
   }
@@ -105,15 +108,23 @@ class GlobalStore {
       call_name: `${this.principalId}`,
       timestamp: 65,
       signature: result
-    }))
+    }) as Promise<IApiData>)
     message.destroy()
     if (err) return
     if (res.code === 0) {
-      this.userId = res.data.user_id
-      this.token = res.data.token
-      this.userName = res.data.user_name
-      this.profilePhoto = res.data.profile_photo
-      this.email = res.data.email
+      this.userInfo = {
+        userId: res.data.user_id,
+        userName: res.data.user_name,
+        profilePhoto: res.data.profile_photo,
+        email: res.data.email
+      }
+      sessionStorage.setItem('token', res.data.token)
+      sessionStorage.setItem('userInfo', JSON.stringify({
+        userId: res.data.user_id,
+        userName: res.data.user_name,
+        profilePhoto: res.data.profile_photo,
+        email: res.data.email
+      }))
       if (res.data.user_name) {
         message.success('登录成功！')
       } else {
@@ -173,19 +184,28 @@ class GlobalStore {
     const [err, res] = await to(GlobalService.register({
       user_name: values.username,
       email: values.email,
-      user_id: this.userId,
+      user_id: this.userInfo.userId,
       call_name: `${this.principalId}`,
       profile_photo: 'https://www.datocms-assets.com/73647/1653631343-nft.png'
-    }))
+    }) as Promise<IApiData>)
     this.confirmLoading = false
     this.infoVisible = false
     if (err) {
       return
     }
     if (res && res.code === 0) {
-      this.userName = res.data.user_name
-      this.email = res.data.email
-      this.profilePhoto = res.data.profile_photo
+      this.userInfo = {
+        userId: res.data.user_id,
+        userName: res.data.user_name,
+        profilePhoto: res.data.profile_photo,
+        email: res.data.email
+      }
+      sessionStorage.setItem('userInfo', JSON.stringify({
+        ...JSON.parse(sessionStorage.getItem('userInfo') ?? ""),
+        userName: res.data.user_name,
+        profilePhoto: res.data.profile_photo,
+        email: res.data.email
+      }))
       message.success('注册成功！')
     } else {
       message.error('注册失败')

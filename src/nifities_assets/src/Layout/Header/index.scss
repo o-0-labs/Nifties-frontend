@@ -66,45 +66,30 @@
     .nav_more {
         display: none;
     }
-}
 
-.plugModal {
-    .title {
-        width: 167px;
-        padding: 5px 12px;
-        line-height: 36px;
-        font-size: 16px;
-        color: #898A8C;
-    }
+    .tips_modal {
 
-    .plug_icon {
-        margin-right: 14px;
-    }
+        .ant-modal-body {
+            padding: 5px 12px;
+        }
 
-    .css-h4y409-MuiList-root {
-        padding: 0;
-    }
-}
-
-.tipsModal {
-    .tips_wrap {
-        padding: 20px;
-        width: 250px;
-
-        .title {
+        .tips_title {
+            line-height: 36px;
             font-size: 16px;
+            color: #898A8C;
             font-weight: 600;
         }
 
-        .content {
-            font-size: 14px;
-            margin-top: 10px;
+        .plug_btn {
+            line-height: 36px;
         }
 
-        .link {
-            text-decoration: underline;
+        .plug_icon {
+            margin: 0;
         }
     }
+
+
 }
 
 .header_dropmenu_wrap {
