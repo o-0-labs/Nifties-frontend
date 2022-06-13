@@ -12,7 +12,7 @@ const Footer = () => {
                 <a className='footer_menu_item' href="/#/Hackathons">Hackathons</a>
                 <a className='footer_menu_item' href="/#/Grants">Grants</a>
                 <a className='footer_menu_item' href="/#/Agora">Agora</a>
-                <a className='footer_menu_item' href="">Promotion</a>
+                <a className='footer_menu_item' href="/#/Buff">Buff</a>
                 <a className='footer_menu_item' href="/#/Muse">Muse</a>
             </div>
             <div className='flex_column footer_menu_list'>

@@ -29,9 +29,9 @@ export interface IRouteItem {
 const routes = [
     {
         isExact: true,
-        path: '/test',
+        path: '/buff',
         component: Loadable({
-            loader: () => import('../pages/Test'),
+            loader: () => import('../pages/Buff'),
             loading: Loading
         }),
     },

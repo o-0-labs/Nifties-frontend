@@ -2,7 +2,7 @@ import { makeAutoObservable } from "mobx";
 import { GlobalService, IApiData } from 'api/global';
 import { message } from "antd";
 import { to } from 'utils/Tools'
-import { getUserInfo } from "utils/Auth";
+import { getUserInfo, getPrincipal } from "utils/Auth";
 
 export interface ITransfer {
   to: String,
@@ -34,10 +34,11 @@ export interface IUserInfo {
 class GlobalStore {
   //合约地址
   helloCanisterId = 's62ka-oqaaa-aaaak-qaokq-cai'
-  principalId = ''
+  principalId = getPrincipal()
   infoVisible = false
   confirmLoading = false
   userInfo: IUserInfo = getUserInfo()
+  balance: number = 0
   constructor() {
     makeAutoObservable(this, {}, { autoBind: true });
   }
@@ -103,7 +104,7 @@ class GlobalStore {
 
     //@ts-ignore
     this.principalId = await window.ic.plug.agent.getPrincipal();
-
+    sessionStorage.setItem('principalId', `${this.principalId}`)
     const [err, res] = await to(GlobalService.login({
       call_name: `${this.principalId}`,
       timestamp: 65,
@@ -127,6 +128,8 @@ class GlobalStore {
       }))
       if (res.data.user_name) {
         message.success('登录成功！')
+        window.location.reload()
+        this.requestBalance()
       } else {
         this.infoVisible = true
       }
@@ -142,7 +145,9 @@ class GlobalStore {
     try {
       // @ts-ignore
       const result = await window.ic?.plug?.requestBalance();
-      return Promise.resolve(result[0]?.value)
+      console.log(result)
+      this.balance = result[0]?.amount
+      return Promise.resolve(result[0]?.amount)
     } catch (error) {
       return Promise.reject()
     }
@@ -206,6 +211,7 @@ class GlobalStore {
         profilePhoto: res.data.profile_photo,
         email: res.data.email
       }))
+      this.requestBalance()
       message.success('注册成功！')
     } else {
       message.error('注册失败')

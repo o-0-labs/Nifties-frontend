@@ -8,13 +8,7 @@ import './index.scss'
 
 const nft = require('static/nft.png')
 const Home = () => {
-    const { GlobalStore } = useStore();
     const history = useHistory()
-
-    useEffect(() => {
-        // GlobalStore.creatConnect()
-    }, [])
-
 
     return (
         <div className='home_wrap'>
@@ -89,11 +83,13 @@ const Home = () => {
                         <div className='block_list'>
                             <div className='block_item'>
                                 <div className='title flex_c'>
-                                    <span className='title_text'>Promotion</span>
+                                    <span className='title_text'>Buff</span>
                                 </div>
                                 <div className='descript'>One-stop anagement
                                     of sns accounts</div>
-                                <Button type="text" className='enter_btn'>Enter</Button>
+                                <Button type="text" className='enter_btn' onClick={() => {
+                                    history.push('/buff')
+                                }}>Enter</Button>
                             </div>
                             <div className='block_item mt-50 border_right_0'>
                                 <div className='title flex_c'>

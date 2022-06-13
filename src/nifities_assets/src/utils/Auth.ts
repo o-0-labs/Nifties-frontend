@@ -4,9 +4,15 @@ export const getToken = () => {
     return token ?? '';
 };
 
+export const getPrincipal = () => {
+    const principalId = sessionStorage.getItem('principalId');
+    return principalId ?? '';
+};
+
 export const removeToken = () => {
     sessionStorage.removeItem('token');
     sessionStorage.removeItem('userInfo');
+    sessionStorage.removeItem('principalId');
 };
 
 export const getUserInfo = () => {

@@ -89,7 +89,32 @@
         }
     }
 
+    .plug_menu {
+        .ant-popover-title {
+            padding: 4px 12px 10px;
+        }
 
+        .plug_menu_title {
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 36px;
+            color: #898A8C;
+        }
+
+        .plug_menu_item {
+            font-size: 14px;
+            color: #252626;
+            line-height: 22px;
+
+            &:hover {
+                color: var(--primary-color);
+            }
+        }
+
+        .plug_address {
+            width: 120px;
+        }
+    }
 }
 
 .header_dropmenu_wrap {
