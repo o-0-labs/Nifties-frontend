@@ -43,7 +43,9 @@ const Home = () => {
                                 </div>
                                 <div className='descript'>Crowdfunding
                                     for open resources</div>
-                                <Button type="text" className='enter_btn'>Enter</Button>
+                                <Button type="text" className='enter_btn' onClick={() => {
+                                    history.push('/grants')
+                                }}>Enter</Button>
                             </div>
                         </div>
                         <div className='block_list ml-36 mt-228'>
@@ -63,7 +65,9 @@ const Home = () => {
                                 </div>
                                 <div className='descript'>Post events such as
                                     whitelist, mint, etc</div>
-                                <Button type="text" className='enter_btn'>Enter</Button>
+                                <Button type="text" className='enter_btn' onClick={() => {
+                                    history.push('/agora')
+                                }}>Enter</Button>
                             </div>
                         </div>
                     </div>
@@ -75,7 +79,9 @@ const Home = () => {
                                 </div>
                                 <div className='descript'>A custom NFT
                                     educational community</div>
-                                <Button type="text" className='enter_btn'>Enter</Button>
+                                <Button type="text" className='enter_btn' onClick={() => {
+                                    history.push('/muse')
+                                }}>Enter</Button>
                             </div>
                             <div className='block_item mt-50'>
                                 <div className='title flex_c'>
