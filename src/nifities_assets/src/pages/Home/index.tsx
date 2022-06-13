@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useHistory } from "react-router-dom"
-import { useStore, observer } from "store/utils";
 import { Button } from 'antd'
 import Header from '../../Layout/Header';
 import Footer from '../../Layout/Footer';
@@ -114,4 +113,4 @@ const Home = () => {
     )
 }
 
-export default observer(Home);
+export default Home;
