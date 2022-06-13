@@ -2,7 +2,6 @@ import React from 'react';
 import { useParams } from "react-router-dom";
 import { QueryClient, QueryClientProvider, useQuery } from "react-query";
 import { Hackathon, fetchById } from '../../api/hackahton';
-import { ReactQueryDevtools } from 'react-query/devtools';
 import PageNotFound from 'components/404';
 import PageError from 'components/500';
 
@@ -73,8 +72,6 @@ function Detail() {
                     </div>
                 </div>
             </section>
-
-            <ReactQueryDevtools initialIsOpen />
         </div>
     );
 };
