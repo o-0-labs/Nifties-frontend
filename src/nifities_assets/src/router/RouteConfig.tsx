@@ -61,6 +61,14 @@ const routes = [
     },
     {
         isExact: true,
+        path: '/grants/create',
+        component: Loadable({
+            loader: () => import('../pages/Grants/create'),
+            loading: Loading
+        }),
+    },
+    {
+        isExact: true,
         path: '/agora',
         component: Loadable({
             loader: () => import('../pages/Agora'),
