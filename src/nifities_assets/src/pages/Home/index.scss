@@ -37,7 +37,8 @@
    .bg_text {
       position: absolute;
       width: 862px;
-      height: 357px;
+      // height: 357px;
+      object-fit: cover;
       left: 50%;
       bottom: 216px;
       transform: translate(-50%, 0);
@@ -126,7 +127,7 @@
    }
 }
 
-@media only screen and (max-width: 980px) {
+@media only screen and (max-width: 1024px) {
    .home_wrap {
       .float_block_wrap {
          display: none;

@@ -83,6 +83,14 @@ const routes = [
             loading: Loading
         }),
     },
+    {
+        isExact: true,
+        path: '/addNFT',
+        component: Loadable({
+            loader: () => import('../pages/Buff/AddNFT'),
+            loading: Loading
+        }),
+    },
 ];
 
 export default routes;
