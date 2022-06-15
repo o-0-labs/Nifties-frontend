@@ -5,7 +5,7 @@ export default function Agora() {
         <div className='w-screen py-[4.06rem] px-[1rem] xl:px-[8rem]'>
             <section>
                 <div className='flex flex-col-reverse md:flex-row md:justify-between '>
-                    <div className="w-[31.38rem]">
+                    <div className="w-auto">
                         <p className="xl:text-5xl lg:text-4xl sm:text-3xl font-semibold font-Poppins xl:leading-[4.06rem] text-brand-text-black">
                             Explore events from
                             <br />
