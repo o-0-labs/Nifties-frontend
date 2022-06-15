@@ -1,8 +1,17 @@
 import React from 'react';
+import CreateAgoraDialog from './components/dialog';
 
 export default function Agora() {
+    // Create Dialog
+    const [openCreateDialog, setOpenCreateDialog] = React.useState(false);
+
+    const handleOpenJoinNowDialogChange = () => {
+        setOpenCreateDialog(openCreateDialog ? false : true);
+    };
+
+
     return (
-        <div className='w-screen py-[4.06rem] px-[1rem] xl:px-[8rem]'>
+        <div className='w-screen py-[4.06rem] px-[1rem] xl:px-[8rem] relative'>
             <section>
                 <div className='flex flex-col-reverse md:flex-row md:justify-between '>
                     <div className="w-auto">
@@ -24,7 +33,7 @@ export default function Agora() {
             <section className='my-[7.19rem]'>
                 <div className="flex flex-row justify-between w-auto">
                     <p className="text-3xl leading-10 text-left text-gray-900">Explore Agora</p>
-                    <button className="text-sm leading-snug text-brand w-[10.88rem] h-7 bg-white border rounded border-brand">Create</button>
+                    <button className="text-sm leading-snug text-brand w-[10.88rem] h-7 bg-white border rounded border-brand" onClick={handleOpenJoinNowDialogChange}>Create</button>
                 </div>
                 <div className=" pt-[1.5rem] grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-y-10 justify-items-center justify-between">
                     <div className="inline-flex flex-col space-y-[0.4rem] items-start justify-start px-[1rem] pt-[0.88rem] bg-white border rounded-lg border-grey-300 font-Urbanist " style={{ width: 400, height: 640, }}>
@@ -100,6 +109,10 @@ export default function Agora() {
                         <button className="mx-auto text-sm leading-snug bg-brand w-[10.88rem] h-7 border rounded text-white mt-[50.38rem]">Join</button>
                     </div>
                 </div>
+            </section>
+
+            <section>
+                <CreateAgoraDialog open={openCreateDialog} onOpenJoinNowDialogChange={handleOpenJoinNowDialogChange} />
             </section>
         </div>
     );
