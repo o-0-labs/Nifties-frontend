@@ -4,6 +4,8 @@ import { Hackathon, fetchAllByStatus } from '../../../api/hackahton';
 import { ReactQueryDevtools } from 'react-query/devtools';
 import PageError from 'components/500';
 import { Link } from "react-router-dom";
+import JoinNowDialog from './dialog';
+
 
 
 const queryClient = new QueryClient();
@@ -12,9 +14,17 @@ export default function HackahtonsList(props: {
     children?: React.ReactNode;
     status: string;
 }) {
+    // Join Now Dialog
+    const [openJoinNowDialog, setOpenJoinNowDialog] = React.useState(false);
+
+    const handleOpenJoinNowDialogChange = () => {
+        setOpenJoinNowDialog(openJoinNowDialog ? false : true);
+    };
+
     return (
         <QueryClientProvider client={queryClient}>
-            <ListComponent status={props.status} />
+            <ListComponent status={props.status} onOpenJoinNowDialogChange={handleOpenJoinNowDialogChange}/>
+            <JoinNowDialog open={openJoinNowDialog} onOpenJoinNowDialogChange={handleOpenJoinNowDialogChange}/>
         </QueryClientProvider>
     );
 };
@@ -28,6 +38,7 @@ export default function HackahtonsList(props: {
 function ListComponent(props: {
     children?: React.ReactNode;
     status: string;
+    onOpenJoinNowDialogChange: any;
 }) {
 
     // 获取黑客松活动列表数据
@@ -61,7 +72,7 @@ function ListComponent(props: {
                     </Link>
                     <div className="inline-flex flex-row items-center justify-between py-[1.5rem]">
                         <a className="text-sm leading-snug text-brand w-[10.88rem] h-7 py-1 bg-white border rounded border-brand mr-[0.81rem] text-center" href={discord_url} rel="external" title="Go to the Discroid channel" target="_blank">Join discord</a>
-                        <button className="text-sm leading-snug bg-brand w-[10.88rem] h-7 py-1 border rounded text-white">Join now</button>
+                        <button className="text-sm leading-snug bg-brand w-[10.88rem] h-7 py-1 border rounded text-white" onClick={props.onOpenJoinNowDialogChange}>Join now</button>
                     </div>
                 </div>
             ))}

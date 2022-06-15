@@ -34,6 +34,7 @@ function TabPanel(props: TabPanelProps) {
             id={`simple-tabpanel-${index}`}
             aria-labelledby={`simple-tab-${index}`}
             {...other}
+            className='relative'
         >
             {value === index && (
                 <Box>
