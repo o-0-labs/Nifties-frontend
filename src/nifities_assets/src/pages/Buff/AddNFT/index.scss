@@ -1,0 +1,39 @@
+/*
+ * @Author: shenpeng 
+ * @Date: 2022-06-14 23:05:29 
+ * @Last Modified by:   shenpeng 
+ * @Last Modified time: 2022-06-14 23:05:29 
+ */
+.addNFT_wrap {
+    .ant-upload.ant-upload-select-picture-card {
+        width: 400px;
+        height: 400px;
+        background-color: #fff;
+    }
+
+    .add_input {
+        width: 720px;
+        height: 64px;
+        padding: 0 24px;
+    }
+
+    .add_textarea {
+        width: 720px;
+        height: 209px;
+        padding: 16px 24px;
+    }
+
+    .select_input {
+        width: 720px;
+        height: 64px;
+    }
+
+    .ant-select-selector {
+        height: 64px !important;
+    }
+
+    .ant-select-selection-item {
+        line-height: 64px !important;
+        padding-left: 12px !important;
+    }
+}
