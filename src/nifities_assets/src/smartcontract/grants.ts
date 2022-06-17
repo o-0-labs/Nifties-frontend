@@ -38,17 +38,19 @@ export default class GrantContract {
   }
 
   async fund(
-    amount: bigint,
-    successCallBack: Function,
-    failCallBack: Function
+    amount: bigint
   ): Promise<number> {
     const transaction = {
       idl: idlFactory,
       canisterId: this.contractAddress,
       methodName: 'fund',
       args: [amount],
-      onSuccess: successCallBack,
-      onFail: failCallBack,
+      onSuccess: (res: unknown) => {
+        // 本笔交易成功回调
+      },
+      onFail: (err: unknown) => {
+        // 本笔交易失败回调
+      },
     };
 
     // @ts-ignore
