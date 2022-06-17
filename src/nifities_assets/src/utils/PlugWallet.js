@@ -1,6 +1,6 @@
 export default class PlugWallet {
     whitelist;
-    timeout = 5000;
+    timeout = 15000;
     publicKey;
     accountId;
     principalId;
@@ -8,7 +8,6 @@ export default class PlugWallet {
 
     constructor(whitelist) {
         this.whitelist = whitelist;
-        this.timeout = 5000;
     }
 
     checkPlugStatus() {
