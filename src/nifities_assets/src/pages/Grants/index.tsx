@@ -5,8 +5,10 @@ import GrantsCart from './components/dialog';
 export default function Grant() {
     // Grants Cart Dialog
     const [openPayNowDialog, setOpenPayNowDialog] = React.useState(false);
+    const [contractAddress, setContractAddress] = React.useState('');
 
-    const handleOpenPayNowDialogChange = () => {
+    const handleOpenPayNowDialogChange = (currentContractAddress: string) => {
+        setContractAddress(currentContractAddress);
         setOpenPayNowDialog(openPayNowDialog ? false : true);
     };
 
@@ -48,7 +50,7 @@ export default function Grant() {
                             <p className="h-auto text-2xl font-semibold leading-loose font-Urbanist mr-4">$91,667 </p>
                             <p className="h-auto text-sm leading-tight text-gray-500 font-Urbanist">total raised</p>
                         </div>
-                        <button className="mx-auto text-sm leading-snug bg-brand w-[10.88rem] h-7 border rounded text-white mt-[50.38rem]" onClick={handleOpenPayNowDialogChange}>Pay now</button>
+                        <button className="mx-auto text-sm leading-snug bg-brand w-[10.88rem] h-7 border rounded text-white mt-[50.38rem]" onClick={() => { handleOpenPayNowDialogChange(process.env.SMART_CONTRACT_ADDRESS_GRANTS) }}>Pay now</button>
                     </div>
                     <div className="inline-flex flex-col space-y-[0.8rem] items-start justify-start px-5 pt-7 bg-white border rounded-lg border-grey-300 font-Urbanist" style={{ width: 400, height: 640, }}>
                         <div className="w-full h-[16.88rem] bg-gray-300 rounded-lg" >插图2.2</div>
@@ -60,7 +62,7 @@ export default function Grant() {
                             <p className="h-auto text-2xl font-semibold leading-loose font-Urbanist mr-4">$91,667 </p>
                             <p className="h-auto text-sm leading-tight text-gray-500 font-Urbanist">total raised</p>
                         </div>
-                        <button className="mx-auto text-sm leading-snug bg-brand w-[10.88rem] h-7 border rounded text-white mt-[50.38rem]" onClick={handleOpenPayNowDialogChange}>Pay now</button>
+                        <button className="mx-auto text-sm leading-snug bg-brand w-[10.88rem] h-7 border rounded text-white mt-[50.38rem]" onClick={() => { handleOpenPayNowDialogChange(process.env.SMART_CONTRACT_ADDRESS_GRANTS) }}>Pay now</button>
                     </div>
                     <div className="inline-flex flex-col space-y-[0.8rem] items-start justify-start px-5 pt-7 bg-white border rounded-lg border-grey-300 font-Urbanist" style={{ width: 400, height: 640, }}>
                         <div className="w-full h-[16.88rem] bg-gray-300 rounded-lg" >插图2.2</div>
@@ -72,7 +74,7 @@ export default function Grant() {
                             <p className="h-auto text-2xl font-semibold leading-loose font-Urbanist mr-4">$91,667 </p>
                             <p className="h-auto text-sm leading-tight text-gray-500 font-Urbanist">total raised</p>
                         </div>
-                        <button className="mx-auto text-sm leading-snug bg-brand w-[10.88rem] h-7 border rounded text-white mt-[50.38rem]" onClick={handleOpenPayNowDialogChange}>Pay now</button>
+                        <button className="mx-auto text-sm leading-snug bg-brand w-[10.88rem] h-7 border rounded text-white mt-[50.38rem]" onClick={() => { handleOpenPayNowDialogChange(process.env.SMART_CONTRACT_ADDRESS_GRANTS) }}>Pay now</button>
                     </div>
                     <div className="inline-flex flex-col space-y-[0.8rem] items-start justify-start px-5 pt-7 bg-white border rounded-lg border-grey-300 font-Urbanist" style={{ width: 400, height: 640, }}>
                         <div className="w-full h-[16.88rem] bg-gray-300 rounded-lg" >插图2.2</div>
@@ -84,13 +86,13 @@ export default function Grant() {
                             <p className="h-auto text-2xl font-semibold leading-loose font-Urbanist mr-4">$91,667 </p>
                             <p className="h-auto text-sm leading-tight text-gray-500 font-Urbanist">total raised</p>
                         </div>
-                        <button className="mx-auto text-sm leading-snug bg-brand w-[10.88rem] h-7 border rounded text-white mt-[50.38rem]" onClick={handleOpenPayNowDialogChange}>Pay now</button>
+                        <button className="mx-auto text-sm leading-snug bg-brand w-[10.88rem] h-7 border rounded text-white mt-[50.38rem]" onClick={() => { handleOpenPayNowDialogChange(process.env.SMART_CONTRACT_ADDRESS_GRANTS) }}>Pay now</button>
                     </div>
                 </div>
             </section>
 
             <section>
-                <GrantsCart open={openPayNowDialog} onOpenPayNowDialogChange={handleOpenPayNowDialogChange} />
+                <GrantsCart open={openPayNowDialog} onOpenPayNowDialogChange={handleOpenPayNowDialogChange} contractAddress={contractAddress} />
             </section >
         </div>
     );
