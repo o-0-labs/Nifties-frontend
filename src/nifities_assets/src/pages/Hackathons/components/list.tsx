@@ -1,7 +1,6 @@
 import React from 'react';
 import { QueryClient, QueryClientProvider, useQuery } from "react-query";
-import { Hackathon, fetchAllByStatus } from '../../../api/hackahton';
-import { ReactQueryDevtools } from 'react-query/devtools';
+import { Hackathon, fetchAllByStatus, IApiData } from '../../../api/hackahton';
 import PageError from 'components/500';
 import { Link } from "react-router-dom";
 import JoinNowDialog from './dialog';
@@ -42,19 +41,26 @@ function ListComponent(props: {
 }) {
 
     // 获取黑客松活动列表数据
-    const { status, error, data } = useQuery<Hackathon[], Error>(`hackathons/status/${props.status}`, () => fetchAllByStatus(props.status));
+    const { status, error, data } = useQuery<IApiData, Error>(`hackathons/status/${props.status}`, () => fetchAllByStatus(props.status));
 
     if (status == "loading") {
-        return <div className='w-screen my-[2.06rem] px-[2.92rem] text-center text-4xl'>Loading...</div>
+        return <div className='w-screen text-left'>Loading...</div>;
     }
 
     if (error) {
         return <PageError />;
     }
 
+    // API返回错误
+    if(data.code !== 0) {
+        return <PageError />;
+    }
+
+    const Hackathons = data.data.records as Hackathon[];
+
     return (
         <div>
-            {data?.map(({ hackathon_id, title, date, description, sponsored, status, image, discord_url }, index) => (
+            {Hackathons.map(({ hackathon_id, title, date, description, sponsored, status, image, discord_url }, index) => (
                 <div className="inline-flex flex-col space-y-[0.5rem] items-start justify-end px-5 pt-7 bg-white border rounded-lg border-grey-300 font-Urbanist" style={{ width: 400, height: 640, }} key={hackathon_id}>
                     <Link to={`/hackathons/${hackathon_id}`} className=" contents">
                         <img className="w-full h-1/2 bg-gray-300 rounded-lg" src={image} />
@@ -76,7 +82,6 @@ function ListComponent(props: {
                     </div>
                 </div>
             ))}
-            {/* <ReactQueryDevtools initialIsOpen /> */}
         </div>
     );
 };

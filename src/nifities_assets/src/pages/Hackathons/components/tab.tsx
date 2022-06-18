@@ -5,7 +5,8 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import HackahtonsList from './list';
 import { QueryClient, QueryClientProvider, useQuery } from "react-query";
-import { HackathonStatus, fetchStatusCount } from '../../../api/hackahton';
+import { HackathonStatus, fetchStatusCount, IApiData } from '../../../api/hackahton';
+import PageError from 'components/500';
 
 /**
  * TabPanel Props接口声明
@@ -78,25 +79,32 @@ function TabComponent() {
     };
 
     // 获取黑客松活动不同状态的活动总数量
-    const { status, error, data } = useQuery<HackathonStatus, Error>('hackathonStatusCount', fetchStatusCount);
+    const { status, error, data } = useQuery<IApiData, Error>('hackathonStatusCount', fetchStatusCount);
 
     // 数据加载过程中，返回渲染loading的HTML DOM
     if (status == "loading") {
-        return <Box sx={{ width: '100%' }}>Loading...</Box>
+        return <div className='w-screen text-left'>Loading...</div>;
     }
 
     // 数据加载错误时，返回渲染错误提示的HTML DOM
     if (error) {
-        return <Box sx={{ width: '100%' }}>An error has occurred: {error.message}</Box>
+        return <PageError />;
     }
+
+    // API返回错误
+    if(data.code !== 0) {
+        return <PageError />;
+    }
+
+    const hackathonStatus = data.data as HackathonStatus;
 
     return (
         <Box sx={{ width: '100%' }}>
             <Box>
                 <Tabs value={value} onChange={handleChange} aria-label="Explore Hackathons Section Tabs" sx={{ '& .MuiTabs-indicator': { backgroundColor: '#00BCC2' }, }}>
-                    <Tab label={`Happenning Now (${data?.happening})`} {...TabA11yProps(0)} className="font-Urbanist text-brand text-lg font-medium leading-normal normal-case px-2 py-0" />
-                    <Tab label={`Upcoming (${data?.upcoming})`} {...TabA11yProps(1)} className="font-Urbanist text-brand text-lg font-medium leading-normal normal-case" />
-                    <Tab label={`Completed (${data?.completed})`} {...TabA11yProps(2)} className="font-Urbanist text-brand text-lg font-medium leading-normal normal-case" />
+                    <Tab label={`Happenning Now (${hackathonStatus.happening})`} {...TabA11yProps(0)} className="font-Urbanist text-brand text-lg font-medium leading-normal normal-case px-2 py-0" />
+                    <Tab label={`Upcoming (${hackathonStatus.upcoming})`} {...TabA11yProps(1)} className="font-Urbanist text-brand text-lg font-medium leading-normal normal-case" />
+                    <Tab label={`Completed (${hackathonStatus.completed})`} {...TabA11yProps(2)} className="font-Urbanist text-brand text-lg font-medium leading-normal normal-case" />
                 </Tabs>
             </Box>
             <TabPanel value={value} index={0}>

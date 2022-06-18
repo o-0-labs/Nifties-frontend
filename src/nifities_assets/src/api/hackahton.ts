@@ -1,4 +1,6 @@
-import request from './request';
+import Axios, { IApiData } from 'utils/Axios';
+
+export { IApiData } from 'utils/Axios';
 
 /**
  * 黑客松活动不同状态的数据 接口声明
@@ -6,9 +8,9 @@ import request from './request';
  * @interface HackathonStatus
  */
 export interface HackathonStatus {
-    "happening": number;
-    "upcoming": number;
-    "completed": number;
+  happening: number;
+  upcoming: number;
+  completed: number;
 }
 
 /**
@@ -16,57 +18,59 @@ export interface HackathonStatus {
  *
  * @interface Hackathon
  */
- export interface Hackathon {
-    "hackathon_id": string;
-    "title": string;
-    "date": string;
-    "description": string;
-    "sponsored": string;
-    "status": string;
-    "image": string;
-    "discord_url": string;
-    content?: string;
-    msg?: string;
+export interface Hackathon {
+  hackathon_id: string;
+  title: string;
+  date: string;
+  description: string;
+  sponsored: string;
+  status: string;
+  image: string;
+  discord_url: string;
+  content?: string;
+  msg?: string;
 }
-    
+
 /**
  * 获取黑客松活动不同状态的活动总数量
  *
  * @export
- * @return {*}  {Promise<HackathonStatus>}
+ * @return {*}  {Promise<IApiData>}
  */
-export function fetchStatusCount(): Promise<HackathonStatus> {
-    return request.post(`/hackathon/count`).then((res) => res.data.data);
+export function fetchStatusCount(): Promise<IApiData> {
+  return Axios.getInstance().post(`/hackathon/count`) as Promise<IApiData>;
 }
 
 /**
  * 获取黑客松活动列表数据
  *
  * @export
- * @return {*}  {Promise<Hackathon[]>}
+ * @return {*}  {Promise<IApiData>}
  */
-export function fetchAll(): Promise<Hackathon[]> {
-    const params = {
-        "page_no": 1,
-        "page_size": 10,
-        "status": ''
-    };
-    return request.post(`/hackathon/query`, params).then((res) => res.data.data.records);
+export function fetchAll(): Promise<IApiData> {
+  const params = {
+    page_no: 1,
+    page_size: 10,
+    status: '',
+  };
+
+  return Axios.getInstance().post(`/hackathon/query`, { data: params }) as Promise<IApiData>;
 }
 
 /**
  * 获取黑客松活动列表数据根据status
  *
  * @export
- * @return {*}  {Promise<Hackathon[]>}
+ * @return {*}  {Promise<IApiData>}
  */
- export function fetchAllByStatus(status: string): Promise<Hackathon[]> {
-    const params = {
-        "page_no": 1,
-        "page_size": 10,
-        "status": status
-    };
-    return request.post(`/hackathon/query`, params).then((res) => res.data.data.records);
+export function fetchAllByStatus(status: string): Promise<IApiData> {
+  const params = {
+    page_no: 1,
+    page_size: 10,
+    status: status,
+  };
+
+  return Axios.getInstance().post(`/hackathon/query`, { data: params }) as Promise<IApiData>;
 }
 
 /**
@@ -74,11 +78,11 @@ export function fetchAll(): Promise<Hackathon[]> {
  *
  * @export
  * @param {string} id
- * @return {*}  {Promise<Hackathon>}
+ * @return {*}  {Promise<IApiData>}
  */
-export function fetchById(id: string): Promise<Hackathon> {
-    const params = {
-        "hackathon_id": id
-    };
-    return request.post(`/hackathon/detail`, params).then((res) => res.data.data);
+export function fetchById(id: string): Promise<IApiData> {
+  const params = {
+    hackathon_id: id,
+  };
+  return Axios.getInstance().post(`/hackathon/detail`, { data: params }) as Promise<IApiData>;
 }
