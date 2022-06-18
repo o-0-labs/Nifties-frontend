@@ -209,4 +209,10 @@ module.exports = {
     watchFiles: [path.resolve(__dirname, "src", frontendDirectory)],
     liveReload: true,
   },
+  externals: {
+    'react': 'React',
+    'react-dom': 'ReactDOM',
+    'axios': 'axios',
+  },
+  devtool: 'source-map',
 };
