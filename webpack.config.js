@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 const Dotenv = require('dotenv-webpack');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 function initCanisterEnv() {
   let localCanisters, prodCanisters;
@@ -197,6 +197,7 @@ module.exports = {
       path: envConfigPath, // 根据环境配置文件路径
       safe: false, // load .env.example (defaults to "false" which does not use dotenv-safe)
     }),
+    new BundleAnalyzerPlugin(),
   ],
   // proxy /api to port 8000 during development
   devServer: {
