@@ -178,6 +178,10 @@ module.exports = {
           from: path.join(__dirname, "src", frontendDirectory, "assets"),
           to: path.join(__dirname, "dist", frontendDirectory),
         },
+        {
+          from: path.join(__dirname, "src", frontendDirectory, "src/static"),
+          to: path.join(__dirname, "dist", frontendDirectory),
+        },
       ],
     }),
     new webpack.EnvironmentPlugin({
