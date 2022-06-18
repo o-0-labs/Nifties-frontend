@@ -1,14 +1,17 @@
 /*
  * @Author: shenpeng 
  * @Date: 2022-06-14 23:05:22 
- * @Last Modified by:   shenpeng 
- * @Last Modified time: 2022-06-14 23:05:22 
+ * @Last Modified by: shenpeng
+ * @Last Modified time: 2022-06-18 18:14:23
  */
 import React, { useState } from 'react'
 import { Form, Input, Button, Upload, message, Select } from 'antd'
 import type { RcFile, UploadFile, UploadProps } from 'antd/es/upload/interface';
 import type { UploadChangeParam } from 'antd/es/upload';
 import { LoadingOutlined } from '@ant-design/icons';
+import { useLocalStore } from '../store'
+import { getToken } from 'utils/Auth';
+import { useHistory } from 'react-router-dom'
 import './index.scss'
 
 const uploadImg = require('static/image.png')
@@ -34,10 +37,13 @@ const getBase64 = (img: RcFile, callback: (url: string) => void) => {
 };
 
 const AddNFT = () => {
-
+    const history = useHistory()
+    const root = useLocalStore()
+    const { NFTStore } = root
     const [loading, setLoading] = useState(false);
+    const [disable, setDisable] = useState(true);
+    const [confirmLoading, setConfirmLoading] = useState(false);
     const [imageUrl, setImageUrl] = useState<string>();
-
 
     const handleChange: UploadProps['onChange'] = (info: UploadChangeParam<UploadFile>) => {
         if (info.file.status === 'uploading') {
@@ -48,10 +54,30 @@ const AddNFT = () => {
             // Get this url from response in real world.
             getBase64(info.file.originFileObj as RcFile, url => {
                 setLoading(false);
+                setDisable(false)
                 setImageUrl(url);
             });
         }
+        if (info.file.status === 'error') {
+            message.error('upload file')
+            setLoading(false);
+            setDisable(true)
+        }
     };
+
+    const onSubmit = async (values: any) => {
+        setConfirmLoading(true)
+        const res = await NFTStore.onSubmit(values)
+        setConfirmLoading(false)
+        if (res.Ok.id) {
+            message.success('create success')
+            setTimeout(() => {
+                history.goBack()
+            }, 1500)
+            return
+        }
+        message.error('create fail')
+    }
 
     const uploadButton = (
         <div>
@@ -68,18 +94,20 @@ const AddNFT = () => {
             <Form
                 layout="vertical"
                 colon={false}
-            // onFinish={GlobalStore.onSubmit}
+                onFinish={onSubmit}
             >
                 <Form.Item
                     label="Upload File"
-                    name="username"
+                    name="image"
+                    required
                 >
                     <Upload
-                        name="avatar"
+                        name="upload"
                         listType="picture-card"
                         className="avatar-uploader"
                         showUploadList={false}
-                        action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+                        action={`${process.env.API_HOST}/img/upload`}
+                        headers={{ Authorization: `Bearer ${getToken()}` }}
                         beforeUpload={beforeUpload}
                         onChange={handleChange}
                     >
@@ -89,39 +117,30 @@ const AddNFT = () => {
                 <Form.Item
                     label="Name"
                     name="itemName"
+                    required
                 >
                     <Input className='add_input' placeholder='Item Name' />
                 </Form.Item>
                 <Form.Item
                     label="External Link"
-                    name="External Link"
+                    name="link"
                 >
                     <Input className='add_input' placeholder='https://www.youtube.com/watch?v=Oz9zw7-_vhM' />
                 </Form.Item>
                 <Form.Item
                     label="Description"
-                    name="Description"
+                    name="description"
                 >
                     <TextArea className='add_textarea' placeholder='Provide a detailed description of your item.' />
                 </Form.Item>
-                <Form.Item
-                    label="Collection"
-                    name="Collection"
-                >
-                    <Select defaultValue="lucy" className='select_input'>
-                        <Option value="jack">Jack</Option>
-                        <Option value="lucy">Lucy</Option>
-                        <Option value="Yiminghe">yiminghe</Option>
-                    </Select>
-                </Form.Item>
                 <Form.Item>
-                    <Button className='w-[174px]' type="primary" htmlType="submit">
+                    <Button className='w-[174px]' type="primary" htmlType="submit" disabled={disable} loading={confirmLoading}>
                         Confirm
                     </Button>
                 </Form.Item>
             </Form>
         </div>
-    </div>
+    </div >
 }
 
 export default AddNFT

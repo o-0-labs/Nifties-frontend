@@ -2,25 +2,10 @@ import { makeAutoObservable } from "mobx";
 import { GlobalService, IApiData } from 'api/global';
 import { message } from "antd";
 import { to } from 'utils/Tools'
-import { getUserInfo, getPrincipal } from "utils/Auth";
+import { getUserInfo } from "utils/Auth";
+import PlugWallet from "utils/PlugWallet";
 
-export interface ITransfer {
-  to: String,
-  amount: number,
-  opts?: {
-    fee?: number,
-    memo?: string,
-    from_subaccount?: Number,
-    created_at_time?: {
-      timestamp_nanos: number
-    },
-  },
-}
-
-export interface IBurnXTC {
-  Cycles: number;
-  CanisterId: string;
-}
+const canisterIdConfig = require('api/canisterIdConfig.json');
 
 export interface IUserInfo {
   userId: string;
@@ -32,13 +17,11 @@ export interface IUserInfo {
 
 
 class GlobalStore {
-  //合约地址
-  helloCanisterId = 's62ka-oqaaa-aaaak-qaokq-cai'
-  principalId = getPrincipal()
   infoVisible = false
   confirmLoading = false
   userInfo: IUserInfo = getUserInfo()
   balance: number = 0
+  principalId = ''
   constructor() {
     makeAutoObservable(this, {}, { autoBind: true });
   }
@@ -59,54 +42,21 @@ class GlobalStore {
     return true
   }
 
-  /**
-   * 连接钱包，需要用户授权
-   * @returns 
-   */
-  async creatConnect() {
-    try {
-      const params = {
-        whitelist: [this.helloCanisterId],
-        timeout: 50000
-      }
-      // @ts-ignore
-      const connected = await window.ic?.plug?.isConnected();
-      if (!connected) {
-        // @ts-ignore
-        const publicKey = await window.ic?.plug?.requestConnect(params);
-        if (publicKey) {
-          return Promise.resolve('success')
-        }
-        return Promise.reject('Plug wallet connection was refused!')
-      } else {
-        return Promise.resolve('success')
-      }
-    } catch (e) {
-      return Promise.reject(e)
-    }
-  }
-
   async login() {
     message.loading({ content: 'Loading...', duration: 0 })
+
     const idlFactory = ({ IDL }: any) => {
       return IDL.Service({ 'sign': IDL.Func([IDL.Nat64], [IDL.Text], ['query']) });
     };
 
-    //初始化actor
-    //@ts-ignore
-    const helloActor = await window.ic.plug.createActor({
-      canisterId: this.helloCanisterId,
-      interfaceFactory: idlFactory,
-    });
-
+    const plug = new PlugWallet([canisterIdConfig.loginCanisterId])
+    this.principalId = plug.principalId
+    const plugActor = await plug.getActor(canisterIdConfig.loginCanisterId, idlFactory)
     //调用合约方法
-    let result = await helloActor.sign(65);
+    let result = await plugActor.sign(65);
 
-    //@ts-ignore
-    this.principalId = await window.ic.plug.agent.getPrincipal();
-    sessionStorage.setItem('principalId', `${this.principalId}`)
     const [err, res] = await to(GlobalService.login({
-      call_name: `${this.principalId}`,
+      call_name: `${plug.principalId}`,
       timestamp: 65,
       signature: result
     }) as Promise<IApiData>)
@@ -127,14 +77,14 @@ class GlobalStore {
         email: res.data.email
       }))
       if (res.data.user_name) {
-        message.success('登录成功！')
+        message.success('Login Success')
         window.location.reload()
         this.requestBalance()
       } else {
         this.infoVisible = true
       }
     } else {
-      message.error('登陆失败！')
+      message.error('Login Failed')
     }
   }
 
@@ -153,38 +103,7 @@ class GlobalStore {
     }
   }
 
-  /**
-   * 请求交易
-   */
-  async requestTransfer(params: ITransfer) {
-    try {
-      // @ts-ignore
-      const result = await window.ic?.plug?.requestTransfer(params);
-      const transferStatus = result?.transactions?.transactions[0]?.status;
-      if (transferStatus === 'COMPLETED') {
-        console.log('Plug wallet transferred')
-      } else if (transferStatus === 'PENDING') {
-        console.log('Plug wallet is pending.')
-      } else {
-        console.log("Plug wallet failed to transfer")
-      }
-      return Promise.resolve(transferStatus)
-    } catch (error) {
-      return Promise.reject()
-    }
-  }
-
-  async requestBurnXTC(params: IBurnXTC) {
-    try {
-      // @ts-ignore
-      const result = await window.ic?.plug?.requestBurnXTC(params);
-      return Promise.resolve(result)
-    } catch (error) {
-      return Promise.reject()
-    }
-  }
-
-  async onSubmit(values: any) {
+  async onSubmit(values: { username: string, email: string }) {
     this.confirmLoading = true
     const [err, res] = await to(GlobalService.register({
       user_name: values.username,
@@ -212,9 +131,9 @@ class GlobalStore {
         email: res.data.email
       }))
       this.requestBalance()
-      message.success('注册成功！')
+      message.success('Register successfully')
     } else {
-      message.error('注册失败')
+      message.error('Registration failed')
     }
   }
 }

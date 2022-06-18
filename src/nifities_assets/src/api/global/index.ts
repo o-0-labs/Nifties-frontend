@@ -19,6 +19,10 @@ class _GlobalService {
     register(params: IReqRegister) {
         return Axios.getInstance().post(`/register`, { data: params }) as Promise<IApiData>;
     }
+
+    uploadImg(params: any) {
+        return Axios.getInstance().post(`/img/upload`, { data: params }) as Promise<IApiData>;
+    }
 }
 
 const GlobalService = new _GlobalService();

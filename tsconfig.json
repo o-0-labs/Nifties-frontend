@@ -31,6 +31,9 @@
       "api/*": [
         "nifities_assets/src/api/*"
       ],
+      "contract/*": [
+        "nifities_assets/src/smartcontract/*"
+      ],
     }
   },
   "include": [

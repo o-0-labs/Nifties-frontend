@@ -2,7 +2,7 @@
  * @Author: shenpeng 
  * @Date: 2022-06-13 22:34:43 
  * @Last Modified by: shenpeng
- * @Last Modified time: 2022-06-14 22:56:11
+ * @Last Modified time: 2022-06-18 18:53:56
  */
 import React, { useEffect, useState, Fragment } from 'react'
 import { Dropdown, Menu, Space, Button, Modal, Popover, message } from 'antd'
@@ -16,18 +16,26 @@ import './index.scss'
 
 const plugIcon = require('static/plug.png')
 const dfinity = require('static/dfinity.png')
+const agora = require('static/agora.png')
+const pona = require('static/pona.png')
+const hackathons = require('static/hackathons.png')
+const grants = require('static/grants.png')
+const buff = require('static/buff.png')
+const logo = require('static/logo.png')
+const muse = require('static/muse.png')
 
 const Header = () => {
     const [openPlug, setOpenPlug] = useState(false)
     const { GlobalStore } = useStore()
     const history = useHistory()
-    useEffect(() => {
-        GlobalStore.requestBalance()
-    }, [GlobalStore.balance])
+    // useEffect(() => {
+    //     GlobalStore.requestBalance()
+    // }, [GlobalStore.balance])
 
-    const renderMenuItem = (title: string, des: string) => {
-        return <div className='dropmenu_item'>
-            <a href={`/#/${title}`}>
+    const renderMenuItem = (title: string, des: string, icon: string) => {
+        return <div className='dropmenu_item flex_left'>
+            {icon && <img src={icon} alt="" />}
+            <a className='ml-8' href={`/#/${title}`}>
                 <div className='title'>{title}</div>
                 <div className='des'>{des}</div>
             </a>
@@ -35,31 +43,28 @@ const Header = () => {
     }
 
     const magicItem = [
-        { label: renderMenuItem('Hackathons', 'Creat the coolest NFT projects'), key: 'Hackathons' },
-        { label: renderMenuItem('Grants', 'Crowdfunding for open resources'), key: 'Grants' },
-        { label: renderMenuItem('Agora', 'Post events such as whitelist, mint, etc'), key: 'Agora' },
-        { label: renderMenuItem('Buff', 'Buff'), key: 'Buff' },
-        { label: renderMenuItem('Muse', 'Muse'), key: 'Muse' },
+        { label: renderMenuItem('Hackathons', 'Creat the coolest NFT projects', hackathons), key: 'Hackathons' },
+        { label: renderMenuItem('Grants', 'Crowdfunding for open resources', grants), key: 'Grants' },
+        { label: renderMenuItem('Agora', 'Post events such as whitelist, mint, etc', agora), key: 'Agora' },
+        { label: renderMenuItem('Buff', 'Buff', buff), key: 'Buff' },
+        { label: renderMenuItem('Muse', 'Muse', muse), key: 'Muse' },
     ]
 
     const communityItem = [
-        { label: renderMenuItem('Pona ', 'Pona'), key: 'Pona' },
-        { label: renderMenuItem('Discord', 'Discord'), key: 'Discord' },
+        { label: renderMenuItem('Pona ', 'Pona', pona), key: 'Pona' },
+        { label: renderMenuItem('Discord', 'Discord', ''), key: 'Discord' },
     ]
 
     const organizationItem = [
-        { label: renderMenuItem('About ', 'About'), key: 'About' },
-        { label: renderMenuItem('Mission', 'Mission'), key: 'Mission' },
+        { label: renderMenuItem('About ', 'About', ''), key: 'About' },
+        { label: renderMenuItem('Mission', 'Mission', ''), key: 'Mission' },
     ]
 
     const login = async () => {
         setOpenPlug(false)
         const isInstalled = GlobalStore.checkPlugStatus()
         if (isInstalled) {
-            const res = await GlobalStore.creatConnect()
-            if (res === 'success') {
-                await GlobalStore.login()
-            }
+            await GlobalStore.login()
         } else {
             Modal.info({
                 icon: '',
@@ -125,8 +130,9 @@ const Header = () => {
 
     return <header className='header flex_sb'>
         <div className='nav_wrap flex_left'>
-            <div className='login csp' onClick={() => history.push('/')}>
-                <img className='login_img' src="" alt="logo" />
+            <div className='login csp flex_left' onClick={() => history.push('/')}>
+                <img className='login_img' src={logo} alt="logo" />
+                <p className='logo_title'>Nifties</p>
             </div>
             <div className='menu_left'>
                 <Dropdown overlayClassName="header_dropmenu_wrap" overlay={<Menu items={magicItem} />} arrow={true}>

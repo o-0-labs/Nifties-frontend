@@ -6,6 +6,22 @@
 
     .logo_wrap {
         flex: 0 0 30%;
+
+        .login {
+            width: 36px;
+            height: 36px;
+            margin: 0;
+        }
+
+        .logo_title {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 36px;
+            line-height: 36px;
+            color: #04091E;
+            margin-left: 8px;
+        }
     }
 
     .footer_menu_wrap {

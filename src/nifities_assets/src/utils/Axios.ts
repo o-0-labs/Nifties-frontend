@@ -71,9 +71,9 @@ class Http {
     public checkResponse(response: AxiosResponse) {
         return new Promise((resolve, reject) => {
             const { data } = response;
-            const { code, msg } = data;
+            const { code } = data;
             if (code !== ECode.OPERATION_SUCCESS) {
-                message.warning(msg);
+                message.warning(data.data?.msg);
                 return reject({ code, data: data?.data });
             }
             return resolve(data);

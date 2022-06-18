@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 const Dotenv = require('dotenv-webpack');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 function initCanisterEnv() {
   let localCanisters, prodCanisters;
@@ -82,11 +83,16 @@ module.exports = {
       pages: path.resolve(__dirname, 'src/nifities_assets/src/pages'),
       utils: path.resolve(__dirname, 'src/nifities_assets/src/utils'),
       api: path.resolve(__dirname, 'src/nifities_assets/src/api'),
+      contract: path.resolve(__dirname, 'src/nifities_assets/src/smartcontract'),
     }
   },
   output: {
-    filename: "index.js",
-    path: path.join(__dirname, "dist", frontendDirectory),
+    // filename: "index.js",
+    // path: path.join(__dirname, "dist", frontendDirectory),
+    path: path.resolve(__dirname, './dist'),
+    publicPath: '/',
+    filename: isDevelopment ? '[name].js' : 'js/[name].[contenthash:8].js',
+    chunkFilename: isDevelopment ? '[name].js' : 'js/[name].[contenthash:8].js',
   },
 
   // Depending in the language or framework you are using for

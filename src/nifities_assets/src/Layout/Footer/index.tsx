@@ -1,10 +1,12 @@
 import React from 'react'
 import './index.scss'
+const logo = require('static/logo.png')
 
 const Footer = () => {
     return <footer className='footer flex_left flex_wrap'>
-        <div className='logo_wrap'>
-            <img className='login' src="" alt="logo" />
+        <div className='logo_wrap flex_left'>
+            <img className='login' src={logo} alt="logo" />
+            <p className='logo_title'>Nifties</p>
         </div>
         <div className='footer_menu_wrap flex_left flex_start flex_wrap'>
             <div className='flex_column footer_menu_list'>

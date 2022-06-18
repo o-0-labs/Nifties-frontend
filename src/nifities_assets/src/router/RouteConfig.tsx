@@ -99,6 +99,22 @@ const routes = [
             loading: Loading
         }),
     },
+    {
+        isExact: true,
+        path: '/accountList',
+        component: Loadable({
+            loader: () => import('../pages/Buff/AccountList'),
+            loading: Loading
+        }),
+    },
+    {
+        isExact: true,
+        path: '/authPage',
+        component: Loadable({
+            loader: () => import('../pages/Buff/AuthPage'),
+            loading: Loading
+        }),
+    },
 ];
 
 export default routes;
