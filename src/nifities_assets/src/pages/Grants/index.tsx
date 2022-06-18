@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import GrantsCart from './components/dialog';
+import GrantContract from '../../smartcontract/grants';
 
 export default function Grant() {
     // Grants Cart Dialog
@@ -11,6 +12,11 @@ export default function Grant() {
         setContractAddress(currentContractAddress);
         setOpenPayNowDialog(openPayNowDialog ? false : true);
     };
+
+    // 众筹合约函数
+    const grantContract = new GrantContract(contractAddress, false);
+
+
 
     return (
         <div className='w-screen py-[4.06rem]'>
@@ -92,7 +98,7 @@ export default function Grant() {
             </section>
 
             <section>
-                <GrantsCart open={openPayNowDialog} onOpenPayNowDialogChange={handleOpenPayNowDialogChange} contractAddress={contractAddress} />
+                <GrantsCart open={openPayNowDialog} onOpenPayNowDialogChange={handleOpenPayNowDialogChange} contractAddress={contractAddress} grantContract={grantContract} />
             </section >
         </div>
     );

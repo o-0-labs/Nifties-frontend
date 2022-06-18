@@ -24,11 +24,12 @@ export default function GrantsCart(props: {
     open: boolean;
     onOpenPayNowDialogChange: any;
     contractAddress: string;
+    grantContract: GrantContract;
 }) {
 
     // Dialog Props
-    const { children, open, onOpenPayNowDialogChange, contractAddress } = { ...props };
-    console.log(`contractAddress: ${contractAddress}`);
+    const { children, open, onOpenPayNowDialogChange, contractAddress, grantContract } = { ...props };
+    // console.log(`contractAddress: ${contractAddress}`);
 
 
     // Amount Text Field
@@ -45,18 +46,14 @@ export default function GrantsCart(props: {
         }
     };
 
-
     // Checkout
     async function handleCheckout() {
         if (!amountStrError) {
             setOpenSnackbar(false);
             setOpenLoading(true);
 
-            // 众筹合约
-            const grantContract = new GrantContract(contractAddress);
-            grantContract.init();
-
             // 调用合约fund函数
+            // 转换ICP单位为DOM单位(1ICP = 100_000_000dom)
             let amount = mul(amountStr, 1e8.toString());
             grantContract.fund(BigInt(amount)).then((res) => {
                 // 交易结果Boolean
