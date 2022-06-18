@@ -1,6 +1,14 @@
 import React from 'react';
 import CreateAgoraDialog from './components/dialog';
 
+const bannerImage = require('static/agora-index-banner.png');
+const cover0Image = require('static/agora-cover-0.jpg');
+const cover1Image = require('static/agora-cover-1.jpg');
+const cover2Image = require('static/agora-cover-2.jpg');
+const cover3Image = require('static/agora-cover-3.jpg');
+const cover4Image = require('static/agora-cover-4.jpg');
+const viewsIconImage = require('static/agora-icon-views.png');
+const likesIconImage = require('static/agora-icon-likes.png');
 export default function Agora() {
     // Create Dialog
     const [openCreateDialog, setOpenCreateDialog] = React.useState(false);
@@ -26,88 +34,117 @@ export default function Agora() {
                             whitelist, mint, AMA, talk show etc
                         </p>
                     </div>
-                    <div className="w-[35.44rem] h-[12.81rem] bg-[rgba(196,196,196,1)]">插图3.1</div>
+                    <img className="w-[35.44rem] h-[12.81rem]" src={bannerImage} />
                 </div>
             </section>
 
             <section className='my-[7.19rem]'>
                 <div className="flex flex-row justify-between w-auto">
                     <p className="text-3xl leading-10 text-left text-gray-900">Explore Agora</p>
-                    <button className="text-sm leading-snug text-brand w-[10.88rem] h-7 bg-white border rounded border-brand" onClick={handleOpenJoinNowDialogChange}>Create</button>
+                    <button className="text-sm leading-snug text-brand w-[10.88rem] h-7 bg-white border rounded border-brand" onClick={handleOpenJoinNowDialogChange} disabled>Create</button>
                 </div>
-                <div className=" pt-[1.5rem] grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-y-10 justify-items-center justify-between">
-                    <div className="inline-flex flex-col space-y-[0.4rem] items-start justify-start px-[1rem] pt-[0.88rem] bg-white border rounded-lg border-grey-300 font-Urbanist " style={{ width: 400, height: 640, }}>
-                        <div className="w-full h-[25.56rem] bg-gradient-to-b from-[#D6FFEE] via-[#EFC56761] to-[#FFA11400] rounded-lg relative">
-                            <p className="h-auto w-[5rem] text-sm font-semibold leading-relaxed text-center text-brand font-Urbanist absolute top-[0.90rem] left-[0.96rem] bg-white p-2">MINT</p>
-                            <div className="w-auto h-auto absolute bottom-[0.90rem] right-[0.96rem] flex flex-row justify-end front-Urbanist">
-                                <img className="w-[1.5rem] aspect-square rounded-lg mr-4" src="/views.svg" />
-                                <p className="text-sm font-semibold leading-relaxed text-gray-900">1.1w</p>
-                                <img className="w-[1.5rem] aspect-square rounded-lg  ml-[0.98rem]  mr-4" src="/like.svg" />
-                                <p className="text-sm font-semibold leading-relaxed text-gray-900">400</p>
+                <div className=" pt-[1.5rem] grid grid-cols-1 md:grid-cols-3 2xl:grid-cols-3 gap-y-10 justify-items-between justify-between">
+                    <div className="inline-flex flex-col space-y-[0.4rem] items-start justify-start px-[1rem] pt-[0.88rem] bg-white border rounded-lg border-grey-300 font-Urbanist " style={{ width: 370, height: 605, }}>
+                        <div className="w-full h-[21.45rem] bg-gradient-to-b from-[#D6FFEE] via-[#EFC56761] to-[#FFA11400] rounded-lg relative">
+                            <img className=" absolute w-full" src={cover0Image} alt="" />
+                            <div className=''>
+                                <p className="h-auto w-auto text-sm font-bold leading-relaxed text-center text-brand font-Urbanist absolute top-[0.90rem] left-[0.96rem] bg-white px-[0.5rem] py-[0.5rem] rounded-sm">profit sharing</p>
+                                <div className="w-auto h-auto absolute bottom-[0.90rem] right-[0.96rem] flex flex-row justify-end front-Urbanist">
+                                    <img className="w-[1.5rem] aspect-square rounded-lg mr-4" src={viewsIconImage} />
+                                    <p className="text-sm font-normal leading-relaxed text-white">11w</p>
+                                    <img className="w-[1.5rem] aspect-square rounded-lg  ml-[0.98rem]  mr-4" src={likesIconImage} />
+                                    <p className="text-sm font-normal leading-relaxed text-white">1.3W</p>
+                                </div>
                             </div>
                         </div>
-                        <div className="flex flex-row justify-between w-full items-baseline h-[2.69rem]">
-                            <p className="w-auto text-2xl font-semibold leading-loose text-left text-brand-text-black">Chance to mint for free</p>
-                            <p className="w-auto text-sm leading-tight text-brand">8h</p>
+                        <div className="flex flex-row justify-between w-full items-baseline h-[4.5rem]">
+                            <p className="w-auto text-xl leading-6 text-left text-brand-text-black break-normal">Get the 50% profit sharing everyday! 50%! Everyday! Everyone! I am not kidding.</p>
                         </div>
-                        <p className="w-full h-[5.04rem] text-sm leading-tight text-brand-text-gray font-Urbanist">$100 | 1.400.000 IDR in 8 Hours 🦄<br />- RT & Follow <br />@Free_Mint_Pass<br /> - RT, Like + Tag 3 Friends on Their 📌</p>
-                        <p className="w-auto h-5 text-sm leading-tight text-brand-text-gray font-Urbanist">by <span className='text-brand'>by Money Bears NFT</span></p>
+                        <p className="w-full h-[5.2rem] text-sm leading-tight text-brand-text-gray font-Urbanist break-normal">This is not scam project, it’s create by a person who love web3, Moonbirds, Mfers, doing his best to build a great community</p>
+                        <p className="w-auto h-5 text-sm leading-tight text-brand-text-gray font-Urbanist">by <span className='text-brand'>Moonfers · 23D</span></p>
                         <button className="mx-auto text-sm leading-snug bg-brand w-[10.88rem] h-7 border rounded text-white mt-[50.38rem]">Join</button>
                     </div>
-                    <div className="inline-flex flex-col space-y-[0.4rem] items-start justify-start px-[1rem] pt-[0.88rem] bg-white border rounded-lg border-grey-300 font-Urbanist " style={{ width: 400, height: 640, }}>
-                        <div className="w-full h-[25.56rem] bg-gradient-to-b from-[#D6FFEE] via-[#EFC56761] to-[#FFA11400] rounded-lg relative">
-                            <p className="h-auto w-[5rem] text-sm font-semibold leading-relaxed text-center text-brand font-Urbanist absolute top-[0.90rem] left-[0.96rem] bg-white p-2">MINT</p>
-                            <div className="w-auto h-auto absolute bottom-[0.90rem] right-[0.96rem] flex flex-row justify-end front-Urbanist">
-                                <img className="w-[1.5rem] aspect-square rounded-lg mr-4" src="/views.svg" />
-                                <p className="text-sm font-semibold leading-relaxed text-gray-900">1.1w</p>
-                                <img className="w-[1.5rem] aspect-square rounded-lg  ml-[0.98rem]  mr-4" src="/like.svg" />
-                                <p className="text-sm font-semibold leading-relaxed text-gray-900">400</p>
+                    <div className="inline-flex flex-col space-y-[0.4rem] items-start justify-start px-[1rem] pt-[0.88rem] bg-white border rounded-lg border-grey-300 font-Urbanist " style={{ width: 370, height: 605, }}>
+                        <div className="w-full h-[21.45rem] bg-gradient-to-b from-[#D6FFEE] via-[#EFC56761] to-[#FFA11400] rounded-lg relative">
+                            <img className=" absolute w-full" src={cover1Image} alt="" />
+                            <div className=''>
+                                <p className="h-auto w-auto text-sm font-bold leading-relaxed text-center text-brand font-Urbanist absolute top-[0.90rem] left-[0.96rem] bg-white px-[0.5rem] py-[0.5rem] rounded-sm">reward</p>
+                                <div className="w-auto h-auto absolute bottom-[0.90rem] right-[0.96rem] flex flex-row justify-end front-Urbanist">
+                                    <img className="w-[1.5rem] aspect-square rounded-lg mr-4" src={viewsIconImage} />
+                                    <p className="text-sm font-normal leading-relaxed text-white">9.1w</p>
+                                    <img className="w-[1.5rem] aspect-square rounded-lg  ml-[0.98rem]  mr-4" src={likesIconImage} />
+                                    <p className="text-sm font-normal leading-relaxed text-white">8.7W</p>
+                                </div>
                             </div>
                         </div>
-                        <div className="flex flex-row justify-between w-full items-baseline h-[2.69rem]">
-                            <p className="w-auto text-2xl font-semibold leading-loose text-left text-brand-text-black">Chance to mint for free</p>
-                            <p className="w-auto text-sm leading-tight text-brand">8h</p>
+                        <div className="flex flex-row justify-between w-full items-baseline h-[4.5rem]">
+                            <p className="w-auto text-xl leading-6 text-left text-brand-text-black break-normal">We are planning a privilege to reward our loyal fatties</p>
                         </div>
-                        <p className="w-full h-[5.04rem] text-sm leading-tight text-brand-text-gray font-Urbanist">$100 | 1.400.000 IDR in 8 Hours 🦄<br />- RT & Follow <br />@Free_Mint_Pass<br /> - RT, Like + Tag 3 Friends on Their 📌</p>
-                        <p className="w-auto h-5 text-sm leading-tight text-brand-text-gray font-Urbanist">by <span className='text-brand'>by Money Bears NFT</span></p>
+                        <p className="w-full h-[5.2rem] text-sm leading-tight text-brand-text-gray font-Urbanist break-normal">6969 Fat Rich Apes living in the Otherside Metaverse!</p>
+                        <p className="w-auto h-5 text-sm leading-tight text-brand-text-gray font-Urbanist">by <span className='text-brand'>Bored Ape Fat Club · 21D</span></p>
                         <button className="mx-auto text-sm leading-snug bg-brand w-[10.88rem] h-7 border rounded text-white mt-[50.38rem]">Join</button>
                     </div>
-                    <div className="inline-flex flex-col space-y-[0.4rem] items-start justify-start px-[1rem] pt-[0.88rem] bg-white border rounded-lg border-grey-300 font-Urbanist " style={{ width: 400, height: 640, }}>
-                        <div className="w-full h-[25.56rem] bg-gradient-to-b from-[#D6FFEE] via-[#EFC56761] to-[#FFA11400] rounded-lg relative">
-                            <p className="h-auto w-[5rem] text-sm font-semibold leading-relaxed text-center text-brand font-Urbanist absolute top-[0.90rem] left-[0.96rem] bg-white p-2">MINT</p>
-                            <div className="w-auto h-auto absolute bottom-[0.90rem] right-[0.96rem] flex flex-row justify-end front-Urbanist">
-                                <img className="w-[1.5rem] aspect-square rounded-lg mr-4" src="/views.svg" />
-                                <p className="text-sm font-semibold leading-relaxed text-gray-900">1.1w</p>
-                                <img className="w-[1.5rem] aspect-square rounded-lg  ml-[0.98rem]  mr-4" src="/like.svg" />
-                                <p className="text-sm font-semibold leading-relaxed text-gray-900">400</p>
+                    <div className="inline-flex flex-col space-y-[0.4rem] items-start justify-start px-[1rem] pt-[0.88rem] bg-white border rounded-lg border-grey-300 font-Urbanist " style={{ width: 370, height: 605, }}>
+                        <div className="w-full h-[21.45rem] bg-gradient-to-b from-[#D6FFEE] via-[#EFC56761] to-[#FFA11400] rounded-lg relative">
+                            <img className=" absolute w-full" src={cover2Image} alt="" />
+                            <div className=''>
+                                <p className="h-auto w-auto text-sm font-bold leading-relaxed text-center text-brand font-Urbanist absolute top-[0.90rem] left-[0.96rem] bg-white px-[0.5rem] py-[0.5rem] rounded-sm">free mint</p>
+                                <div className="w-auto h-auto absolute bottom-[0.90rem] right-[0.96rem] flex flex-row justify-end front-Urbanist">
+                                    <img className="w-[1.5rem] aspect-square rounded-lg mr-4" src={viewsIconImage} />
+                                    <p className="text-sm font-normal leading-relaxed text-white">4w</p>
+                                    <img className="w-[1.5rem] aspect-square rounded-lg  ml-[0.98rem]  mr-4" src={likesIconImage} />
+                                    <p className="text-sm font-normal leading-relaxed text-white">4.7k</p>
+                                </div>
                             </div>
                         </div>
-                        <div className="flex flex-row justify-between w-full items-baseline h-[2.69rem]">
-                            <p className="w-auto text-2xl font-semibold leading-loose text-left text-brand-text-black">Chance to mint for free</p>
-                            <p className="w-auto text-sm leading-tight text-brand">8h</p>
+                        <div className="flex flex-row justify-between w-full items-baseline h-[4.5rem]">
+                            <p className="w-auto text-xl leading-6 text-left text-brand-text-black break-normal">We went free mint. In return, we SOLD OUT almost immediately! </p>
                         </div>
-                        <p className="w-full h-[5.04rem] text-sm leading-tight text-brand-text-gray font-Urbanist">$100 | 1.400.000 IDR in 8 Hours 🦄<br />- RT & Follow <br />@Free_Mint_Pass<br /> - RT, Like + Tag 3 Friends on Their 📌</p>
-                        <p className="w-auto h-5 text-sm leading-tight text-brand-text-gray font-Urbanist">by <span className='text-brand'>by Money Bears NFT</span></p>
+                        <p className="w-full h-[5.2rem] text-sm leading-tight text-brand-text-gray font-Urbanist break-normal">These assets do not work in Chibi Fighters 2.0. Chibi Fighters is a casual brawler on the Ethereum Blockchain. Chibis come in all shapes and forms and are fierce little warriors.</p>
+                        <p className="w-auto h-5 text-sm leading-4 text-brand-text-gray font-Urbanist">by <span className='text-brand'>Fatty Beef · 20D</span></p>
                         <button className="mx-auto text-sm leading-snug bg-brand w-[10.88rem] h-7 border rounded text-white mt-[50.38rem]">Join</button>
                     </div>
-                    <div className="inline-flex flex-col space-y-[0.4rem] items-start justify-start px-[1rem] pt-[0.88rem] bg-white border rounded-lg border-grey-300 font-Urbanist " style={{ width: 400, height: 640, }}>
-                        <div className="w-full h-[25.56rem] bg-gradient-to-b from-[#D6FFEE] via-[#EFC56761] to-[#FFA11400] rounded-lg relative">
-                            <p className="h-auto w-[5rem] text-sm font-semibold leading-relaxed text-center text-brand font-Urbanist absolute top-[0.90rem] left-[0.96rem] bg-white p-2">MINT</p>
-                            <div className="w-auto h-auto absolute bottom-[0.90rem] right-[0.96rem] flex flex-row justify-end front-Urbanist">
-                                <img className="w-[1.5rem] aspect-square rounded-lg mr-4" src="/views.svg" />
-                                <p className="text-sm font-semibold leading-relaxed text-gray-900">1.1w</p>
-                                <img className="w-[1.5rem] aspect-square rounded-lg  ml-[0.98rem]  mr-4" src="/like.svg" />
-                                <p className="text-sm font-semibold leading-relaxed text-gray-900">400</p>
+                    <div className="inline-flex flex-col space-y-[0.4rem] items-start justify-start px-[1rem] pt-[0.88rem] bg-white border rounded-lg border-grey-300 font-Urbanist " style={{ width: 370, height: 605, }}>
+                        <div className="w-full h-[21.45rem] bg-gradient-to-b from-[#D6FFEE] via-[#EFC56761] to-[#FFA11400] rounded-lg relative">
+                            <img className=" absolute w-full" src={cover3Image} alt="" />
+                            <div className=''>
+                                <p className="h-auto w-auto text-sm font-bold leading-relaxed text-center text-brand font-Urbanist absolute top-[0.90rem] left-[0.96rem] bg-white px-[0.5rem] py-[0.5rem] rounded-sm">giveaways</p>
+                                <div className="w-auto h-auto absolute bottom-[0.90rem] right-[0.96rem] flex flex-row justify-end front-Urbanist">
+                                    <img className="w-[1.5rem] aspect-square rounded-lg mr-4" src={viewsIconImage} />
+                                    <p className="text-sm font-normal leading-relaxed text-white">11w</p>
+                                    <img className="w-[1.5rem] aspect-square rounded-lg  ml-[0.98rem]  mr-4" src={likesIconImage} />
+                                    <p className="text-sm font-normal leading-relaxed text-white">1.3w</p>
+                                </div>
                             </div>
                         </div>
-                        <div className="flex flex-row justify-between w-full items-baseline h-[2.69rem]">
-                            <p className="w-auto text-2xl font-semibold leading-loose text-left text-brand-text-black">Chance to mint for free</p>
-                            <p className="w-auto text-sm leading-tight text-brand">8h</p>
+                        <div className="flex flex-row justify-between w-full items-baseline h-[4.5rem]">
+                            <p className="w-auto text-xl leading-6 text-left text-brand-text-black break-normal">To celebrate the public mint I’m gonna give away a Super Dude to a follower! Super simple </p>
                         </div>
-                        <p className="w-full h-[5.04rem] text-sm leading-tight text-brand-text-gray font-Urbanist">$100 | 1.400.000 IDR in 8 Hours 🦄<br />- RT & Follow <br />@Free_Mint_Pass<br /> - RT, Like + Tag 3 Friends on Their 📌</p>
-                        <p className="w-auto h-5 text-sm leading-tight text-brand-text-gray font-Urbanist">by <span className='text-brand'>by Money Bears NFT</span></p>
+                        <p className="w-full h-[5.2rem] text-sm leading-tight text-brand-text-gray font-Urbanist break-normal">Super Dudes is a generative NFT collection made up of super heroes. They are the 2nd generation of Super Ordinary Villains art collection and the next step in the story of the Super Ordinary World. The villains ...</p>
+                        <p className="w-auto h-5 text-sm leading-4 text-brand-text-gray font-Urbanist">by <span className='text-brand'>superdudes · 15d</span></p>
                         <button className="mx-auto text-sm leading-snug bg-brand w-[10.88rem] h-7 border rounded text-white mt-[50.38rem]">Join</button>
                     </div>
+                    <div className="inline-flex flex-col space-y-[0.4rem] items-start justify-start px-[1rem] pt-[0.88rem] bg-white border rounded-lg border-grey-300 font-Urbanist " style={{ width: 370, height: 605, }}>
+                        <div className="w-full h-[21.45rem] bg-gradient-to-b from-[#D6FFEE] via-[#EFC56761] to-[#FFA11400] rounded-lg relative">
+                            <img className=" absolute w-full" src={cover4Image} alt="" />
+                            <div className=''>
+                                <p className="h-auto w-auto text-sm font-bold leading-relaxed text-center text-brand font-Urbanist absolute top-[0.90rem] left-[0.96rem] bg-white px-[0.5rem] py-[0.5rem] rounded-sm">free mint</p>
+                                <div className="w-auto h-auto absolute bottom-[0.90rem] right-[0.96rem] flex flex-row justify-end front-Urbanist">
+                                    <img className="w-[1.5rem] aspect-square rounded-lg mr-4" src={viewsIconImage} />
+                                    <p className="text-sm font-normal leading-relaxed text-white">4w</p>
+                                    <img className="w-[1.5rem] aspect-square rounded-lg  ml-[0.98rem]  mr-4" src={likesIconImage} />
+                                    <p className="text-sm font-normal leading-relaxed text-white">4.7k</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="flex flex-row justify-between w-full items-baseline h-[4.5rem]">
+                            <p className="w-auto text-xl leading-6 text-left text-brand-text-black break-normal">50x FREE MINT SPOT GIVEAWAY Follow @SenshiNFT｜RT + Like｜Tag 3 Friends </p>
+                        </div>
+                        <p className="w-full h-[5.2rem] text-sm leading-tight text-brand-text-gray font-Urbanist break-normal">Senshi's Entering The Metaverse</p>
+                        <p className="w-auto h-5 text-sm leading-4 text-brand-text-gray font-Urbanist">by <span className='text-brand'>SENSHI · 8D</span></p>
+                        <button className="mx-auto text-sm leading-snug bg-brand w-[10.88rem] h-7 border rounded text-white mt-[50.38rem]">Join</button>
+                    </div>
+
                 </div>
             </section>
 

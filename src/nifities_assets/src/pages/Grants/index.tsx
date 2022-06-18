@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import GrantsCart from './components/dialog';
 import GrantContract from '../../smartcontract/grants';
 
+const bannerImage = require('static/grants-index-banner.png');
+
 export default function Grant() {
     // Grants Cart Dialog
     const [openPayNowDialog, setOpenPayNowDialog] = React.useState(false);
@@ -34,7 +36,7 @@ export default function Grant() {
                             case and prizes！
                         </p>
                     </div>
-                    <div className="w-[35.44rem] h-[12.81rem] bg-[rgba(196,196,196,1)]">插图2.1</div>
+                    <img className="w-[35.44rem] h-[12.81rem]" src={bannerImage} />
                 </div>
             </section>
 

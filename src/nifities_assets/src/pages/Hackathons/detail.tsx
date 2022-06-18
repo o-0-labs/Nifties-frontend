@@ -7,6 +7,7 @@ import PageError from 'components/500';
 
 const queryClient = new QueryClient();
 
+const bannerImage = require('static/hackathons-detail-banner.jpg');
 export default function HackathonsDetail() {
     return (
         <QueryClientProvider client={queryClient}>
@@ -39,15 +40,18 @@ function Detail() {
     return (
         <div className='w-screen my-[2.06rem] px-[2.92rem] text-center'>
             <section title="Cover Section">
-                <div className="bg-gray-300 mx-[2.94rem] h-[21.63rem] flex flex-col justify-center" title="插画1.3">
-                    <img className="w-[12.19] h-auto bg-gray-100 mx-auto mt-[3.63rem]" src="https://via.placeholder.com/195x195" />
+                <div className='bg-gray-300 mx-[7.06rem] h-[21.63rem] flex flex-col justify-center relative'>
+                    <img className="w-full h-full" src={bannerImage} />
+                    <div className="w-full h-full absolute text-center">
+                        <img className="w-[12.19] h-auto bg-gray-100 mx-auto mt-[3.63rem]" src={hackathon.image} />
+                    </div>
                 </div>
             </section>
 
             <section title="Content Section">
-                <div className="mx-[7.06rem]">
+                <div className="mx-[7.06rem] relative -top-[1.38rem]">
 
-                    <div className="mx-auto -mt-[1.38rem] w-auto h-[11.69rem] bg-white border rounded-lg border-gray-300 text-left flex flex-row justify-between align-middle" >
+                    <div className="mx-auto w-auto h-[11.69rem] bg-white border rounded-lg border-gray-300 text-left flex flex-row justify-between align-middle" >
                         <div className="inline-flex flex-col space-y-5 items-start justify-start ml-[3.38rem] my-auto" style={{ width: 701, height: 115, }}>
                             <p className="text-5xl font-semibold leading-10 text-brand-black text-Poppins" style={{ width: 701, }}>{hackathon.title}</p>
                             <p className="text-xl font-medium leading-loose text-brand text-Urbanist" style={{ width: 657.71, }}>{hackathon.date}</p>

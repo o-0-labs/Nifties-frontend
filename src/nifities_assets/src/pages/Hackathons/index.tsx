@@ -1,6 +1,8 @@
 import React from 'react';
 import HackahtonsTab from './components/tab';
 
+const bannerImage = require('static/hackathons-index-banner.png');
+
 export default function Hackathons() {
     return (
         <div className='w-screen py-[4.06rem]'>
@@ -18,7 +20,7 @@ export default function Hackathons() {
                             case and prizes！
                         </p>
                     </div>
-                    <div className="w-[35.44rem] h-[12.81rem] bg-[rgba(196,196,196,1)]">插图1.1</div>
+                    <img className="w-[35.44rem] h-[12.81rem] " src={bannerImage} />
                 </div>
             </section>
 
