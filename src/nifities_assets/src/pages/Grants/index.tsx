@@ -4,6 +4,10 @@ import GrantsCart from './components/dialog';
 import GrantContract from '../../smartcontract/grants';
 
 const bannerImage = require('static/grants-index-banner.png');
+const cover0Image = require('static/grants-list-cover-0.jpg');
+const cover1Image = require('static/grants-list-cover-1.jpg');
+const cover2Image = require('static/grants-list-cover-2.jpg');
+const cover3Image = require('static/grants-list-cover-3.jpg');
 
 export default function Grant() {
     // Grants Cart Dialog
@@ -47,55 +51,56 @@ export default function Grant() {
                         <button className="text-sm leading-snug text-brand w-[10.88rem] h-7 bg-white border rounded border-brand">Create</button>
                     </Link>
                 </div>
-                <div className=" pt-[1.5rem] grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-y-10 justify-items-center justify-between">
-                    <div className="inline-flex flex-col space-y-[0.8rem] items-start justify-start px-5 pt-7 bg-white border rounded-lg border-grey-300 font-Urbanist" style={{ width: 400, height: 640, }}>
-                        <div className="w-full h-[16.88rem] bg-gray-300 rounded-lg" >插图2.2</div>
-                        <p className="w-auto h-8 text-2xl font-semibold leading-loose text-left text-brand-text-black">CoThe Daily Gwei by Anthony</p>
-                        <p className="w-auto h-5 text-sm leading-tight text-brand-text-gray">by <span className='text-brand'>iniziale</span></p>
-                        <p className="w-full h-[6.5rem] text-sm leading-tight text-brand-text-gray">This ecosystem consists of a Youtube channel where I give daily video recaps and provide educational video content, a Discord server for The Daily Gwei community to congregate in and a daily newsletter covering the Ethereum ecosystem.</p>
+                <div className=" pt-[1.5rem] grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-y-10 justify-items-center justify-between">
+                    <div className="inline-flex flex-col space-y-[0.5rem] items-start justify-start px-5 pt-7 bg-white border rounded-lg border-grey-300 font-Urbanist" style={{ width: 370, height: 605, }}>
+                        <img className="w-full h-[16.88rem] bg-gray-300 rounded-lg" src={cover0Image} />
+                        <p className="w-auto h-[1.5rem] text-xl leading-6 text-left text-brand-text-black break-normal  mt-[0.5rem]">Rhythmic Dance</p>
+                        <p className="w-auto text-sm leading-tight text-brand-text-gray mt-[0.5rem]">by <span className='text-brand'>Rick</span></p>
+                        <p className="w-full h-[7.8rem] overflow-hidden text-sm leading-tight text-brand-text-gray  break-normal mt-[0.5rem]">I am Rick, a creative designer and art director and NFT artist. I love doing creative works and visualizing crazy but realistic things. I have a motto to live by “Creative with passio”.</p>
                         <div className="w-full bg-gray-300 h-[1px]"></div>
                         <div className='flex flex-row justify-start w-full items-baseline'>
-                            <p className="h-auto text-2xl font-semibold leading-loose font-Urbanist mr-4">$91,667 </p>
+                            <p className="h-auto text-xl font-semibold leading-loose font-Urbanist mr-4">$93,564</p>
                             <p className="h-auto text-sm leading-tight text-gray-500 font-Urbanist">total raised</p>
                         </div>
-                        <button className="mx-auto text-sm leading-snug bg-brand w-[10.88rem] h-7 border rounded text-white mt-[50.38rem]" onClick={() => { handleOpenPayNowDialogChange(process.env.SMART_CONTRACT_ADDRESS_GRANTS) }}>Pay now</button>
+                        <button className="mx-auto text-sm leading-snug bg-brand w-[10.88rem] h-7 border rounded text-white mt-[50.38rem]">Pay now</button>
                     </div>
-                    <div className="inline-flex flex-col space-y-[0.8rem] items-start justify-start px-5 pt-7 bg-white border rounded-lg border-grey-300 font-Urbanist" style={{ width: 400, height: 640, }}>
-                        <div className="w-full h-[16.88rem] bg-gray-300 rounded-lg" >插图2.2</div>
-                        <p className="w-auto h-8 text-2xl font-semibold leading-loose text-left text-brand-text-black">CoThe Daily Gwei by Anthony</p>
-                        <p className="w-auto h-5 text-sm leading-tight text-brand-text-gray">by <span className='text-brand'>iniziale</span></p>
-                        <p className="w-full h-[6.5rem] text-sm leading-tight text-brand-text-gray">This ecosystem consists of a Youtube channel where I give daily video recaps and provide educational video content, a Discord server for The Daily Gwei community to congregate in and a daily newsletter covering the Ethereum ecosystem.</p>
+                    <div className="inline-flex flex-col space-y-[0.5rem] items-start justify-start px-5 pt-7 bg-white border rounded-lg border-grey-300 font-Urbanist" style={{ width: 370, height: 605, }}>
+                        <img className="w-full h-[16.88rem] bg-gray-300 rounded-lg" src={cover1Image} />
+                        <p className="w-auto h-[1.5rem] text-xl leading-6 text-left text-brand-text-black break-normal  mt-[0.5rem]">Bored Bulls NFTs</p>
+                        <p className="w-auto text-sm leading-tight text-brand-text-gray mt-[0.5rem]">by <span className='text-brand'>Chrissy</span></p>
+                        <p className="w-full h-[7.8rem] overflow-hidden text-sm leading-tight text-brand-text-gray  break-normal mt-[0.5rem]">My name is Chrissy and I like arts and new technology. At the point when I found out about cryptocurrency and NFTs. I wanted to participate in this new game and bring along all my supporters. NFTs,Cryptos and Blockchain are going to change the world.</p>
                         <div className="w-full bg-gray-300 h-[1px]"></div>
                         <div className='flex flex-row justify-start w-full items-baseline'>
-                            <p className="h-auto text-2xl font-semibold leading-loose font-Urbanist mr-4">$91,667 </p>
+                            <p className="h-auto text-xl font-semibold leading-loose font-Urbanist mr-4">$85,617</p>
                             <p className="h-auto text-sm leading-tight text-gray-500 font-Urbanist">total raised</p>
                         </div>
-                        <button className="mx-auto text-sm leading-snug bg-brand w-[10.88rem] h-7 border rounded text-white mt-[50.38rem]" onClick={() => { handleOpenPayNowDialogChange(process.env.SMART_CONTRACT_ADDRESS_GRANTS) }}>Pay now</button>
+                        <button className="mx-auto text-sm leading-snug bg-brand w-[10.88rem] h-7 border rounded text-white mt-[50.38rem]">Pay now</button>
                     </div>
-                    <div className="inline-flex flex-col space-y-[0.8rem] items-start justify-start px-5 pt-7 bg-white border rounded-lg border-grey-300 font-Urbanist" style={{ width: 400, height: 640, }}>
-                        <div className="w-full h-[16.88rem] bg-gray-300 rounded-lg" >插图2.2</div>
-                        <p className="w-auto h-8 text-2xl font-semibold leading-loose text-left text-brand-text-black">CoThe Daily Gwei by Anthony</p>
-                        <p className="w-auto h-5 text-sm leading-tight text-brand-text-gray">by <span className='text-brand'>iniziale</span></p>
-                        <p className="w-full h-[6.5rem] text-sm leading-tight text-brand-text-gray">This ecosystem consists of a Youtube channel where I give daily video recaps and provide educational video content, a Discord server for The Daily Gwei community to congregate in and a daily newsletter covering the Ethereum ecosystem.</p>
+                    <div className="inline-flex flex-col space-y-[0.5rem] items-start justify-start px-5 pt-7 bg-white border rounded-lg border-grey-300 font-Urbanist" style={{ width: 370, height: 605, }}>
+                        <img className="w-full h-[16.88rem] bg-gray-300 rounded-lg" src={cover2Image} />
+                        <p className="w-auto h-[1.5rem] text-xl leading-6 text-left text-brand-text-black break-normal  mt-[0.5rem]">Graz208 Art for Down Syndrome</p>
+                        <p className="w-auto text-sm leading-tight text-brand-text-gray mt-[0.5rem]">by <span className='text-brand'>iniziale</span></p>
+                        <p className="w-full h-[7.8rem] overflow-hidden text-sm leading-tight text-brand-text-gray  break-normal mt-[0.5rem]">My name is Graziana, I am an Italian artist with Down Syndrome, born in Catania (IT) in 2008. I love fine arts and I produce paintings as a result of my fantasy. I decided to donate my first NFT, as in the picture, to a network of non-profit organizations to raise funds for their survival. My dream is to help those organizations to support activities for children with disabilities.</p>
                         <div className="w-full bg-gray-300 h-[1px]"></div>
                         <div className='flex flex-row justify-start w-full items-baseline'>
-                            <p className="h-auto text-2xl font-semibold leading-loose font-Urbanist mr-4">$91,667 </p>
+                            <p className="h-auto text-xl font-semibold leading-loose font-Urbanist mr-4">$91,667 </p>
                             <p className="h-auto text-sm leading-tight text-gray-500 font-Urbanist">total raised</p>
                         </div>
-                        <button className="mx-auto text-sm leading-snug bg-brand w-[10.88rem] h-7 border rounded text-white mt-[50.38rem]" onClick={() => { handleOpenPayNowDialogChange(process.env.SMART_CONTRACT_ADDRESS_GRANTS) }}>Pay now</button>
+                        <button className="mx-auto text-sm leading-snug bg-brand w-[10.88rem] h-7 border rounded text-white mt-[50.38rem]">Pay now</button>
                     </div>
-                    <div className="inline-flex flex-col space-y-[0.8rem] items-start justify-start px-5 pt-7 bg-white border rounded-lg border-grey-300 font-Urbanist" style={{ width: 400, height: 640, }}>
-                        <div className="w-full h-[16.88rem] bg-gray-300 rounded-lg" >插图2.2</div>
-                        <p className="w-auto h-8 text-2xl font-semibold leading-loose text-left text-brand-text-black">CoThe Daily Gwei by Anthony</p>
-                        <p className="w-auto h-5 text-sm leading-tight text-brand-text-gray">by <span className='text-brand'>iniziale</span></p>
-                        <p className="w-full h-[6.5rem] text-sm leading-tight text-brand-text-gray">This ecosystem consists of a Youtube channel where I give daily video recaps and provide educational video content, a Discord server for The Daily Gwei community to congregate in and a daily newsletter covering the Ethereum ecosystem.</p>
+                    <div className="inline-flex flex-col space-y-[0.5rem] items-start justify-start px-5 pt-7 bg-white border rounded-lg border-grey-300 font-Urbanist" style={{ width: 370, height: 605, }}>
+                        <img className="w-full h-[16.88rem] bg-gray-300 rounded-lg" src={cover3Image} />
+                        <p className="w-auto h-[1.5rem] text-xl leading-6 text-left text-brand-text-black break-normal  mt-[0.5rem]">Andromeda</p>
+                        <p className="w-auto text-sm leading-tight text-brand-text-gray mt-[0.5rem]">by <span className='text-brand'>Lilly</span></p>
+                        <p className="w-full h-[7.8rem] overflow-hidden text-sm leading-tight text-brand-text-gray  break-normal mt-[0.5rem]">I am the creator of Andromeda, the imagineer of a revolutionary concept and production line. The mastermind behind the concept art, and the formulator of the magical balance of elements.</p>
                         <div className="w-full bg-gray-300 h-[1px]"></div>
                         <div className='flex flex-row justify-start w-full items-baseline'>
-                            <p className="h-auto text-2xl font-semibold leading-loose font-Urbanist mr-4">$91,667 </p>
+                            <p className="h-auto text-xl font-semibold leading-loose font-Urbanist mr-4">$93,564</p>
                             <p className="h-auto text-sm leading-tight text-gray-500 font-Urbanist">total raised</p>
                         </div>
-                        <button className="mx-auto text-sm leading-snug bg-brand w-[10.88rem] h-7 border rounded text-white mt-[50.38rem]" onClick={() => { handleOpenPayNowDialogChange(process.env.SMART_CONTRACT_ADDRESS_GRANTS) }}>Pay now</button>
+                        <button className="mx-auto text-sm leading-snug bg-brand w-[10.88rem] h-7 border rounded text-white mt-[50.38rem]">Pay now</button>
                     </div>
+                   
                 </div>
             </section>
 
