@@ -5,8 +5,8 @@ const bannerImage = require('static/hackathons-index-banner.png');
 
 export default function Hackathons() {
     return (
-        <div className='w-screen py-[4.06rem]'>
-            <section className='px-[1rem] lg:px-[8rem]'>
+        <div className='mx-auto w-[1190px] py-[4.06rem]'>
+            <section>
                 <div className='flex flex-col-reverse md:flex-row md:justify-between '>
                     <div className="w-auto">
                         <p className="xl:text-5xl lg:text-4xl sm:text-3xl font-semibold font-Poppins xl:leading-[4.06rem] text-brand-text-black">
@@ -24,7 +24,7 @@ export default function Hackathons() {
                 </div>
             </section>
 
-            <section className='mt-[7.19rem] px-[1rem] lg:px-[8rem]'>
+            <section className='mt-[7.19rem]'>
                 <HackahtonsTab />
             </section>
         </div>

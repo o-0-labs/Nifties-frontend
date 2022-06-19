@@ -38,7 +38,7 @@ function Detail() {
     const hackathon = data.data as Hackathon;
 
     return (
-        <div className='w-screen my-[2.06rem] px-[2.92rem] text-center'>
+        <div className='mx-auto w-[1190px] my-[2.06rem]'>
             <section title="Cover Section">
                 <div className='bg-gray-300 mx-[7.06rem] h-[21.63rem] flex flex-col justify-center relative'>
                     <img className="w-full h-full" src={bannerImage} />
