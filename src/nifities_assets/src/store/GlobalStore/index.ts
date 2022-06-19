@@ -17,7 +17,7 @@ export interface IUserInfo {
 
 
 class GlobalStore {
-  infoVisible = true
+  infoVisible = false
   confirmLoading = false
   userInfo: IUserInfo = getUserInfo()
   balance: number = 0
