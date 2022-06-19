@@ -34,7 +34,7 @@ class AccountListStore {
     }
 
     async toAuth() {
-        Axios.get('http://101.33.60.164/authorize_url', { headers: { Authorization: `Bearer ${getToken()}` } }).then((res) => {
+        Axios.get(`${process.env.API_HOST}/authorize_url`, { headers: { Authorization: `Bearer ${getToken()}` } }).then((res) => {
             //新打开一个页面（about:blank是打开浏览器空白页的命令）, _blank：打开一个新的窗口
             var newPage = window.open("about:blank", "_blank");
             //将后台传过来的html页面写到新打开的浏览器窗口中显示
