@@ -44,7 +44,7 @@ export default function Grant() {
                 </div>
             </section>
 
-            <section className='my-[7.19rem]'>
+            <section className='mt-[7.19rem]'>
                 <div className="flex flex-row justify-between w-auto">
                     <p className="text-3xl leading-10 text-left text-gray-900">Explore Grants</p>
                     <Link to={`/grants/create`}>

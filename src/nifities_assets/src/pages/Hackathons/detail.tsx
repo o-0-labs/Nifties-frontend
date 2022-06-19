@@ -39,16 +39,16 @@ function Detail() {
 
     return (
         <div className='mx-auto w-[1190px] my-[2.06rem]'>
-            <section title="Cover Section">
-                <div className='bg-gray-300 mx-[7.06rem] h-[21.63rem] flex flex-col justify-center relative'>
-                    <img className="w-full h-full" src={bannerImage} />
+            <section>
+                <div className='mx-[7.06rem] h-[21.63rem] flex flex-col justify-center relative'>
+                    <img className="w-full h-full rounded-sm" src={bannerImage} />
                     <div className="w-full h-full absolute text-center">
                         <img className="w-[12.19rem] h-auto bg-gray-100 mx-auto mt-[9rem] " src={hackathon.image} />
                     </div>
                 </div>
             </section>
 
-            <section title="Content Section">
+            <section>
                 <div className="mx-[7.06rem] relative -top-[1.38rem]">
 
                     <div className="mx-auto w-auto h-[11.69rem] bg-white border rounded-lg border-gray-300 text-left flex flex-row justify-between align-middle" >
