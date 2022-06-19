@@ -48,10 +48,12 @@ class GlobalStore {
     const idlFactory = ({ IDL }: any) => {
       return IDL.Service({ 'sign': IDL.Func([IDL.Nat64], [IDL.Text], ['query']) });
     };
+    const NNS_LEDGER = process.env.SMART_CONTRACT_ADDRESS_NNS_LEDGER
+    const ADDRESS_GRANTS = process.env.SMART_CONTRACT_ADDRESS_GRANTS
+    const plug = new PlugWallet([canisterIdConfig.loginCanisterId, canisterIdConfig.nftCanisterId, NNS_LEDGER, ADDRESS_GRANTS])
 
-    const plug = new PlugWallet([canisterIdConfig.loginCanisterId])
-    this.principalId = plug.principalId
     const plugActor = await plug.getActor(canisterIdConfig.loginCanisterId, idlFactory)
+    this.principalId = plug.principalId
     //调用合约方法
     let result = await plugActor.sign(65);
 

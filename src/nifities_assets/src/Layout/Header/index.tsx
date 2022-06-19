@@ -2,7 +2,7 @@
  * @Author: shenpeng 
  * @Date: 2022-06-13 22:34:43 
  * @Last Modified by: shenpeng
- * @Last Modified time: 2022-06-18 18:53:56
+ * @Last Modified time: 2022-06-19 14:42:17
  */
 import React, { useEffect, useState, Fragment } from 'react'
 import { Dropdown, Menu, Space, Button, Modal, Popover, message } from 'antd'
@@ -23,6 +23,9 @@ const grants = require('static/grants.png')
 const buff = require('static/buff.png')
 const logo = require('static/logo.png')
 const muse = require('static/muse.png')
+const discord = require('static/discord.png')
+const mission = require('static/mission.png')
+const about = require('static/about.png')
 
 const Header = () => {
     const [openPlug, setOpenPlug] = useState(false)
@@ -34,10 +37,10 @@ const Header = () => {
 
     const renderMenuItem = (title: string, des: string, icon: string) => {
         return <div className='dropmenu_item flex_left'>
-            {icon && <img src={icon} alt="" />}
+            {icon && <img className='menu_icon' src={icon} alt="" />}
             <a className='ml-8' href={`/#/${title}`}>
                 <div className='title'>{title}</div>
-                <div className='des'>{des}</div>
+                {des && <div className='des'>{des}</div>}
             </a>
         </div>
     }
@@ -46,18 +49,18 @@ const Header = () => {
         { label: renderMenuItem('Hackathons', 'Creat the coolest NFT projects', hackathons), key: 'Hackathons' },
         { label: renderMenuItem('Grants', 'Crowdfunding for open resources', grants), key: 'Grants' },
         { label: renderMenuItem('Agora', 'Post events such as whitelist, mint, etc', agora), key: 'Agora' },
-        { label: renderMenuItem('Buff', 'Buff', buff), key: 'Buff' },
-        { label: renderMenuItem('Muse', 'Muse', muse), key: 'Muse' },
+        { label: renderMenuItem('Buff', 'One-stop management of NFT projects', buff), key: 'Buff' },
+        { label: renderMenuItem('Muse', 'A custom NFT educational community', muse), key: 'Muse' },
     ]
 
     const communityItem = [
-        { label: renderMenuItem('Pona ', 'Pona', pona), key: 'Pona' },
-        { label: renderMenuItem('Discord', 'Discord', ''), key: 'Discord' },
+        { label: renderMenuItem('Pona ', 'Create the coolest NFT projects', pona), key: 'Pona' },
+        { label: renderMenuItem('Discord', 'Connect with us', discord), key: 'Discord' },
     ]
 
     const organizationItem = [
-        { label: renderMenuItem('About ', 'About', ''), key: 'About' },
-        { label: renderMenuItem('Mission', 'Mission', ''), key: 'Mission' },
+        { label: renderMenuItem('About ', '', mission), key: 'About' },
+        { label: renderMenuItem('Mission', '', about), key: 'Mission' },
     ]
 
     const login = async () => {
@@ -171,7 +174,7 @@ const Header = () => {
                     <img className='profile' src={GlobalStore.userInfo.profilePhoto} alt="logo" />
                     <span className='user_name'>{GlobalStore.userInfo.userName}</span>
                 </div>
-            </Fragment> : <Button type='primary' className='sign_btn' ghost onClick={() => setOpenPlug(true)}>sign in</Button>}
+            </Fragment> : <Button type='primary' className='sign_btn' onClick={() => setOpenPlug(true)}>sign in</Button>}
         </div>
         <Dropdown className='nav_more csp' overlayClassName="dropdown_nav" overlay={<Menu items={magicItem} />} arrow={true} placement="bottomRight">
             <MenuOutlined />

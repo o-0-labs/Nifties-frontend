@@ -5,9 +5,9 @@ import './index.scss'
 
 const InfoModal = () => {
 	const { GlobalStore } = useStore()
-	return <Modal width={620} className='infoModal' visible={GlobalStore.infoVisible} footer={null} onCancel={() => GlobalStore.setInfoVisible(false)}>
+	return <Modal width={620} className='infoModal' getContainer={false} visible={GlobalStore.infoVisible} footer={null} onCancel={() => GlobalStore.setInfoVisible(false)}>
 		<div>
-			<div className='title tc'>Welcome to Formfunction!</div>
+			<div className='title tc'>Welcome to Nifties!</div>
 			<div className='intro tc mb-18'>
 				To set up your account, you just need to choose a username and enter your email.
 				You can always edit this info later.
@@ -44,9 +44,11 @@ const InfoModal = () => {
 				>
 					<Input className='input' />
 				</Form.Item>
-				<Button className='submit_btn' type="primary" ghost size='large' htmlType="submit" loading={GlobalStore.confirmLoading}>
-					Explore
-				</Button>
+				<div className='tc'>
+					<Button type="primary" ghost size='large' htmlType="submit" loading={GlobalStore.confirmLoading}>
+						Explore
+					</Button>
+				</div>
 			</Form>
 		</div>
 	</Modal>
