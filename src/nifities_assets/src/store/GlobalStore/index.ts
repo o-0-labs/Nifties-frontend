@@ -47,17 +47,31 @@ class GlobalStore {
     const idlFactory = ({ IDL }: any) => {
       return IDL.Service({ 'sign': IDL.Func([IDL.Nat64], [IDL.Text], ['query']) });
     };
-    const NNS_LEDGER = process.env.SMART_CONTRACT_ADDRESS_NNS_LEDGER
-    const ADDRESS_GRANTS = process.env.SMART_CONTRACT_ADDRESS_GRANTS
-    const plug = new PlugWallet([canisterIdConfig.loginCanisterId, canisterIdConfig.nftCanisterId, NNS_LEDGER, ADDRESS_GRANTS])
-
-    const plugActor = await plug.getActor(canisterIdConfig.loginCanisterId, idlFactory)
-    sessionStorage.setItem('principalId', plug.principalId)
+    // const NNS_LEDGER = process.env.SMART_CONTRACT_ADDRESS_NNS_LEDGER
+    // const ADDRESS_GRANTS = process.env.SMART_CONTRACT_ADDRESS_GRANTS
+    const whitelist = [canisterIdConfig.loginCanisterId, canisterIdConfig.nftCanisterId]
+    // const plug = new PlugWallet([canisterIdConfig.loginCanisterId, canisterIdConfig.nftCanisterId, NNS_LEDGER, ADDRESS_GRANTS])
+    // const plugActor = await plug.getActor(canisterIdConfig.loginCanisterId, idlFactory)
+    //连接钱包
+    //@ts-ignore
+    await window.ic.plug.requestConnect({
+      whitelist,
+      timeout: 50000
+    });
+    //@ts-ignore
+    const principalId = await window.ic.plug.agent.getPrincipal();
+    sessionStorage.setItem('principalId', principalId)
+    //初始化actor
+    //@ts-ignore
+    const plugActor = await window.ic.plug.createActor({
+      canisterId: canisterIdConfig.loginCanisterId,
+      interfaceFactory: idlFactory,
+    });
     //调用合约方法
     let result = await plugActor.sign(65);
 
     const [err, res] = await to(GlobalService.login({
-      call_name: `${plug.principalId}`,
+      call_name: `${principalId}`,
       timestamp: 65,
       signature: result
     }) as Promise<IApiData>)
@@ -79,7 +93,6 @@ class GlobalStore {
       }))
       if (res.data.user_name) {
         message.success('Login Success')
-        window.location.reload()
         this.requestBalance()
       } else {
         this.infoVisible = true

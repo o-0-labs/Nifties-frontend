@@ -1,6 +1,6 @@
 import axios, { AxiosError, AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
 import { message } from 'antd';
-import { getToken } from './Auth';
+import { getToken, removeToken } from './Auth';
 export enum ECode {
     OPERATION_SUCCESS = 0, // "操作成功"
 }
@@ -25,6 +25,7 @@ const responseInterceptorError = (err: AxiosError) => {
                 // 401 没有token
                 // message.error(String(err.response.data) || 'token error');
                 message.error('Please login first')
+                removeToken()
                 break;
             case 500:
                 // 500 接口异常

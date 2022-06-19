@@ -2,12 +2,13 @@
  * @Author: shenpeng 
  * @Date: 2022-06-15 13:56:50 
  * @Last Modified by: shenpeng
- * @Last Modified time: 2022-06-16 23:03:24
+ * @Last Modified time: 2022-06-19 21:43:28
  */
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Button } from 'antd'
-import { useHistory } from "react-router-dom"
+import { useHistory, useLocation } from "react-router-dom"
 import { observer, useLocalStore } from '../store'
+import { parseQuery } from 'utils/Tools'
 import PublishModal from './PublishModal'
 
 const twitter = require('static/twitter.png')
@@ -20,7 +21,16 @@ const pinterest = require('static/pinterest.png')
 const AccountList = () => {
     const history = useHistory()
     const root = useLocalStore()
+    const location = useLocation()
     const { AccountListStore } = root
+    const params = parseQuery(location.search)
+    useEffect(() => {
+        if (params.auth === 'true') {
+            AccountListStore.createVisible = true
+        } else {
+            AccountListStore.createVisible = false
+        }
+    }, [])
     return <div className='account_list_wrap pt-[32px] px-[16px] mb-60 xl:max-w-screen-2xl xl:m-auto md:px-[32px] 2xl:px-[108px] xl:px-[68px] xl:pt-[65px]'>
         <Button type='default' className='back_btn' onClick={() => history.goBack()}><i className='iconfont icon-back_android fs-24 mr-[10px]' />Back</Button>
         <div className='flex flex-col justify-center items-center mt-[64px]'>

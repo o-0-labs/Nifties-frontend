@@ -22,7 +22,7 @@ const AuthPage = () => {
                 status={AccountListStore.authFlag ? "success" : 'error'}
                 title={AccountListStore.authFlag ? "Success" : 'Fail'}
                 subTitle={`Twitter authorized ${AccountListStore.authFlag ? "success" : 'fail '}`}
-                extra={<Button type="primary" onClick={() => history.push('/')}>Go Back</Button>} />}
+                extra={<Button type="primary" onClick={() => history.push(`/accountList?auth=${AccountListStore.authFlag}`)}>Go Back</Button>} />}
         </div>
     </Spin>
 }
