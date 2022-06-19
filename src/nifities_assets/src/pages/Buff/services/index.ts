@@ -23,10 +23,18 @@ class _BuffService {
     }
 
     /**
+     * 跳转授权页
+     * @returns 
+     */
+    authorizeUrl() {
+        return Axios.getInstance().post(`/authorize_url`) as Promise<IApiData>;
+    }
+
+    /**
      * 解除授权
      */
     removeTwitter() {
-        return Axios.getInstance().post(`/authorize_url`) as Promise<IApiData>;
+        return Axios.getInstance().post(`/remove_twitter`) as Promise<IApiData>;
     }
 
     /**

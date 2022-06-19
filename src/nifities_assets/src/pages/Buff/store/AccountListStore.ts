@@ -1,8 +1,6 @@
 import { makeAutoObservable } from "mobx";
 import { BuffService, IApiData, IAuthData } from "../services";
 import { to } from 'utils/Tools'
-import Axios from 'axios'
-import { getToken } from 'utils/Auth'
 import { message } from "antd";
 import dayjs from 'dayjs'
 
@@ -34,12 +32,13 @@ class AccountListStore {
     }
 
     async toAuth() {
-        Axios.get(`${process.env.API_HOST}/authorize_url`, { headers: { Authorization: `Bearer ${getToken()}` } }).then((res) => {
-            //新打开一个页面（about:blank是打开浏览器空白页的命令）, _blank：打开一个新的窗口
-            var newPage = window.open("about:blank", "_blank");
-            //将后台传过来的html页面写到新打开的浏览器窗口中显示
-            newPage.document.write(res.data);
-        })
+        const [err, res] = await to(BuffService.authorizeUrl() as Promise<IApiData>)
+        if (err) {
+            return
+        }
+        if (res && res.code === 0) {
+            window.open(res.data.authorize_url, "_blank");
+        }
     }
 
     async onCreate() {
