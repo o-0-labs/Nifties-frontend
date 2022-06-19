@@ -77,7 +77,13 @@ class AccountListStore {
 
     async getTwitterList() {
         this.loading = true
-        const [err, res] = await to(BuffService.getTimeline({ "max_results": 15, startTime: this.startTime }) as Promise<IApiData>)
+        const [err, res] = await to(BuffService.getTimeline({
+            "max_results": 15,
+            startTime: this.startTime,
+            "tweet.fields": "created_at",
+            "expansions": "author_id",
+            "user.fields": "created_at",
+        }) as Promise<IApiData>)
         if (err) {
             this.loading = false
             return
