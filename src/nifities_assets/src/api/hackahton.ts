@@ -29,6 +29,21 @@ export interface Hackathon {
   discord_url: string;
   content?: string;
   msg?: string;
+  join_flag: string;
+}
+
+/**
+ * 加入黑客松的数据接口声明
+ *
+ * @interface JoinHackahton
+ */
+export interface JoinHackahton{
+  user_id: string;
+  hackathon_id: string;
+  discord: string;
+  email:string;
+  sharing_email:string;
+  agree: string;
 }
 
 /**
@@ -85,4 +100,10 @@ export function fetchById(id: string): Promise<IApiData> {
     hackathon_id: id,
   };
   return Axios.getInstance().post(`/hackathon/detail`, { data: params }) as Promise<IApiData>;
+}
+
+
+
+export function join(params: JoinHackahton): Promise<IApiData> {
+  return Axios.getInstance().post(`/hackathon/join`, { data: params }) as Promise<IApiData>;
 }
