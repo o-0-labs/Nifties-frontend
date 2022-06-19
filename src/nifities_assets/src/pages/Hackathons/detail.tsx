@@ -23,7 +23,7 @@ function Detail() {
     const { status, error, data } = useQuery<IApiData, Error>(`hackathons/detail/${id}`, () => fetchById(id));
 
     if (status == "loading") {
-        return <div className='w-screen text-left'>Loading...</div>;
+        return <div className='mx-auto w-[1190px] my-[2.06rem] text-center'>Loading...</div>;
     }
 
     if (error) {
@@ -43,7 +43,7 @@ function Detail() {
                 <div className='bg-gray-300 mx-[7.06rem] h-[21.63rem] flex flex-col justify-center relative'>
                     <img className="w-full h-full" src={bannerImage} />
                     <div className="w-full h-full absolute text-center">
-                        <img className="w-[12.19] h-auto bg-gray-100 mx-auto mt-[3.63rem]" src={hackathon.image} />
+                        <img className="w-[12.19rem] h-auto bg-gray-100 mx-auto mt-[9rem] " src={hackathon.image} />
                     </div>
                 </div>
             </section>
@@ -52,11 +52,13 @@ function Detail() {
                 <div className="mx-[7.06rem] relative -top-[1.38rem]">
 
                     <div className="mx-auto w-auto h-[11.69rem] bg-white border rounded-lg border-gray-300 text-left flex flex-row justify-between align-middle" >
-                        <div className="inline-flex flex-col space-y-5 items-start justify-start ml-[3.38rem] my-auto" style={{ width: 701, height: 115, }}>
-                            <p className="text-5xl font-semibold leading-10 text-brand-black text-Poppins" style={{ width: 701, }}>{hackathon.title}</p>
-                            <p className="text-xl font-medium leading-loose text-brand text-Urbanist" style={{ width: 657.71, }}>{hackathon.date}</p>
+                        <div className="inline-flex flex-col space-y-5 items-start justify-start mx-[3.38rem] my-auto" style={{ width: 701, height: 140, }}>
+                            <div className=" h-[5rem] overflow-hidden ">
+                                <p className="text-4xl font-medium leading-10 text-brand-black text-Poppins break-normal">{hackathon.title}</p>
+                            </div>
+                            <p className="text-xl font-medium leading-loose text-brand text-Urbanist">{hackathon.date}</p>
                         </div>
-                        <div className="inline-flex flex-col items-center justify-center my-auto space-y-[0.88rem] w-auto  mr-[3.38rem]">
+                        <div className="inline-flex flex-col items-end justify-center my-auto space-y-[0.88rem] w-2/5 mx-[3.38rem]">
                             <a className="text-sm leading-snug text-brand w-[10.88rem] h-7 py-1 bg-white border rounded border-brand text-center" href={hackathon.discord_url} rel="external" title="Go to the Discroid channel" target="_blank">Join discord</a>
                             <button className="text-sm leading-snug bg-brand w-[10.88rem] h-7 py-1 border rounded text-white">Join now</button>
                         </div>
@@ -65,10 +67,10 @@ function Detail() {
 
                     <div className="mx-auto mt-[1.56rem] px-[3.38rem] py-[1.6rem] bg-white border rounded-lg border-gray-300">
                         <div className="text-left">
-                            <p className="text-2xl font-semibold leading-loose text-gray-500 font-Urbanist">Sponsored by</p>
-                            <div className="flex flex-row flex-wrap justify-start align-middle mt-[2.46rem]">
+                            <p className="text-2xl font-medium leading-loose text-gray-500 font-Urbanist">Sponsored by</p>
+                            <div className="flex flex-row flex-wrap justify-start align-middle mt-[1rem] space-y-[1rem] text-center">
                                 {hackathon.sponsored.split(',').map((url, index) => (
-                                    <img className="w-[8.75rem] h-[8.75rem] aspect-square" src={url} key={index} />
+                                    <img className=" m-auto" src={url} key={index} />
                                 ))}
                             </div>
                         </div>
