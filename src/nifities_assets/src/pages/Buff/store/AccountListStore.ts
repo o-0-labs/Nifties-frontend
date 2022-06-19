@@ -87,8 +87,7 @@ class AccountListStore {
             return
         }
         const [err, res] = await to(BuffService.getTimeline({
-            "max_results": 15,
-            startTime: this.startTime
+            "max_results": 15
         }) as Promise<IApiData>)
         if (err) {
             this.loading = false

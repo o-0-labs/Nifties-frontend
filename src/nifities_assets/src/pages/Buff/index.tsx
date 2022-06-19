@@ -2,7 +2,7 @@
  * @Author: shenpeng 
  * @Date: 2022-06-13 22:34:38 
  * @Last Modified by: shenpeng
- * @Last Modified time: 2022-06-19 22:59:51
+ * @Last Modified time: 2022-06-19 23:12:06
  */
 import React, { useEffect, useState } from 'react'
 import { Button, Timeline, Spin } from 'antd'
@@ -61,7 +61,7 @@ const Buff = observer(() => {
         if (AccountListStore.twitterList.length) {
             return <div className='ml-32 w-[24%]'>
                 <Timeline mode='left'>
-                    <Timeline.Item label={AccountListStore.startTime}>{AccountListStore.total} Tweets</Timeline.Item>
+                    <Timeline.Item label={dayjs(AccountListStore.twitterList[0].created_at).format('YYYY-MM-DD')}>{AccountListStore.total} Tweets</Timeline.Item>
                     {
                         AccountListStore.twitterList.map(item => {
                             return <Timeline.Item label="">
