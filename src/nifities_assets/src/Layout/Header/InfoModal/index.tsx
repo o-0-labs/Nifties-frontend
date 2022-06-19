@@ -44,7 +44,7 @@ const InfoModal = () => {
 				>
 					<Input className='input' />
 				</Form.Item>
-				<div className='tc'>
+				<div className='w-[100%] tc'>
 					<Button type="primary" ghost size='large' htmlType="submit" loading={GlobalStore.confirmLoading}>
 						Explore
 					</Button>
