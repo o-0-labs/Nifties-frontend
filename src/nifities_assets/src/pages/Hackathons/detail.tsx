@@ -59,7 +59,7 @@ function Detail() {
                             <p className="text-xl font-medium leading-loose text-brand text-Urbanist">{hackathon.date}</p>
                         </div>
                         <div className="inline-flex flex-col items-end justify-center my-auto space-y-[0.88rem] w-2/5 mx-[3.38rem]">
-                            <a className="text-sm leading-snug text-brand w-[10.88rem] h-7 py-1 bg-white border rounded border-brand text-center" href={hackathon.discord_url} rel="external" title="Go to the Discroid channel" target="_blank">Join discord</a>
+                            <a className={`text-sm leading-snug text-brand w-[10.88rem] h-7 py-1 bg-white border rounded border-brand text-center ${ hackathon.discord_url != null ? '' : 'hidden' }`} href={hackathon.discord_url} rel="external" title="Go to the Discroid channel" target="_blank">Join discord</a>
                             <button className="text-sm leading-snug bg-brand w-[10.88rem] h-7 py-1 border rounded text-white">Join now</button>
                         </div>
                     </div>
@@ -77,7 +77,8 @@ function Detail() {
                     </div>
 
                     <div className="mx-auto mt-[1.56rem] px-[3.38rem] py-[1.6rem] bg-white border rounded-lg border-gray-300 text-center">
-                        <div className="text-left px-[3.38]" dangerouslySetInnerHTML={{ __html: hackathon.content ? hackathon.content : '' }} />
+                        <img className="px-[3.38] m-auto" src={hackathon.image} />
+                        <div className="text-left px-[3.38] mt-[2rem]" dangerouslySetInnerHTML={{ __html: hackathon.content ? hackathon.content : '' }} />
                     </div>
                 </div>
             </section>
