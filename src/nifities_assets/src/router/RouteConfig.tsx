@@ -123,6 +123,14 @@ const routes = [
             loading: Loading
         }),
     },
+    {
+        isExact: true,
+        path: '/about',
+        component: Loadable({
+            loader: () => import('../pages/About'),
+            loading: Loading
+        }),
+    },
 ];
 
 export default routes;
