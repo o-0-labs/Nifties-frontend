@@ -49,7 +49,7 @@ export default function Agora() {
                             <img className=" absolute w-full bg-gray-300" src={cover0Image} alt="" />
                             <div className=''>
                                 <p className="h-auto w-auto text-sm font-bold leading-relaxed text-center text-brand font-Urbanist absolute top-[0.90rem] left-[0.96rem] bg-white px-[0.5rem] py-[0.5rem] rounded-sm">profit sharing</p>
-                                <div className="w-auto h-auto absolute bottom-[0.90rem] right-[0.96rem] flex flex-row justify-end front-Urbanist">
+                                <div className="w-auto h-auto absolute bottom-[1.2rem] right-[0.96rem] flex flex-row justify-end front-Urbanist">
                                     <img className="w-[1.5rem] aspect-square rounded-lg mr-4" src={viewsIconImage} />
                                     <p className="text-sm font-normal leading-relaxed text-white">11w</p>
                                     <img className="w-[1.5rem] aspect-square rounded-lg  ml-[0.98rem]  mr-4" src={likesIconImage} />
@@ -69,7 +69,7 @@ export default function Agora() {
                             <img className=" absolute w-full bg-gray-300" src={cover1Image} alt="" />
                             <div className=''>
                                 <p className="h-auto w-auto text-sm font-bold leading-relaxed text-center text-brand font-Urbanist absolute top-[0.90rem] left-[0.96rem] bg-white px-[0.5rem] py-[0.5rem] rounded-sm">reward</p>
-                                <div className="w-auto h-auto absolute bottom-[0.90rem] right-[0.96rem] flex flex-row justify-end front-Urbanist">
+                                <div className="w-auto h-auto absolute bottom-[1.2rem] right-[0.96rem] flex flex-row justify-end front-Urbanist">
                                     <img className="w-[1.5rem] aspect-square rounded-lg mr-4" src={viewsIconImage} />
                                     <p className="text-sm font-normal leading-relaxed text-white">9.1w</p>
                                     <img className="w-[1.5rem] aspect-square rounded-lg  ml-[0.98rem]  mr-4" src={likesIconImage} />
@@ -89,7 +89,7 @@ export default function Agora() {
                             <img className=" absolute w-full bg-gray-300" src={cover2Image} alt="" />
                             <div className=''>
                                 <p className="h-auto w-auto text-sm font-bold leading-relaxed text-center text-brand font-Urbanist absolute top-[0.90rem] left-[0.96rem] bg-white px-[0.5rem] py-[0.5rem] rounded-sm">free mint</p>
-                                <div className="w-auto h-auto absolute bottom-[0.90rem] right-[0.96rem] flex flex-row justify-end front-Urbanist">
+                                <div className="w-auto h-auto absolute bottom-[1.2rem] right-[0.96rem] flex flex-row justify-end front-Urbanist">
                                     <img className="w-[1.5rem] aspect-square rounded-lg mr-4" src={viewsIconImage} />
                                     <p className="text-sm font-normal leading-relaxed text-white">4w</p>
                                     <img className="w-[1.5rem] aspect-square rounded-lg  ml-[0.98rem]  mr-4" src={likesIconImage} />
@@ -109,7 +109,7 @@ export default function Agora() {
                             <img className=" absolute w-full bg-gray-300" src={cover3Image} alt="" />
                             <div className=''>
                                 <p className="h-auto w-auto text-sm font-bold leading-relaxed text-center text-brand font-Urbanist absolute top-[0.90rem] left-[0.96rem] bg-white px-[0.5rem] py-[0.5rem] rounded-sm">giveaways</p>
-                                <div className="w-auto h-auto absolute bottom-[0.90rem] right-[0.96rem] flex flex-row justify-end front-Urbanist">
+                                <div className="w-auto h-auto absolute bottom-[1.2rem] right-[0.96rem] flex flex-row justify-end front-Urbanist">
                                     <img className="w-[1.5rem] aspect-square rounded-lg mr-4" src={viewsIconImage} />
                                     <p className="text-sm font-normal leading-relaxed text-white">11w</p>
                                     <img className="w-[1.5rem] aspect-square rounded-lg  ml-[0.98rem]  mr-4" src={likesIconImage} />
@@ -129,7 +129,7 @@ export default function Agora() {
                             <img className=" absolute w-full bg-gray-300" src={cover4Image} alt="" />
                             <div className=''>
                                 <p className="h-auto w-auto text-sm font-bold leading-relaxed text-center text-brand font-Urbanist absolute top-[0.90rem] left-[0.96rem] bg-white px-[0.5rem] py-[0.5rem] rounded-sm">free mint</p>
-                                <div className="w-auto h-auto absolute bottom-[0.90rem] right-[0.96rem] flex flex-row justify-end front-Urbanist">
+                                <div className="w-auto h-auto absolute bottom-[1.2rem] right-[0.96rem] flex flex-row justify-end front-Urbanist">
                                     <img className="w-[1.5rem] aspect-square rounded-lg mr-4" src={viewsIconImage} />
                                     <p className="text-sm font-normal leading-relaxed text-white">4w</p>
                                     <img className="w-[1.5rem] aspect-square rounded-lg  ml-[0.98rem]  mr-4" src={likesIconImage} />
