@@ -4,39 +4,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 const Dotenv = require('dotenv-webpack');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
-function initCanisterEnv() {
-  let localCanisters, prodCanisters;
-  try {
-    localCanisters = require(path.resolve(
-      ".dfx",
-      "local",
-      "canister_ids.json"
-    ));
-  } catch (error) {
-    console.log("No local canister_ids.json found. Continuing production");
-  }
-  try {
-    prodCanisters = require(path.resolve("canister_ids.json"));
-  } catch (error) {
-    console.log("No production canister_ids.json found. Continuing with local");
-  }
-
-  const network =
-    process.env.DFX_NETWORK ||
-    (process.env.NODE_ENV === "production" ? "ic" : "local");
-
-  const canisterConfig = network === "local" ? localCanisters : prodCanisters;
-
-  return Object.entries(canisterConfig).reduce((prev, current) => {
-    const [canisterName, canisterDetails] = current;
-    prev[canisterName.toUpperCase() + "_CANISTER_ID"] =
-      canisterDetails[network];
-    return prev;
-  }, {});
-}
-const canisterEnvVariables = initCanisterEnv();
 
 const isDevelopment = process.env.NODE_ENV !== "production";
 
@@ -149,6 +117,21 @@ module.exports = {
             loader: 'less-loader',
             options: {
               lessOptions: {
+                modifyVars: {
+                  'primary-color': '#00BCC2', 
+                  'link-color': '#00BCC2', 
+                  'success-color': '#52c41a', 
+                  'warning-color': '#faad14', 
+                  'error-color': '#f5222d', 
+                  'font-size-base': '16px', 
+                  'heading-color': '#04091E',
+                  'text-color': 'rgba(0, 0, 0, 0.65)', 
+                  'text-color-secondary': 'rgba(10, 6, 6, 0.45)', 
+                  'disabled-color': 'rgba(0, 0, 0, 0.25)', 
+                  'border-radius-base': '2px', 
+                  'border-color-base': '#d9d9d9', 
+                  'box-shadow-base': '0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05)', 
+                },
                 javascriptEnabled: true,
               },
             }
@@ -186,7 +169,6 @@ module.exports = {
     }),
     new webpack.EnvironmentPlugin({
       NODE_ENV: "development",
-      ...canisterEnvVariables,
     }),
     new webpack.ProvidePlugin({
       Buffer: [require.resolve("buffer/"), "Buffer"],
@@ -197,19 +179,9 @@ module.exports = {
       path: envConfigPath, // 根据环境配置文件路径
       safe: false, // load .env.example (defaults to "false" which does not use dotenv-safe)
     }),
-    new BundleAnalyzerPlugin(),
   ],
   // proxy /api to port 8000 during development
   devServer: {
-    proxy: {
-      "/api": {
-        target: "http://localhost:8000",
-        changeOrigin: true,
-        pathRewrite: {
-          "^/api": "/api",
-        },
-      },
-    },
     hot: true,
     watchFiles: [path.resolve(__dirname, "src", frontendDirectory)],
     liveReload: true,
