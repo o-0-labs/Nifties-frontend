@@ -79,7 +79,6 @@ class GlobalStore {
       }))
       if (res.data.user_name) {
         message.success('Login Success')
-        window.location.reload()
         this.requestBalance()
       } else {
         this.infoVisible = true
