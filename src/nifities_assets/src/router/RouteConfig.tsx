@@ -115,6 +115,14 @@ const routes = [
             loading: Loading
         }),
     },
+    {
+        isExact: true,
+        path: '/mission',
+        component: Loadable({
+            loader: () => import('../pages/Mission'),
+            loading: Loading
+        }),
+    },
 ];
 
 export default routes;

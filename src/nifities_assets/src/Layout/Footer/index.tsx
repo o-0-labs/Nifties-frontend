@@ -25,7 +25,7 @@ const Footer = () => {
             <div className='flex_column footer_menu_list'>
                 <h5 className='footer_menu_title'>Organization</h5>
                 <a className='footer_menu_item' href="">About</a>
-                <a className='footer_menu_item' href="">Mission</a>
+                <a className='footer_menu_item' href="/#/mission">Mission</a>
             </div>
             <div className='flex_column footer_menu_list'>
                 <h5 className='footer_menu_title'>Legal</h5>
