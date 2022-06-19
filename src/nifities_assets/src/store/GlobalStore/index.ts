@@ -2,7 +2,7 @@ import { makeAutoObservable } from "mobx";
 import { GlobalService, IApiData } from 'api/global';
 import { message } from "antd";
 import { to } from 'utils/Tools'
-import { getUserInfo } from "utils/Auth";
+import { getUserInfo, getPrincipalId } from "utils/Auth";
 import PlugWallet from "utils/PlugWallet";
 
 const canisterIdConfig = require('api/canisterIdConfig.json');
@@ -21,7 +21,6 @@ class GlobalStore {
   confirmLoading = false
   userInfo: IUserInfo = getUserInfo()
   balance: number = 0
-  principalId = ''
   constructor() {
     makeAutoObservable(this, {}, { autoBind: true });
   }
@@ -53,7 +52,7 @@ class GlobalStore {
     const plug = new PlugWallet([canisterIdConfig.loginCanisterId, canisterIdConfig.nftCanisterId, NNS_LEDGER, ADDRESS_GRANTS])
 
     const plugActor = await plug.getActor(canisterIdConfig.loginCanisterId, idlFactory)
-    this.principalId = plug.principalId
+    sessionStorage.setItem('principalId', plug.principalId)
     //调用合约方法
     let result = await plugActor.sign(65);
 
@@ -96,7 +95,11 @@ class GlobalStore {
   async requestBalance() {
     try {
       // @ts-ignore
-      const result = await window.ic?.plug?.requestBalance();
+      if (!window.ic.plug) {
+        return
+      }
+      // @ts-ignore
+      const result = await window.ic.plug.requestBalance();
       console.log(result)
       this.balance = result[0]?.amount
       return Promise.resolve(result[0]?.amount)
@@ -111,7 +114,7 @@ class GlobalStore {
       user_name: values.username,
       email: values.email,
       user_id: this.userInfo.userId,
-      call_name: `${this.principalId}`,
+      call_name: `${getPrincipalId()}`,
       profile_photo: 'https://www.datocms-assets.com/73647/1653631343-nft.png'
     }) as Promise<IApiData>)
     this.confirmLoading = false

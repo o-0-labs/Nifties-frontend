@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Result, Button, Spin } from 'antd'
-import { useLocation, useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import { parseQuery } from 'utils/Tools'
 import { observer, useLocalStore } from '../store'
 
@@ -8,8 +8,7 @@ const AuthPage = () => {
     const root = useLocalStore()
     const { AccountListStore } = root
     const [loading, setLoading] = useState(true)
-    const location = useLocation()
-    const params = parseQuery(location.search)
+    const params = parseQuery(window.location.search)
     const history = useHistory()
     useEffect(() => {
         AccountListStore.authTwitter({ ...params }).finally(() => {
@@ -23,7 +22,7 @@ const AuthPage = () => {
                 status={AccountListStore.authFlag ? "success" : 'error'}
                 title={AccountListStore.authFlag ? "Success" : 'Fail'}
                 subTitle={`Twitter authorized ${AccountListStore.authFlag ? "success" : 'fail '}`}
-                extra={<Button type="primary" onClick={() => history.goBack()}>Go Back</Button>} />}
+                extra={<Button type="primary" onClick={() => history.push('/')}>Go Back</Button>} />}
         </div>
     </Spin>
 }

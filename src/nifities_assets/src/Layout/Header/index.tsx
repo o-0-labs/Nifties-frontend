@@ -2,7 +2,7 @@
  * @Author: shenpeng 
  * @Date: 2022-06-13 22:34:43 
  * @Last Modified by: shenpeng
- * @Last Modified time: 2022-06-19 16:31:38
+ * @Last Modified time: 2022-06-19 18:19:22
  */
 import React, { useEffect, useState, Fragment } from 'react'
 import { Dropdown, Menu, Space, Button, Modal, Popover, message } from 'antd'
@@ -10,7 +10,7 @@ import { DownOutlined, MenuOutlined } from '@ant-design/icons';
 import InfoModal from './InfoModal'
 import { useStore, observer } from 'store/utils';
 import { useHistory } from "react-router-dom"
-import { removeToken } from 'utils/Auth'
+import { removeToken, getPrincipalId } from 'utils/Auth'
 
 import './index.scss'
 
@@ -149,7 +149,7 @@ const Header = () => {
     }
 
     const copyAddress = () => {
-        const text = `${GlobalStore.principalId}`
+        const text = getPrincipalId()
         if (navigator.clipboard) {
             // clipboard api 复制
             navigator.clipboard.writeText(text).then(() => {
@@ -188,7 +188,7 @@ const Header = () => {
         <div className='plug_menu_title'>Connected wallet</div>
         <div className='flex_left mb-10'>
             <img src={plugIcon} />
-            <div className='ml-14 fs-12 plug_address wes_1'>{GlobalStore.principalId}</div>
+            <div className='ml-14 fs-12 plug_address wes_1'>{getPrincipalId()}</div>
         </div>
         <div className='flex_left'>
             <img className='plug_icon' src={dfinity} />
