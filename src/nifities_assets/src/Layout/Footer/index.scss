@@ -55,6 +55,7 @@
 @media only screen and (max-width: 768px) {
     .footer {
         padding: 20px;
+        height: 500px;
 
         .footer_menu_title {
             font-size: 18px;
@@ -62,6 +63,10 @@
 
         .footer_menu_item {
             font-size: 14px;
+        }
+
+        .logo_wrap {
+            flex: 0 0 100%;
         }
     }
 }

@@ -15,7 +15,7 @@ const Home = () => {
 				<Header />
 				<div className='sloga_wrap w-[460px] sm:w-[600px] xl:w-[742px]'>
 					<h2 className='font-Poppins sloga text-[48px] sm:text-[60px] lg:text-[72px]'>Explore, Collect, and
-						Manege NFTs</h2>
+						Manage NFTs</h2>
 					<h3 className='sub_title font-Urbanist'>On the world's Best NFT incubator</h3>
 				</div>
 				<img className='bg_text w-[320px] bottom-10 lg:w-[862px] lg:bottom-[216px]' src={nft} alt="nft" />

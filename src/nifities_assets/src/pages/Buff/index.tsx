@@ -2,13 +2,14 @@
  * @Author: shenpeng 
  * @Date: 2022-06-13 22:34:38 
  * @Last Modified by: shenpeng
- * @Last Modified time: 2022-06-18 18:56:02
+ * @Last Modified time: 2022-06-19 16:48:33
  */
 import React, { useEffect, useState } from 'react'
 import { Button, Timeline, Spin } from 'antd'
 import { useHistory } from "react-router-dom"
 import { observer, useLocalStore } from './store'
 import { Provider } from 'mobx-react'
+import NFEmpty from 'components/NFEmpty'
 
 const message = require('static/message.png')
 const eye = require('static/eye.png')
@@ -28,54 +29,58 @@ const Buff = observer(() => {
         if (active === 1) {
             NFTStore.getNftList()
         }
-        if (active === 2) {
+        if (active === 2 && AccountListStore.authFlag) {
             AccountListStore.getTwitterList()
         }
     }, [active])
 
     const NFTContent = () => {
-        return <div className='flex_wrap flex_c lg:justify-start lg:ml-4'>
-            {NFTStore.nftList.map(item => {
-                return <div key={item.tokenId} className='border border-bold rounded-lg overflow-hidden ml-[22px] mb-[22px] w-[310px]'>
-                    <img className='w-[310px] h-[310px] object-cover block' src={item.url} alt="" />
-                    <div className='px-[20px] py-[18px]'>
-                        <p className='text-[20px] text-black'>{item.name}</p>
-                        {/* <p className='text-[12px]'>DistroKid</p> */}
+        if (NFTStore.nftList.length) {
+            return <div className='flex_wrap flex_c lg:justify-start lg:ml-4'>
+                {NFTStore.nftList.map(item => {
+                    return <div key={item.tokenId} className='border border-bold rounded-lg overflow-hidden ml-[22px] mb-[22px] w-[310px]'>
+                        <img className='w-[310px] h-[310px] object-cover block' src={item.url} alt="" />
+                        <div className='px-[20px] py-[18px]'>
+                            <p className='text-[20px] text-black'>{item.name}</p>
+                            {/* <p className='text-[12px]'>DistroKid</p> */}
+                        </div>
                     </div>
-                </div>
-            })}
-        </div>
+                })}
+            </div>
+        }
+        return <NFEmpty />
     }
     const renderTimeline = () => {
-        return <div className='ml-32 w-[24%]'>
-            <Timeline mode='left'>
-                <Timeline.Item label={AccountListStore.startTime}>{AccountListStore.total} Tweets</Timeline.Item>
-                {
-                    AccountListStore.twitterList.map(item => {
-                        return <Timeline.Item label="">
-                            <div className='px-[14px] py-[10px] hover:bg-[#D9D9D9] flex_sb' key={item.id}>
-                                <img src="http://iph.href.lu/120x90" alt="" />
-                                <div className='ml-16 flex flex-col justify-between h-[90px]'>
-                                    <div className='w-[442px]'>
-                                        <p className='fs-20 fw-b text-[#04091E]'>{item.text} </p>
-                                        <p className='fs-14 text-[#898A8C]'>11:00:03·Twitter </p>
-                                    </div>
-                                    <div className='flex_sb'>
-                                        <div className='flex_1 flex_left text-[#00BCC2]'><img className="mr-[6px]" src={eye} alt="" />1.5w</div>
-                                        <div className='flex_1 flex_left text-[#00BCC2]'><img className="mr-[6px]" src={message} alt="" />199</div>
-                                        <div className='flex_1 flex_left text-[#00BCC2]'><img className="mr-[6px]" src={repeat} alt="" />199</div>
-                                        <div className='flex_1 flex_left text-[#00BCC2]'><img className="mr-[6px]" src={heart} alt="" />199</div>
-                                        <div className='flex_1 flex_left text-[#00BCC2]'><img className="mr-[6px]" src={logout} alt="" />199</div>
+        if (AccountListStore.twitterList.length) {
+            return <div className='ml-32 w-[24%]'>
+                <Timeline mode='left'>
+                    <Timeline.Item label={AccountListStore.startTime}>{AccountListStore.total} Tweets</Timeline.Item>
+                    {
+                        AccountListStore.twitterList.map(item => {
+                            return <Timeline.Item label="">
+                                <div className='px-[14px] py-[10px] hover:bg-[#D9D9D9] flex_sb' key={item.id}>
+                                    <img src="http://iph.href.lu/120x90" alt="" />
+                                    <div className='ml-16 flex flex-col justify-between h-[90px]'>
+                                        <div className='w-[442px]'>
+                                            <p className='fs-20 fw-b text-[#04091E]'>{item.text} </p>
+                                            <p className='fs-14 text-[#898A8C]'>11:00:03·Twitter </p>
+                                        </div>
+                                        <div className='flex_sb'>
+                                            <div className='flex_1 flex_left text-[#00BCC2]'><img className="mr-[6px]" src={eye} alt="" />1.5w</div>
+                                            <div className='flex_1 flex_left text-[#00BCC2]'><img className="mr-[6px]" src={message} alt="" />199</div>
+                                            <div className='flex_1 flex_left text-[#00BCC2]'><img className="mr-[6px]" src={repeat} alt="" />199</div>
+                                            <div className='flex_1 flex_left text-[#00BCC2]'><img className="mr-[6px]" src={heart} alt="" />199</div>
+                                            <div className='flex_1 flex_left text-[#00BCC2]'><img className="mr-[6px]" src={logout} alt="" />199</div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </Timeline.Item>
-                    })
-                }
-
-
-            </Timeline>
-        </div>
+                            </Timeline.Item>
+                        })
+                    }
+                </Timeline>
+            </div>
+        }
+        return <NFEmpty />
     }
     return <Spin spinning={AccountListStore.loading || NFTStore.loading} delay={300}>
         <div className='pt-[32px] px-[16px] mb-60 xl:max-w-screen-2xl xl:m-auto md:px-[32px] 2xl:px-[108px] xl:px-[68px] xl:pt-[65px]'>

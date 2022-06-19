@@ -26,7 +26,6 @@ class NFTStore {
                 const obj = { tokeId: item.tokeId, name: '', url: '' }
                 item.metadata_desc.forEach((val: any) => {
                     val.key_val_data.forEach((keyVal: any) => {
-                        console.log(keyVal)
                         if (keyVal[0] === 'name') {
                             obj.name = keyVal[1].TextContent
                         }
@@ -44,7 +43,6 @@ class NFTStore {
     }
 
     async onSubmit(values: any) {
-        console.log(values)
         const imgUrl = values.image.file.response.data.url
         const plug = new PlugWallet([canisterIdConfig.nftCanisterId]);
         const plugActor = await plug.getActor(canisterIdConfig.nftCanisterId, idlFactory);

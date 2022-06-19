@@ -1,10 +1,12 @@
 import React from 'react'
 import './index.scss'
+import { useHistory } from 'react-router-dom'
 const logo = require('static/logo.png')
 
 const Footer = () => {
+    const history = useHistory()
     return <footer className='footer flex_left flex_wrap'>
-        <div className='logo_wrap flex_left'>
+        <div className='logo_wrap flex_left csp' onClick={() => history.push('/')}>
             <img className='login' src={logo} alt="logo" />
             <p className='logo_title'>Nifties</p>
         </div>

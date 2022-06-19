@@ -2,7 +2,7 @@
  * @Author: shenpeng 
  * @Date: 2022-06-13 22:34:43 
  * @Last Modified by: shenpeng
- * @Last Modified time: 2022-06-19 14:42:17
+ * @Last Modified time: 2022-06-19 16:31:38
  */
 import React, { useEffect, useState, Fragment } from 'react'
 import { Dropdown, Menu, Space, Button, Modal, Popover, message } from 'antd'
@@ -61,6 +61,71 @@ const Header = () => {
     const organizationItem = [
         { label: renderMenuItem('About ', '', mission), key: 'About' },
         { label: renderMenuItem('Mission', '', about), key: 'Mission' },
+    ]
+
+    const mobileMenu = [
+        {
+            label: 'Magic', key: 'Magic',
+            children: [
+                {
+                    label: (<a href={`/#/Hackathons`}>
+                        <div className='title'>Hackathons</div>
+                    </a>),
+                    key: 'Hackathons'
+                },
+                {
+                    label: (<a href={`/#/Grants`}>
+                        <div className='title'>Grants</div>
+                    </a>), key: 'Grants'
+                },
+                {
+                    label: (<a href={`/#/Agora`}>
+                        <div className='title'>Agora</div>
+                    </a>), key: 'Agora'
+                },
+                {
+                    label: (<a href={`/#/Buff`}>
+                        <div className='title'>Buff</div>
+                    </a>), key: 'Buff'
+                },
+                {
+                    label: (<a href={`/#/Muse`}>
+                        <div className='title'>Muse</div>
+                    </a>), key: 'Muse'
+                },
+            ],
+        },
+        {
+            label: 'Community', key: 'Community',
+            children: [
+                {
+                    label: (<a href={`/#/Pona`}>
+                        <div className='title'>Pona</div>
+                    </a>), key: 'Pona'
+                },
+                {
+                    label: (<a href={`/#/Discord`}>
+                        <div className='title'>Discord</div>
+                    </a>), key: 'Discord'
+                },
+            ],
+        },
+        {
+            label: 'Organization', key: 'Organization',
+            children: [
+                {
+                    label: (<a href={`/#/About`}>
+                        <div className='title'>About</div>
+                    </a>), key: 'About'
+                },
+                {
+                    label: (<a href={`/#/Mission`}>
+                        <div className='title'>Mission</div>
+                    </a>), key: 'Mission'
+                },
+            ],
+
+        }
     ]
 
     const login = async () => {
@@ -176,7 +241,7 @@ const Header = () => {
                 </div>
             </Fragment> : <Button type='primary' className='sign_btn' onClick={() => setOpenPlug(true)}>sign in</Button>}
         </div>
-        <Dropdown className='nav_more csp' overlayClassName="dropdown_nav" overlay={<Menu items={magicItem} />} arrow={true} placement="bottomRight">
+        <Dropdown className='nav_more csp' overlayClassName="dropdown_nav" overlay={<Menu items={mobileMenu} />} arrow={true} placement="bottomRight">
             <MenuOutlined />
         </Dropdown>
         <Modal className='tips_modal' width={168} getContainer={false} visible={openPlug} footer={null} closable={false} onCancel={() => setOpenPlug(false)}>

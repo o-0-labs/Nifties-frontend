@@ -19,15 +19,16 @@ const responseInterceptorError = (err: AxiosError) => {
         switch (err.response.status) {
             case 400:
                 // 401 没有token
-                message.error(String(err.response.data) || '参数错误');
+                message.error(String(err.response.data) || 'arguments error');
                 break;
             case 401:
                 // 401 没有token
-                message.error(String(err.response.data) || '权限错误');
+                // message.error(String(err.response.data) || 'token error');
+                message.error('Please login first')
                 break;
             case 500:
                 // 500 接口异常
-                message.error(String(err.response.data) || '异常');
+                message.error(String(err.response.data) || 'exception');
                 break;
             default:
                 break;
