@@ -4,6 +4,7 @@ import { Hackathon, fetchAllByStatus, IApiData } from '../../../api/hackahton';
 import PageError from 'components/500';
 import { Link } from "react-router-dom";
 import JoinNowDialog from './dialog';
+import { handleBreakpoints } from '@mui/system';
 
 
 
@@ -20,10 +21,18 @@ export default function HackahtonsList(props: {
         setOpenJoinNowDialog(openJoinNowDialog ? false : true);
     };
 
+    // hackathon_id
+    const [hackathonId, setHackathonId] = React.useState('');
+
+    const handleSetHackathonId = (id: string) => {
+        setHackathonId(id);
+    }
+
+
     return (
         <QueryClientProvider client={queryClient}>
-            <ListComponent status={props.status} onOpenJoinNowDialogChange={handleOpenJoinNowDialogChange} />
-            <JoinNowDialog open={openJoinNowDialog} onOpenJoinNowDialogChange={handleOpenJoinNowDialogChange} />
+            <ListComponent status={props.status} onOpenJoinNowDialogChange={handleOpenJoinNowDialogChange} setHackathonId={handleSetHackathonId} />
+            <JoinNowDialog open={openJoinNowDialog} onOpenJoinNowDialogChange={handleOpenJoinNowDialogChange} id={hackathonId} />
         </QueryClientProvider>
     );
 };
@@ -37,7 +46,8 @@ export default function HackahtonsList(props: {
 function ListComponent(props: {
     children?: React.ReactNode;
     status: string;
-    onOpenJoinNowDialogChange: any;
+    onOpenJoinNowDialogChange: () => void;
+    setHackathonId: (id: string) => void;
 }) {
 
     // 获取黑客松活动列表数据
@@ -56,11 +66,11 @@ function ListComponent(props: {
         return <PageError />;
     }
 
-    const Hackathons = data.data.records as Hackathon[];
+    const hackathons = data.data.records as Hackathon[];
 
     return (
         <div>
-            {Hackathons.map(({ hackathon_id, title, date, description, sponsored, status, image, discord_url }, index) => (
+            {hackathons.map(({ hackathon_id, title, date, description, sponsored, status, image, discord_url, join_flag }, index) => (
                 <div className="inline-flex flex-col space-y-[0.5rem] items-start justify-end px-5 pt-7 bg-white border rounded-lg border-grey-300 font-Urbanist" style={{ width: 370, height: 605, }} key={hackathon_id}>
                     <Link to={`/hackathons/${hackathon_id}`} className=" contents">
                         <img className="w-full h-1/2 bg-gray-300 rounded-lg" src={image} />
@@ -76,10 +86,17 @@ function ListComponent(props: {
                     </Link>
                     <div className="inline-flex flex-row items-center justify-between py-[1rem]">
                         <a className="text-sm leading-snug text-brand w-[9.88rem] h-[1.75rem] py-1 bg-white border rounded border-brand mr-[0.81rem] text-center" href={discord_url} rel="external" title="Go to the Discroid channel" target="_blank">Join discord</a>
-                        <button className="text-sm leading-snug bg-brand  w-[9.88rem] h-[1.75rem] py-1 border rounded text-white" onClick={props.onOpenJoinNowDialogChange}>Join now</button>
+
+                        {join_flag === null ? (
+                            < button className="text-sm leading-snug bg-brand  w-[9.88rem] h-[1.75rem] py-1 border rounded text-white" onClick={() => { props.onOpenJoinNowDialogChange(); props.setHackathonId(hackathon_id) }}>Join now</button>
+                        ) : (
+                            < button className="text-sm leading-snug bg-brand  w-[9.88rem] h-[1.75rem] py-1 border rounded text-white disabled" >Joined</button>
+                        )
+                        }
                     </div>
                 </div>
-            ))}
-        </div>
+            ))
+            }
+        </div >
     );
 };
