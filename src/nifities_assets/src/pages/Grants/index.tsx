@@ -62,7 +62,7 @@ export default function Grant() {
                             <p className="h-auto text-xl font-semibold leading-loose font-Urbanist mr-4">$93,564</p>
                             <p className="h-auto text-sm leading-tight text-gray-500 font-Urbanist">total raised</p>
                         </div>
-                        <button className="mx-auto text-sm leading-snug bg-brand w-[10.88rem] h-7 border rounded text-white mt-[50.38rem]">Pay now</button>
+                        <button className="mx-auto text-sm leading-snug bg-brand w-[10.88rem] h-7 border rounded text-white mt-[50.38rem]" onClick={() => { handleOpenPayNowDialogChange(process.env.SMART_CONTRACT_ADDRESS_GRANTS) }}>Pay now</button>
                     </div>
                     <div className="inline-flex flex-col space-y-[0.5rem] items-start justify-start px-5 pt-7 bg-white border rounded-lg border-grey-300 font-Urbanist" style={{ width: 370, height: 605, }}>
                         <img className="w-full h-[16.88rem] bg-gray-300 rounded-lg" src={cover1Image} />
@@ -74,7 +74,7 @@ export default function Grant() {
                             <p className="h-auto text-xl font-semibold leading-loose font-Urbanist mr-4">$85,617</p>
                             <p className="h-auto text-sm leading-tight text-gray-500 font-Urbanist">total raised</p>
                         </div>
-                        <button className="mx-auto text-sm leading-snug bg-brand w-[10.88rem] h-7 border rounded text-white mt-[50.38rem]">Pay now</button>
+                        <button className="mx-auto text-sm leading-snug bg-brand w-[10.88rem] h-7 border rounded text-white mt-[50.38rem]" onClick={() => { handleOpenPayNowDialogChange(process.env.SMART_CONTRACT_ADDRESS_GRANTS) }}>Pay now</button>
                     </div>
                     <div className="inline-flex flex-col space-y-[0.5rem] items-start justify-start px-5 pt-7 bg-white border rounded-lg border-grey-300 font-Urbanist" style={{ width: 370, height: 605, }}>
                         <img className="w-full h-[16.88rem] bg-gray-300 rounded-lg" src={cover2Image} />
@@ -86,7 +86,7 @@ export default function Grant() {
                             <p className="h-auto text-xl font-semibold leading-loose font-Urbanist mr-4">$91,667 </p>
                             <p className="h-auto text-sm leading-tight text-gray-500 font-Urbanist">total raised</p>
                         </div>
-                        <button className="mx-auto text-sm leading-snug bg-brand w-[10.88rem] h-7 border rounded text-white mt-[50.38rem]">Pay now</button>
+                        <button className="mx-auto text-sm leading-snug bg-brand w-[10.88rem] h-7 border rounded text-white mt-[50.38rem]" onClick={() => { handleOpenPayNowDialogChange(process.env.SMART_CONTRACT_ADDRESS_GRANTS) }}>Pay now</button>
                     </div>
                     <div className="inline-flex flex-col space-y-[0.5rem] items-start justify-start px-5 pt-7 bg-white border rounded-lg border-grey-300 font-Urbanist" style={{ width: 370, height: 605, }}>
                         <img className="w-full h-[16.88rem] bg-gray-300 rounded-lg" src={cover3Image} />
@@ -98,7 +98,7 @@ export default function Grant() {
                             <p className="h-auto text-xl font-semibold leading-loose font-Urbanist mr-4">$93,564</p>
                             <p className="h-auto text-sm leading-tight text-gray-500 font-Urbanist">total raised</p>
                         </div>
-                        <button className="mx-auto text-sm leading-snug bg-brand w-[10.88rem] h-7 border rounded text-white mt-[50.38rem]">Pay now</button>
+                        <button className="mx-auto text-sm leading-snug bg-brand w-[10.88rem] h-7 border rounded text-white mt-[50.38rem]" onClick={() => { handleOpenPayNowDialogChange(process.env.SMART_CONTRACT_ADDRESS_GRANTS) }}>Pay now</button>
                     </div>
                    
                 </div>

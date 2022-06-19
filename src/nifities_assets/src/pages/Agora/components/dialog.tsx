@@ -5,6 +5,7 @@ import InputLabel from '@mui/material/InputLabel';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import IconButton from '@mui/material/IconButton';
 
+const closeIcon = require('static/close.png');
 
 export default function CreateAgoraDialog(props: {
     children?: React.ReactNode;
@@ -19,7 +20,7 @@ export default function CreateAgoraDialog(props: {
                 <div className='w-full text-center text-2xl font-semibold leading-loose relative'>
                     Create an event
                     <IconButton color="primary" aria-label="add to shopping cart" onClick={onOpenJoinNowDialogChange} className=' absolute top-[0.6rem] right-[0rem] w-[2rem] h-[2rem]'>
-                        <img src="/close.svg" alt="Close Dialog" />
+                        <img src={closeIcon} alt="Close Dialog" />
                     </IconButton>
                 </div>
                 <FormControl className=" w-full mt-[1.8rem] relative">

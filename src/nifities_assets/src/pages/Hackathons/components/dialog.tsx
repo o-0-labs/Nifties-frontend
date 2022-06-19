@@ -8,6 +8,7 @@ import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import IconButton from '@mui/material/IconButton';
 
+const closeIcon = require('static/close.png');
 
 export default function JoinNowDialog(props: {
     children?: React.ReactNode;
@@ -22,7 +23,7 @@ export default function JoinNowDialog(props: {
                 <div className='w-full text-center text-2xl font-semibold leading-loose relative'>
                     Welcom&nbsp;&nbsp;！
                     <IconButton color="primary" aria-label="add to shopping cart" onClick={onOpenJoinNowDialogChange} className=' absolute top-[0.6rem] right-[0rem] w-[2rem] h-[2rem]'>
-                        <img src="/close.svg" alt="Close Dialog" />
+                        <img src={closeIcon} alt="Close Dialog" />
                     </IconButton>
                 </div>
                 <FormControl className=" w-full mt-[1.5rem] relative">
