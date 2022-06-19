@@ -2,7 +2,7 @@
  * @Author: shenpeng 
  * @Date: 2022-06-13 22:34:38 
  * @Last Modified by: shenpeng
- * @Last Modified time: 2022-06-19 16:48:33
+ * @Last Modified time: 2022-06-19 19:34:28
  */
 import React, { useEffect, useState } from 'react'
 import { Button, Timeline, Spin } from 'antd'
@@ -26,13 +26,21 @@ const Buff = observer(() => {
     const { AccountListStore, NFTStore } = root
 
     useEffect(() => {
-        if (active === 1) {
+        AccountListStore.checkTwitter()
+        NFTStore.getNftList()
+    }, [])
+
+    const changeTab = (val: number) => {
+        setActive(val)
+        if (val === 1) {
             NFTStore.getNftList()
         }
-        if (active === 2 && AccountListStore.authFlag) {
-            AccountListStore.getTwitterList()
+        if (val === 2) {
+            if (AccountListStore.authFlag) {
+                AccountListStore.getTwitterList()
+            }
         }
-    }, [active])
+    }
 
     const NFTContent = () => {
         if (NFTStore.nftList.length) {
@@ -102,15 +110,15 @@ const Buff = observer(() => {
                 </p>
                 <div className='flex flex-col items-start justify-center lg:flex-row lg:justify-start mt-30'>
                     <div className='w-[100%] flex flex-row lg:w-[306px]  lg:flex-col'>
-                        <div className={`flex_left csp h-16 border-bold border rounded-lg px-[12px] lg:px-[16px] mb-16 fs-14 lg:fs-16 ${active === 1 ? 'bg-green-50 shadow-lg border-0 border-none' : ''}`} onClick={() => setActive(1)} >
+                        <div className={`flex_left csp h-16 border-bold border rounded-lg px-[12px] lg:px-[16px] mb-16 fs-14 lg:fs-16 ${active === 1 ? 'bg-green-50 shadow-lg border-0 border-none' : ''}`} onClick={() => changeTab(1)} >
                             <i className='iconfont icon-iconfontlayers1 mr-16 fs-24 hidden lg:block' />
                             NFT management
                         </div>
-                        <div className={`flex_left csp h-16 border-bold border rounded-lg px-[12px] lg:px-[16px] mb-16 fs-14 lg:fs-16 ${active === 2 ? 'bg-green-50 shadow-lg border-0 border-none' : ''}`} onClick={() => setActive(2)}>
+                        <div className={`flex_left csp h-16 border-bold border rounded-lg px-[12px] lg:px-[16px] mb-16 fs-14 lg:fs-16 ${active === 2 ? 'bg-green-50 shadow-lg border-0 border-none' : ''}`} onClick={() => changeTab(2)}>
                             <i className='iconfont icon-credit-card mr-16 fs-24 hidden lg:block' />
                             Content management
                         </div>
-                        <div className={`flex_left csp h-16 border-bold border rounded-lg px-[12px] lg:px-[16px] fs-14 lg:fs-16 ${active === 3 ? 'bg-green-50 shadow-lg border-0 border-none' : ''}`} onClick={() => setActive(3)}>
+                        <div className={`flex_left csp h-16 border-bold border rounded-lg px-[12px] lg:px-[16px] fs-14 lg:fs-16 ${active === 3 ? 'bg-green-50 shadow-lg border-0 border-none' : ''}`} onClick={() => changeTab(3)}>
                             <i className='iconfont icon-user mr-16 fs-24 hidden lg:block' />
                             Account management
                         </div>
@@ -132,7 +140,7 @@ const Buff = observer(() => {
                 </div>
             </div>
         </div>
-    </Spin>
+    </Spin >
 })
 
 const _Buff = (props: any) => {
