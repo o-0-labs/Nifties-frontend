@@ -16,6 +16,7 @@ class AccountListStore {
     total = 0
     startTime = `${dayjs().get('year')}-1-1`
     loading = false
+    photoUrl = ''
 
     constructor() {
         makeAutoObservable(this, {}, { autoBind: true });
@@ -24,11 +25,14 @@ class AccountListStore {
     async checkTwitter() {
         const [err, res] = await to(BuffService.checkTwitter() as Promise<IApiData>)
         if (err) {
+            this.loading = false
             return
         }
         if (res && res.code === 0) {
             this.authFlag = res.data.twitter_flag
+            return
         }
+        this.loading = false
     }
 
     async toAuth() {
@@ -77,20 +81,24 @@ class AccountListStore {
 
     async getTwitterList() {
         this.loading = true
+        await this.checkTwitter()
+        if (!this.authFlag) {
+            message.error('Please authorize')
+            return
+        }
         const [err, res] = await to(BuffService.getTimeline({
             "max_results": 15,
-            startTime: this.startTime,
-            "tweet.fields": "created_at",
-            "expansions": "author_id",
-            "user.fields": "created_at",
+            startTime: this.startTime
         }) as Promise<IApiData>)
         if (err) {
             this.loading = false
             return
         }
         if (res && res.code === 0) {
+            this.loading = false
             this.twitterList = res.data.data
             this.total = res.data.meta.result_count
+            this.photoUrl = res.data?.includes?.users[0]?.profile_image_url || ''
         }
         this.loading = false
     }
