@@ -22,7 +22,7 @@ const Footer = () => {
             <div className='flex_column footer_menu_list'>
                 <h5 className='footer_menu_title'>Community</h5>
                 <a className='footer_menu_item' href="/#/Pona">Pona</a>
-                <a className='footer_menu_item' href="https://discord.gg/GPVP2kxz">Discord</a>
+                <a className='footer_menu_item' target="_blank" href="https://discord.gg/GPVP2kxz">Discord</a>
             </div>
             <div className='flex_column footer_menu_list'>
                 <h5 className='footer_menu_title'>Organization</h5>
