@@ -35,16 +35,16 @@ export default function Grant() {
                             Fantastic Projects
                         </p>
                         <p className="xl:text-xl lg:text-lg sm:text-base font-medium font-Urbanist xl:leading-[2rem] text-brand-text-gray mt-[1.5rem]">
-                            Design NFT project，unleash your whimsy，and earn
+                            Design NFT project, unleash your whimsy, and earn
                             <br />
-                            case and prizes！
+                            case and prizes!
                         </p>
                     </div>
                     <img className="w-[35.44rem] h-[12.81rem]" src={bannerImage} />
                 </div>
             </section>
 
-            <section className='my-[7.19rem]'>
+            <section className='mt-[7.19rem]'>
                 <div className="flex flex-row justify-between w-auto">
                     <p className="text-3xl leading-10 text-left text-gray-900">Explore Grants</p>
                     <Link to={`/grants/create`}>

@@ -45,11 +45,11 @@ export default function Agora() {
                 </div>
                 <div className=" pt-[1.5rem] grid grid-cols-1 md:grid-cols-3 2xl:grid-cols-3 gap-y-10 justify-items-center place-items-center ">
                     <div className="inline-flex flex-col space-y-[0.4rem] items-start justify-start px-[1rem] pt-[0.88rem] bg-white border rounded-lg border-grey-300 font-Urbanist  justify-self-start" style={{ width: 370, height: 605, }}>
-                        <div className="w-full h-[21.45rem] bg-gradient-to-b from-[#D6FFEE] via-[#EFC56761] to-[#FFA11400] rounded-lg relative">
-                            <img className=" absolute w-full" src={cover0Image} alt="" />
+                        <div className="w-full h-[21rem] rounded-lg relative">
+                            <img className=" absolute w-full bg-gray-300" src={cover0Image} alt="" />
                             <div className=''>
                                 <p className="h-auto w-auto text-sm font-bold leading-relaxed text-center text-brand font-Urbanist absolute top-[0.90rem] left-[0.96rem] bg-white px-[0.5rem] py-[0.5rem] rounded-sm">profit sharing</p>
-                                <div className="w-auto h-auto absolute bottom-[0.90rem] right-[0.96rem] flex flex-row justify-end front-Urbanist">
+                                <div className="w-auto h-auto absolute bottom-[1.2rem] right-[0.96rem] flex flex-row justify-end front-Urbanist">
                                     <img className="w-[1.5rem] aspect-square rounded-lg mr-4" src={viewsIconImage} />
                                     <p className="text-sm font-normal leading-relaxed text-white">11w</p>
                                     <img className="w-[1.5rem] aspect-square rounded-lg  ml-[0.98rem]  mr-4" src={likesIconImage} />
@@ -65,11 +65,11 @@ export default function Agora() {
                         <button className="mx-auto text-sm leading-snug bg-brand w-[10.88rem] h-7 border rounded text-white mt-[50.38rem]">Join</button>
                     </div>
                     <div className="inline-flex flex-col space-y-[0.4rem] items-start justify-start px-[1rem] pt-[0.88rem] bg-white border rounded-lg border-grey-300 font-Urbanist " style={{ width: 370, height: 605, }}>
-                        <div className="w-full h-[21.45rem] bg-gradient-to-b from-[#D6FFEE] via-[#EFC56761] to-[#FFA11400] rounded-lg relative">
-                            <img className=" absolute w-full" src={cover1Image} alt="" />
+                        <div className="w-full h-[21rem] rounded-lg relative">
+                            <img className=" absolute w-full bg-gray-300" src={cover1Image} alt="" />
                             <div className=''>
                                 <p className="h-auto w-auto text-sm font-bold leading-relaxed text-center text-brand font-Urbanist absolute top-[0.90rem] left-[0.96rem] bg-white px-[0.5rem] py-[0.5rem] rounded-sm">reward</p>
-                                <div className="w-auto h-auto absolute bottom-[0.90rem] right-[0.96rem] flex flex-row justify-end front-Urbanist">
+                                <div className="w-auto h-auto absolute bottom-[1.2rem] right-[0.96rem] flex flex-row justify-end front-Urbanist">
                                     <img className="w-[1.5rem] aspect-square rounded-lg mr-4" src={viewsIconImage} />
                                     <p className="text-sm font-normal leading-relaxed text-white">9.1w</p>
                                     <img className="w-[1.5rem] aspect-square rounded-lg  ml-[0.98rem]  mr-4" src={likesIconImage} />
@@ -85,11 +85,11 @@ export default function Agora() {
                         <button className="mx-auto text-sm leading-snug bg-brand w-[10.88rem] h-7 border rounded text-white mt-[50.38rem]">Join</button>
                     </div>
                     <div className="inline-flex flex-col space-y-[0.4rem] items-start justify-start px-[1rem] pt-[0.88rem] bg-white border rounded-lg border-grey-300 font-Urbanist  justify-self-end" style={{ width: 370, height: 605, }}>
-                        <div className="w-full h-[21.45rem] bg-gradient-to-b from-[#D6FFEE] via-[#EFC56761] to-[#FFA11400] rounded-lg relative">
-                            <img className=" absolute w-full" src={cover2Image} alt="" />
+                        <div className="w-full h-[21rem] rounded-lg relative">
+                            <img className=" absolute w-full bg-gray-300" src={cover2Image} alt="" />
                             <div className=''>
                                 <p className="h-auto w-auto text-sm font-bold leading-relaxed text-center text-brand font-Urbanist absolute top-[0.90rem] left-[0.96rem] bg-white px-[0.5rem] py-[0.5rem] rounded-sm">free mint</p>
-                                <div className="w-auto h-auto absolute bottom-[0.90rem] right-[0.96rem] flex flex-row justify-end front-Urbanist">
+                                <div className="w-auto h-auto absolute bottom-[1.2rem] right-[0.96rem] flex flex-row justify-end front-Urbanist">
                                     <img className="w-[1.5rem] aspect-square rounded-lg mr-4" src={viewsIconImage} />
                                     <p className="text-sm font-normal leading-relaxed text-white">4w</p>
                                     <img className="w-[1.5rem] aspect-square rounded-lg  ml-[0.98rem]  mr-4" src={likesIconImage} />
@@ -105,11 +105,11 @@ export default function Agora() {
                         <button className="mx-auto text-sm leading-snug bg-brand w-[10.88rem] h-7 border rounded text-white mt-[50.38rem]">Join</button>
                     </div>
                     <div className="inline-flex flex-col space-y-[0.4rem] items-start justify-start px-[1rem] pt-[0.88rem] bg-white border rounded-lg border-grey-300 font-Urbanist  justify-self-start" style={{ width: 370, height: 605, }}>
-                        <div className="w-full h-[21.45rem] bg-gradient-to-b from-[#D6FFEE] via-[#EFC56761] to-[#FFA11400] rounded-lg relative">
-                            <img className=" absolute w-full" src={cover3Image} alt="" />
+                        <div className="w-full h-[21rem] rounded-lg relative">
+                            <img className=" absolute w-full bg-gray-300" src={cover3Image} alt="" />
                             <div className=''>
                                 <p className="h-auto w-auto text-sm font-bold leading-relaxed text-center text-brand font-Urbanist absolute top-[0.90rem] left-[0.96rem] bg-white px-[0.5rem] py-[0.5rem] rounded-sm">giveaways</p>
-                                <div className="w-auto h-auto absolute bottom-[0.90rem] right-[0.96rem] flex flex-row justify-end front-Urbanist">
+                                <div className="w-auto h-auto absolute bottom-[1.2rem] right-[0.96rem] flex flex-row justify-end front-Urbanist">
                                     <img className="w-[1.5rem] aspect-square rounded-lg mr-4" src={viewsIconImage} />
                                     <p className="text-sm font-normal leading-relaxed text-white">11w</p>
                                     <img className="w-[1.5rem] aspect-square rounded-lg  ml-[0.98rem]  mr-4" src={likesIconImage} />
@@ -125,11 +125,11 @@ export default function Agora() {
                         <button className="mx-auto text-sm leading-snug bg-brand w-[10.88rem] h-7 border rounded text-white mt-[50.38rem]">Join</button>
                     </div>
                     <div className="inline-flex flex-col space-y-[0.4rem] items-start justify-start px-[1rem] pt-[0.88rem] bg-white border rounded-lg border-grey-300 font-Urbanist " style={{ width: 370, height: 605, }}>
-                        <div className="w-full h-[21.45rem] bg-gradient-to-b from-[#D6FFEE] via-[#EFC56761] to-[#FFA11400] rounded-lg relative">
-                            <img className=" absolute w-full" src={cover4Image} alt="" />
+                        <div className="w-full h-[21rem] rounded-lg relative">
+                            <img className=" absolute w-full bg-gray-300" src={cover4Image} alt="" />
                             <div className=''>
                                 <p className="h-auto w-auto text-sm font-bold leading-relaxed text-center text-brand font-Urbanist absolute top-[0.90rem] left-[0.96rem] bg-white px-[0.5rem] py-[0.5rem] rounded-sm">free mint</p>
-                                <div className="w-auto h-auto absolute bottom-[0.90rem] right-[0.96rem] flex flex-row justify-end front-Urbanist">
+                                <div className="w-auto h-auto absolute bottom-[1.2rem] right-[0.96rem] flex flex-row justify-end front-Urbanist">
                                     <img className="w-[1.5rem] aspect-square rounded-lg mr-4" src={viewsIconImage} />
                                     <p className="text-sm font-normal leading-relaxed text-white">4w</p>
                                     <img className="w-[1.5rem] aspect-square rounded-lg  ml-[0.98rem]  mr-4" src={likesIconImage} />

@@ -44,7 +44,7 @@ export default function Muse() {
                 <div className="pt-[1.5rem] grid grid-cols-1 md:grid-cols-3 2xl:grid-cols-3 gap-y-10 justify-items-center place-items-center">
                     <div className="inline-flex flex-col space-y-[0.4rem] items-start justify-start px-[1rem] pt-[0.88rem] bg-white border rounded-lg border-grey-300 font-Urbanis justify-self-start" style={{ width: 370, height: 324, }}>
                         <a href="https://www.youtube.com/watch?v=Oz9zw7-_vhM" target="_blank">
-                            <img className="w-full h-[12.94rem] bg-gradient-to-b from-[#D6FFEE] via-[#EAD183] to-[#FFA114] rounded-lg relative" src={cover0Image} />
+                            <img className="w-full h-[12.94rem] bg-gray-300 rounded-lg relative" src={cover0Image} />
                             <p className="w-auto text-xl h-[3.6rem] leading-6 text-left text-brand-text-black">NFTs, Explained</p>
                             <p className="w-auto h-5 text-sm leading-tight text-brand-text-gray font-Urbanist">by <span className='text-brand'>Johnny Harris</span></p>
                         </a>
@@ -52,7 +52,7 @@ export default function Muse() {
 
                     <div className="inline-flex flex-col space-y-[0.4rem] items-start justify-start px-[1rem] pt-[0.88rem] bg-white border rounded-lg border-grey-300 font-Urbanis" style={{ width: 370, height: 324, }}>
                         <a href="https://www.youtube.com/watch?v=zpROwouRo_M" target="_blank">
-                            <img className="w-full h-[12.94rem] bg-gradient-to-b from-[#D6FFEE] via-[#EAD183] to-[#FFA114] rounded-lg relative" src={cover1Image} />
+                            <img className="w-full h-[12.94rem] bg-gray-300 rounded-lg relative" src={cover1Image} />
                             <p className="w-auto text-xl h-[3.6rem] leading-6 text-left text-brand-text-black">NFTs Are Fueling a Boom in Digital Art. Here’s How They Work | WSJ</p>
                             <p className="w-auto h-5 text-sm leading-tight text-brand-text-gray font-Urbanist">by <span className='text-brand'>Wall Street Journal</span></p>
                         </a>
@@ -61,7 +61,7 @@ export default function Muse() {
 
                     <div className="inline-flex flex-col space-y-[0.4rem] items-start justify-start px-[1rem] pt-[0.88rem] bg-white border rounded-lg border-grey-300 font-Urbanis justify-self-end" style={{ width: 370, height: 324, }}>
                         <a href="https://www.youtube.com/watch?v=4se4_ZqkcKw" target="_blank">
-                            <img className="w-full h-[12.94rem] bg-gradient-to-b from-[#D6FFEE] via-[#EAD183] to-[#FFA114] rounded-lg relative" src={cover2Image} />
+                            <img className="w-full h-[12.94rem] bg-gray-300 rounded-lg relative" src={cover2Image} />
                             <p className="w-auto text-xl h-[3.6rem] leading-6 text-left text-brand-text-black">NFTs For Beginners in 45 minutes</p>
                             <p className="w-auto h-5 text-sm leading-tight text-brand-text-gray font-Urbanist">by <span className='text-brand'>GaryVee</span></p>
                         </a>
@@ -70,7 +70,7 @@ export default function Muse() {
 
                     <div className="inline-flex flex-col space-y-[0.4rem] items-start justify-start px-[1rem] pt-[0.88rem] bg-white border rounded-lg border-grey-300 font-Urbanis justify-self-start" style={{ width: 370, height: 324, }}>
                         <a href="https://www.youtube.com/watch?v=4dkl5O9LOKg" target="_blank">
-                            <img className="w-full h-[12.94rem] bg-gradient-to-b from-[#D6FFEE] via-[#EAD183] to-[#FFA114] rounded-lg relative" src={cover3Image} />
+                            <img className="w-full h-[12.94rem] bg-gray-300 rounded-lg relative" src={cover3Image} />
                             <p className="w-auto text-xl h-[3.6rem] leading-6 text-left text-brand-text-black">What is an NFT? (Non-Fungible Tokens Explained)</p>
                             <p className="w-auto h-5 text-sm leading-tight text-brand-text-gray font-Urbanist">by <span className='text-brand'>Whiteboard Crypto</span></p>
                         </a>
@@ -79,7 +79,7 @@ export default function Muse() {
 
                     <div className="inline-flex flex-col space-y-[0.4rem] items-start justify-start px-[1rem] pt-[0.88rem] bg-white border rounded-lg border-grey-300 font-Urbanis" style={{ width: 370, height: 324, }}>
                         <a href="https://www.youtube.com/watch?v=mGlfFjcZFRE" target="_blank">
-                            <img className="w-full h-[12.94rem] bg-gradient-to-b from-[#D6FFEE] via-[#EAD183] to-[#FFA114] rounded-lg relative" src={cover4Image} />
+                            <img className="w-full h-[12.94rem] bg-gray-300 rounded-lg relative" src={cover4Image} />
                             <p className="w-auto text-xl h-[3.6rem] leading-6 text-left text-brand-text-black">How NFTs Are Invading the Art World</p>
                             <p className="w-auto h-5 text-sm leading-tight text-brand-text-gray font-Urbanist">by <span className='text-brand'>VICE News</span></p>
                         </a>
@@ -88,7 +88,7 @@ export default function Muse() {
 
                     <div className="inline-flex flex-col space-y-[0.4rem] items-start justify-start px-[1rem] pt-[0.88rem] bg-white border rounded-lg border-grey-300 font-Urbanis justify-self-end" style={{ width: 370, height: 324, }}>
                         <a href="https://www.youtube.com/watch?v=cTjwp-PCooI" target="_blank">
-                            <img className="w-full h-[12.94rem] bg-gradient-to-b from-[#D6FFEE] via-[#EAD183] to-[#FFA114] rounded-lg relative" src={cover5Image} />
+                            <img className="w-full h-[12.94rem] bg-gray-300 rounded-lg relative" src={cover5Image} />
                             <p className="w-auto text-xl h-[3.6rem] leading-6 text-left text-brand-text-black">Top 10 NFT Artists in 2022</p>
                             <p className="w-auto h-5 text-sm leading-tight text-brand-text-gray font-Urbanist">by <span className='text-brand'>CoinMarketCap</span></p>
                         </a>
@@ -97,7 +97,7 @@ export default function Muse() {
 
                     <div className="inline-flex flex-col space-y-[0.4rem] items-start justify-start px-[1rem] pt-[0.88rem] bg-white border rounded-lg border-grey-300 font-Urbanis justify-self-start" style={{ width: 370, height: 324, }}>
                         <a href="https://www.youtube.com/watch?v=km6-ZmZmqrU" target="_blank">
-                            <img className="w-full h-[12.94rem] bg-gradient-to-b from-[#D6FFEE] via-[#EAD183] to-[#FFA114] rounded-lg relative" src={cover6Image} />
+                            <img className="w-full h-[12.94rem] bg-gray-300 rounded-lg relative" src={cover6Image} />
                             <p className="w-auto text-xl h-[3.6rem] leading-6 text-left text-brand-text-black">How NFTs revolutionize the ART WORLD! - Explanation for ARTISTS 🤑</p>
                             <p className="w-auto h-5 text-sm leading-tight text-brand-text-gray font-Urbanist">by <span className='text-brand'>3D Gladiator</span></p>
                         </a>
@@ -106,7 +106,7 @@ export default function Muse() {
 
                     <div className="inline-flex flex-col space-y-[0.4rem] items-start justify-start px-[1rem] pt-[0.88rem] bg-white border rounded-lg border-grey-300 font-Urbanis" style={{ width: 370, height: 324, }}>
                         <a href="https://www.youtube.com/watch?v=KD6_har3g-M" target="_blank">
-                            <img className="w-full h-[12.94rem] bg-gradient-to-b from-[#D6FFEE] via-[#EAD183] to-[#FFA114] rounded-lg relative" src={cover7Image} />
+                            <img className="w-full h-[12.94rem] bg-gray-300 rounded-lg relative" src={cover7Image} />
                             <p className="w-auto text-xl h-[3.6rem] leading-6 text-left text-brand-text-black">Conversations | NFTs in the Art World: Beyond the Hype</p>
                             <p className="w-auto h-5 text-sm leading-tight text-brand-text-gray font-Urbanist">by <span className='text-brand'>Art Basel</span></p>
                         </a>
