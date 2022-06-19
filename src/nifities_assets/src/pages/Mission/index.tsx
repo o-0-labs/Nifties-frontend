@@ -12,7 +12,7 @@ const icon8Image = require('static/mission-icon-8.png');
 
 export default function Mission() {
     return (
-        <div className='w-screen py-[4.06rem] px-[1rem] xl:px-[8rem]'>
+        <div className='mx-auto w-[1190px] py-[4.06rem]'>
             <section>
                 <div className='flex flex-col-reverse md:flex-row md:justify-between '>
                     <div className="w-[31.38rem]">

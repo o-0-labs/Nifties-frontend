@@ -15,9 +15,9 @@ const ethIconImage = require('static/pona-ethereum.png');
 
 export default function Pona() {
     return (
-        <div className='w-screen my-[2.06rem] px-[2.92rem] text-center'>
+        <div className='mx-auto w-[1190px] py-[4.06rem] text-center'>
             <section>
-                <div className="bg-gray-300 mx-[2.94rem] h-[25.56rem] flex flex-col justify-start" title="">
+                <div className="h-[34rem] flex flex-col justify-start relative bg-gradient-to-b from-[#EBF3E6] to-[#BCDFD9] rounded-md" title="">
                     <p className="text-5xl font-semibold leading-10 text-gray-900 mt-[2rem] font-Poppins">Proof of NFT Achievements</p>
                     <p className="text-3xl font-bold leading-10 text-center text-white mt-[1.5rem] font-Urbanist">Leaderboard</p>
                 </div>
@@ -25,8 +25,8 @@ export default function Pona() {
 
             <section>
                 <div className="mx-auto]">
-                    <div className="w-[49.75rem] h-[31.88rem] m-auto  -mt-[13.5rem] relative text-center">
-                        <div className="mx-auto bg-gradient-to-b from-[#FFF0D4] to-[#D6E3E4] rounded-xl h-[14.13rem] border-2 w-full absolute bottom-0" />
+                    <div className="w-[49.75rem] h-[31.88rem] m-auto  -mt-[25rem] relative text-center">
+                        <div className="mx-auto bg-gradient-to-b from-[#FFF0D4] to-[#D6E3E4] rounded-xl h-[14.13rem] w-full absolute bottom-0" />
                         <div className="mx-auto w-full absolute bottom-0 text-center h-full" >
                             <div className="w-full  h-full mx-auto grid grid-cols-3 place-items-end justify-items-center">
                                 <div className="text-center space-y-[2.20rem] pb-[2.17rem]">
@@ -87,7 +87,7 @@ export default function Pona() {
                             <div className="bg-white border border-t-0 border-gray-300 w-full h-[5.31rem] grid grid-cols-3 justify-center place-items-center">
                                 <p>5</p>
                                 <div className="inline-flex space-x-4   justify-self-start place-items-center">
-                                    <img className="w-[3rem] h-[3rem] rounded-full" src={avator5Image}/>
+                                    <img className="w-[3rem] h-[3rem] rounded-full" src={avator5Image} />
                                     <p className="text-lg leading-loose text-gray-500">Slaninova</p>
                                 </div>
                                 <div className="inline-flex space-x-1 items-center">
@@ -98,7 +98,7 @@ export default function Pona() {
                             <div className="bg-white border border-t-0 border-gray-300 w-full h-[5.31rem] grid grid-cols-3 justify-center place-items-center">
                                 <p>6</p>
                                 <div className="inline-flex space-x-4   justify-self-start place-items-center">
-                                    <img className="w-[3rem] h-[3rem] rounded-full" src={avator6Image}/>
+                                    <img className="w-[3rem] h-[3rem] rounded-full" src={avator6Image} />
                                     <p className="text-lg leading-loose text-gray-500">Fairshaw</p>
                                 </div>
                                 <div className="inline-flex space-x-1 items-center">
@@ -109,7 +109,7 @@ export default function Pona() {
                             <div className="bg-white border border-t-0 border-gray-300 w-full h-[5.31rem] grid grid-cols-3 justify-center place-items-center">
                                 <p>7</p>
                                 <div className="inline-flex space-x-4   justify-self-start place-items-center">
-                                    <img className="w-[3rem] h-[3rem] rounded-full" src={avator7Image}/>
+                                    <img className="w-[3rem] h-[3rem] rounded-full" src={avator7Image} />
                                     <p className="text-lg leading-loose text-gray-500">Fairshaw</p>
                                 </div>
                                 <div className="inline-flex space-x-1 items-center">
@@ -120,7 +120,7 @@ export default function Pona() {
                             <div className="bg-white border border-t-0 border-gray-300 w-full h-[5.31rem] grid grid-cols-3 justify-center place-items-center">
                                 <p>8</p>
                                 <div className="inline-flex space-x-4   justify-self-start place-items-center">
-                                    <img className="w-[3rem] h-[3rem] rounded-full" src={avator8Image}/>
+                                    <img className="w-[3rem] h-[3rem] rounded-full" src={avator8Image} />
                                     <p className="text-lg leading-loose text-gray-500">Zano Boni</p>
                                 </div>
                                 <div className="inline-flex space-x-1 items-center">
@@ -131,7 +131,7 @@ export default function Pona() {
                             <div className="bg-white border border-t-0 border-gray-300 w-full h-[5.31rem] grid grid-cols-3 justify-center place-items-center">
                                 <p>9</p>
                                 <div className="inline-flex space-x-4   justify-self-start place-items-center">
-                                    <img className="w-[3rem] h-[3rem] rounded-full" src={avator9Image}/>
+                                    <img className="w-[3rem] h-[3rem] rounded-full" src={avator9Image} />
                                     <p className="text-lg leading-loose text-gray-500">Norm</p>
                                 </div>
                                 <div className="inline-flex space-x-1 items-center">
@@ -142,7 +142,7 @@ export default function Pona() {
                             <div className="bg-white border border-t-0 border-gray-300 w-full h-[5.31rem] grid grid-cols-3 justify-center place-items-center">
                                 <p>10</p>
                                 <div className="inline-flex space-x-4   justify-self-start place-items-center">
-                                    <img className="w-[3rem] h-[3rem] rounded-full" src={avator10Image}/>
+                                    <img className="w-[3rem] h-[3rem] rounded-full" src={avator10Image} />
                                     <p className="text-lg leading-loose text-gray-500">Al lock</p>
                                 </div>
                                 <div className="inline-flex space-x-1 items-center">

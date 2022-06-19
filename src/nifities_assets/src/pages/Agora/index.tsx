@@ -19,7 +19,7 @@ export default function Agora() {
 
 
     return (
-        <div className='w-screen py-[4.06rem] px-[1rem] xl:px-[8rem] relative'>
+        <div className='mx-auto w-[1190px] py-[4.06rem] relative'>
             <section>
                 <div className='flex flex-col-reverse md:flex-row md:justify-between '>
                     <div className="w-auto">
@@ -38,13 +38,13 @@ export default function Agora() {
                 </div>
             </section>
 
-            <section className='my-[7.19rem]'>
+            <section className='mt-[7.19rem]'>
                 <div className="flex flex-row justify-between w-auto">
                     <p className="text-3xl leading-10 text-left text-gray-900">Explore Agora</p>
                     <button className="text-sm leading-snug text-brand w-[10.88rem] h-7 bg-white border rounded border-brand" onClick={handleOpenJoinNowDialogChange} disabled>Create</button>
                 </div>
-                <div className=" pt-[1.5rem] grid grid-cols-1 md:grid-cols-3 2xl:grid-cols-3 gap-y-10 justify-items-between justify-between">
-                    <div className="inline-flex flex-col space-y-[0.4rem] items-start justify-start px-[1rem] pt-[0.88rem] bg-white border rounded-lg border-grey-300 font-Urbanist " style={{ width: 370, height: 605, }}>
+                <div className=" pt-[1.5rem] grid grid-cols-1 md:grid-cols-3 2xl:grid-cols-3 gap-y-10 justify-items-center place-items-center ">
+                    <div className="inline-flex flex-col space-y-[0.4rem] items-start justify-start px-[1rem] pt-[0.88rem] bg-white border rounded-lg border-grey-300 font-Urbanist  justify-self-start" style={{ width: 370, height: 605, }}>
                         <div className="w-full h-[21.45rem] bg-gradient-to-b from-[#D6FFEE] via-[#EFC56761] to-[#FFA11400] rounded-lg relative">
                             <img className=" absolute w-full" src={cover0Image} alt="" />
                             <div className=''>
@@ -84,7 +84,7 @@ export default function Agora() {
                         <p className="w-auto h-5 text-sm leading-tight text-brand-text-gray font-Urbanist">by <span className='text-brand'>Bored Ape Fat Club · 21D</span></p>
                         <button className="mx-auto text-sm leading-snug bg-brand w-[10.88rem] h-7 border rounded text-white mt-[50.38rem]">Join</button>
                     </div>
-                    <div className="inline-flex flex-col space-y-[0.4rem] items-start justify-start px-[1rem] pt-[0.88rem] bg-white border rounded-lg border-grey-300 font-Urbanist " style={{ width: 370, height: 605, }}>
+                    <div className="inline-flex flex-col space-y-[0.4rem] items-start justify-start px-[1rem] pt-[0.88rem] bg-white border rounded-lg border-grey-300 font-Urbanist  justify-self-end" style={{ width: 370, height: 605, }}>
                         <div className="w-full h-[21.45rem] bg-gradient-to-b from-[#D6FFEE] via-[#EFC56761] to-[#FFA11400] rounded-lg relative">
                             <img className=" absolute w-full" src={cover2Image} alt="" />
                             <div className=''>
@@ -104,7 +104,7 @@ export default function Agora() {
                         <p className="w-auto h-5 text-sm leading-4 text-brand-text-gray font-Urbanist">by <span className='text-brand'>Fatty Beef · 20D</span></p>
                         <button className="mx-auto text-sm leading-snug bg-brand w-[10.88rem] h-7 border rounded text-white mt-[50.38rem]">Join</button>
                     </div>
-                    <div className="inline-flex flex-col space-y-[0.4rem] items-start justify-start px-[1rem] pt-[0.88rem] bg-white border rounded-lg border-grey-300 font-Urbanist " style={{ width: 370, height: 605, }}>
+                    <div className="inline-flex flex-col space-y-[0.4rem] items-start justify-start px-[1rem] pt-[0.88rem] bg-white border rounded-lg border-grey-300 font-Urbanist  justify-self-start" style={{ width: 370, height: 605, }}>
                         <div className="w-full h-[21.45rem] bg-gradient-to-b from-[#D6FFEE] via-[#EFC56761] to-[#FFA11400] rounded-lg relative">
                             <img className=" absolute w-full" src={cover3Image} alt="" />
                             <div className=''>

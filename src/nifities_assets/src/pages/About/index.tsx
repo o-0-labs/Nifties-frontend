@@ -8,7 +8,7 @@ const cover4Image = require('static/about-image-4.png');
 
 export default function About() {
     return (
-        <div className='w-screen py-[4.06rem] px-[1rem] xl:px-[8rem]'>
+        <div className='mx-auto w-[1190px] py-[4.06rem]'>
             <section>
                 <div className='flex flex-col-reverse md:flex-row md:justify-between '>
                     <div className="w-[31.38rem]">
