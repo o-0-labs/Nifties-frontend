@@ -19,9 +19,9 @@ export default function JoinNowDialog(props: {
 
     return (
         <div className={`absolute top-0 left-0 w-full h-full justify-center flex items-center ${open ? 'flex' : 'hidden'} `}>
-            <div className='w-[32.31rem] h-[23.31rem] bg-white rounded-md border border-[#CDD6D7] font-Urbanist py-[1rem] px-[2.06rem]'>
+            <div className='w-[35.31rem] h-[23.31rem] bg-white rounded-md border border-[#CDD6D7] font-Urbanist py-[1rem] px-[2.06rem]'>
                 <div className='w-full text-center text-2xl font-semibold leading-loose relative'>
-                    Welcom&nbsp;&nbsp;！
+                    Welcome&nbsp;&nbsp;！
                     <IconButton color="primary" aria-label="add to shopping cart" onClick={onOpenJoinNowDialogChange} className=' absolute top-[0.6rem] right-[0rem] w-[2rem] h-[2rem]'>
                         <img src={closeIcon} alt="Close Dialog" />
                     </IconButton>

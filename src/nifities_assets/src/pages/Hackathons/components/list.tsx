@@ -66,7 +66,7 @@ function ListComponent(props: {
                         <img className="w-full h-1/2 bg-gray-300 rounded-lg" src={image} />
                         <p className="w-auto h-[3rem] text-xl leading-6 text-left text-brand-text-black break-normal  mt-[0.5rem]">{title}</p>
                         <p className="w-auto text-sm font-semibold leading-tight text-brand mt-[0.5rem]">{date}</p>
-                        <p className="w-full h-[8rem] overflow-hidden text-sm leading-tight text-brand-text-gray  break-normal mt-[0.5rem]">{description}</p>
+                        <p className="w-full h-[7.8rem] overflow-hidden text-sm leading-tight text-brand-text-gray  break-normal mt-[0.5rem]">{description}</p>
                         <p className="w-auto h-5 text-sm leading-tight text-gray-500 mt-[0.5rem]">Sponsored by</p>
                         <div className="flex flex-row mt-[0.5rem] h-[36px] w-full overflow-hidden">
                             {sponsored.split(',').map((url, index) => (
