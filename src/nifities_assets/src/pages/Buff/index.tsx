@@ -2,7 +2,7 @@
  * @Author: shenpeng 
  * @Date: 2022-06-13 22:34:38 
  * @Last Modified by: shenpeng
- * @Last Modified time: 2022-06-19 19:34:28
+ * @Last Modified time: 2022-06-19 22:59:51
  */
 import React, { useEffect, useState } from 'react'
 import { Button, Timeline, Spin } from 'antd'
@@ -10,6 +10,8 @@ import { useHistory } from "react-router-dom"
 import { observer, useLocalStore } from './store'
 import { Provider } from 'mobx-react'
 import NFEmpty from 'components/NFEmpty'
+import dayjs from 'dayjs'
+
 
 const message = require('static/message.png')
 const eye = require('static/eye.png')
@@ -18,6 +20,7 @@ const heart = require('static/heart.png')
 const logout = require('static/logout.png')
 const twitter = require('static/twitter.png')
 const banner = require('static/buff_banner.png')
+const defaultIcon = require('static/default_icon.png')
 
 const Buff = observer(() => {
     const [active, setActive] = useState(1)
@@ -26,20 +29,16 @@ const Buff = observer(() => {
     const { AccountListStore, NFTStore } = root
 
     useEffect(() => {
-        AccountListStore.checkTwitter()
-        NFTStore.getNftList()
-    }, [])
+        if (active === 1) {
+            NFTStore.getNftList()
+        }
+        if (active === 2) {
+            AccountListStore.getTwitterList()
+        }
+    }, [active])
 
     const changeTab = (val: number) => {
         setActive(val)
-        if (val === 1) {
-            NFTStore.getNftList()
-        }
-        if (val === 2) {
-            if (AccountListStore.authFlag) {
-                AccountListStore.getTwitterList()
-            }
-        }
     }
 
     const NFTContent = () => {
@@ -66,19 +65,19 @@ const Buff = observer(() => {
                     {
                         AccountListStore.twitterList.map(item => {
                             return <Timeline.Item label="">
-                                <div className='px-[14px] py-[10px] hover:bg-[#D9D9D9] flex_sb' key={item.id}>
-                                    <img src="http://iph.href.lu/120x90" alt="" />
+                                <div className='px-[14px] py-[10px] hover:bg-[#D9D9D9] flex_sb items-start' key={item.id}>
+                                    <img className='w-[48px] h-[48px] rounded-[24px]' src={AccountListStore.photoUrl || defaultIcon} alt="" />
                                     <div className='ml-16 flex flex-col justify-between h-[90px]'>
                                         <div className='w-[442px]'>
                                             <p className='fs-20 fw-b text-[#04091E]'>{item.text} </p>
-                                            <p className='fs-14 text-[#898A8C]'>11:00:03·Twitter </p>
+                                            <p className='fs-14 text-[#898A8C]'>{dayjs(item.created_at).format('MM-DD HH:mm')}</p>
                                         </div>
                                         <div className='flex_sb'>
-                                            <div className='flex_1 flex_left text-[#00BCC2]'><img className="mr-[6px]" src={eye} alt="" />1.5w</div>
-                                            <div className='flex_1 flex_left text-[#00BCC2]'><img className="mr-[6px]" src={message} alt="" />199</div>
-                                            <div className='flex_1 flex_left text-[#00BCC2]'><img className="mr-[6px]" src={repeat} alt="" />199</div>
-                                            <div className='flex_1 flex_left text-[#00BCC2]'><img className="mr-[6px]" src={heart} alt="" />199</div>
-                                            <div className='flex_1 flex_left text-[#00BCC2]'><img className="mr-[6px]" src={logout} alt="" />199</div>
+                                            <div className='flex_1 flex_left text-[#00BCC2]'><img className="mr-[6px]" src={eye} alt="" />{item.public_metrics.retweet_count || 0}</div>
+                                            <div className='flex_1 flex_left text-[#00BCC2]'><img className="mr-[6px]" src={message} alt="" />{item.public_metrics.reply_count || 0}</div>
+                                            <div className='flex_1 flex_left text-[#00BCC2]'><img className="mr-[6px]" src={repeat} alt="" />{item.public_metrics.quote_count || 0}</div>
+                                            <div className='flex_1 flex_left text-[#00BCC2]'><img className="mr-[6px]" src={heart} alt="" />{item.public_metrics.like_count || 0}</div>
+                                            {/* <div className='flex_1 flex_left text-[#00BCC2]'><img className="mr-[6px]" src={logout} alt="" />199</div> */}
                                         </div>
                                     </div>
                                 </div>

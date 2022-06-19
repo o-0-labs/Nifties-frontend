@@ -93,6 +93,7 @@ class GlobalStore {
       }))
       if (res.data.user_name) {
         message.success('Login Success')
+        window.location.reload()
         this.requestBalance()
       } else {
         this.infoVisible = true
@@ -150,6 +151,7 @@ class GlobalStore {
       }))
       this.requestBalance()
       message.success('Register successfully')
+      window.location.reload()
     } else {
       message.error('Registration failed')
     }
