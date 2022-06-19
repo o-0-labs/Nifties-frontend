@@ -67,7 +67,7 @@ export default function About() {
                         <div className="w-full bg-gray-300 h-[1px] my-[3rem]"></div>
                         <div className="grid grid-cols-2 justify-items-start justify-center">
                             <div className="w-[24rem] mx-auto">
-                                <p className="w-auto h-[1.5rem] text-2xl font-bold leading-6 text-left text-brand-text-black break-normal">WHY Nifties</p>
+                                <p className="w-auto h-[1.5rem] text-2xl font-bold leading-6 text-left text-brand-text-black break-normal">Our vision</p>
                             </div>
                             <div></div>
                         </div>
