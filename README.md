@@ -48,6 +48,5 @@ Then open [http://localhost:8080/](http://localhost:8080/) to see your app.
 
 <br/>
 
----
 ## License
 [Apache 2.0 License.](https://github.com/o-0-labs/Nifties-frontend/blob/main/LICENSE)
