@@ -41,7 +41,7 @@ export default function Agora() {
             <section className='mt-[7.19rem]'>
                 <div className="flex flex-row justify-between w-auto">
                     <p className="text-3xl leading-10 text-left text-gray-900">Explore Agora</p>
-                    <button className="text-sm leading-snug text-brand w-[10.88rem] h-7 bg-white border rounded border-brand" onClick={handleOpenJoinNowDialogChange} disabled>Create</button>
+                    {/* <button className="text-sm leading-snug text-brand w-[10.88rem] h-7 bg-white border rounded border-brand" onClick={handleOpenJoinNowDialogChange} disabled>Create</button> */}
                 </div>
                 <div className=" pt-[1.5rem] grid grid-cols-1 md:grid-cols-3 2xl:grid-cols-3 gap-y-10 justify-items-center place-items-center ">
                     <div className="inline-flex flex-col space-y-[0.4rem] items-start justify-start px-[1rem] pt-[0.88rem] bg-white border rounded-lg border-grey-300 font-Urbanist  justify-self-start" style={{ width: 370, height: 605, }}>
@@ -62,7 +62,7 @@ export default function Agora() {
                         </div>
                         <p className="w-full h-[5.2rem] text-sm leading-tight text-brand-text-gray font-Urbanist break-normal">This is not scam project, it’s create by a person who love web3, Moonbirds, Mfers, doing his best to build a great community</p>
                         <p className="w-auto h-5 text-sm leading-tight text-brand-text-gray font-Urbanist">by <span className='text-brand'>Moonfers · 23D</span></p>
-                        <button className="mx-auto text-sm leading-snug bg-brand w-[10.88rem] h-7 border rounded text-white mt-[50.38rem]">Join</button>
+                        <a className="mx-auto text-sm leading-[1.75rem] bg-brand w-[10.88rem] h-[1.75rem] rounded text-white mt-[50.38rem] text-center" href="https://nftb.io/launch/" target="_blank">Mint</a>
                     </div>
                     <div className="inline-flex flex-col space-y-[0.4rem] items-start justify-start px-[1rem] pt-[0.88rem] bg-white border rounded-lg border-grey-300 font-Urbanist " style={{ width: 370, height: 605, }}>
                         <div className="w-full h-[21rem] rounded-lg relative">
@@ -82,7 +82,7 @@ export default function Agora() {
                         </div>
                         <p className="w-full h-[5.2rem] text-sm leading-tight text-brand-text-gray font-Urbanist break-normal">6969 Fat Rich Apes living in the Otherside Metaverse!</p>
                         <p className="w-auto h-5 text-sm leading-tight text-brand-text-gray font-Urbanist">by <span className='text-brand'>Bored Ape Fat Club · 21D</span></p>
-                        <button className="mx-auto text-sm leading-snug bg-brand w-[10.88rem] h-7 border rounded text-white mt-[50.38rem]">Join</button>
+                        <a className="mx-auto text-sm leading-[1.75rem] bg-brand w-[10.88rem] h-[1.75rem] rounded text-white mt-[50.38rem] text-center" href="https://nftb.io/launch/" target="_blank">Mint</a>
                     </div>
                     <div className="inline-flex flex-col space-y-[0.4rem] items-start justify-start px-[1rem] pt-[0.88rem] bg-white border rounded-lg border-grey-300 font-Urbanist  justify-self-end" style={{ width: 370, height: 605, }}>
                         <div className="w-full h-[21rem] rounded-lg relative">
@@ -102,7 +102,7 @@ export default function Agora() {
                         </div>
                         <p className="w-full h-[5.2rem] text-sm leading-tight text-brand-text-gray font-Urbanist break-normal">These assets do not work in Chibi Fighters 2.0. Chibi Fighters is a casual brawler on the Ethereum Blockchain. Chibis come in all shapes and forms and are fierce little warriors.</p>
                         <p className="w-auto h-5 text-sm leading-4 text-brand-text-gray font-Urbanist">by <span className='text-brand'>Fatty Beef · 20D</span></p>
-                        <button className="mx-auto text-sm leading-snug bg-brand w-[10.88rem] h-7 border rounded text-white mt-[50.38rem]">Join</button>
+                        <a className="mx-auto text-sm leading-[1.75rem] bg-brand w-[10.88rem] h-[1.75rem] rounded text-white mt-[50.38rem] text-center" href="https://nftb.io/launch/" target="_blank">Mint</a>
                     </div>
                     <div className="inline-flex flex-col space-y-[0.4rem] items-start justify-start px-[1rem] pt-[0.88rem] bg-white border rounded-lg border-grey-300 font-Urbanist  justify-self-start" style={{ width: 370, height: 605, }}>
                         <div className="w-full h-[21rem] rounded-lg relative">
@@ -122,7 +122,7 @@ export default function Agora() {
                         </div>
                         <p className="w-full h-[5.2rem] text-sm leading-tight text-brand-text-gray font-Urbanist break-normal">Super Dudes is a generative NFT collection made up of super heroes. They are the 2nd generation of Super Ordinary Villains art collection and the next step in the story of the Super Ordinary World. The villains ...</p>
                         <p className="w-auto h-5 text-sm leading-4 text-brand-text-gray font-Urbanist">by <span className='text-brand'>superdudes · 15d</span></p>
-                        <button className="mx-auto text-sm leading-snug bg-brand w-[10.88rem] h-7 border rounded text-white mt-[50.38rem]">Join</button>
+                        <a className="mx-auto text-sm leading-[1.75rem] bg-brand w-[10.88rem] h-[1.75rem] rounded text-white mt-[50.38rem] text-center" href="https://nftb.io/launch/" target="_blank">Mint</a>
                     </div>
                     <div className="inline-flex flex-col space-y-[0.4rem] items-start justify-start px-[1rem] pt-[0.88rem] bg-white border rounded-lg border-grey-300 font-Urbanist " style={{ width: 370, height: 605, }}>
                         <div className="w-full h-[21rem] rounded-lg relative">
@@ -142,7 +142,7 @@ export default function Agora() {
                         </div>
                         <p className="w-full h-[5.2rem] text-sm leading-tight text-brand-text-gray font-Urbanist break-normal">Senshi's Entering The Metaverse</p>
                         <p className="w-auto h-5 text-sm leading-4 text-brand-text-gray font-Urbanist">by <span className='text-brand'>SENSHI · 8D</span></p>
-                        <button className="mx-auto text-sm leading-snug bg-brand w-[10.88rem] h-7 border rounded text-white mt-[50.38rem]">Join</button>
+                        <a className="mx-auto text-sm leading-[1.75rem] bg-brand w-[10.88rem] h-[1.75rem] rounded text-white mt-[50.38rem] text-center" href="https://nftb.io/launch/" target="_blank">Mint</a>
                     </div>
 
                 </div>
