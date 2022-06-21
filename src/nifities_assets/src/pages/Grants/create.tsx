@@ -86,7 +86,7 @@ export default function CreateGrant() {
             setOpenLoading(false);
 
             if ('Err' in res) {
-                showSnackbar('error', `Contract initialization failed! Message: $(Err)`);
+                showSnackbar('error', `Contract initialization failed! Message: ${res.Err}`);
             }else if ('Ok' in res) {
                 showSnackbar('success', 'The contract initialisation successful!');
 
