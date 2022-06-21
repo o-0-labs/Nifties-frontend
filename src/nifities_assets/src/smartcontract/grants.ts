@@ -2,6 +2,7 @@ import { idlFactory as GrantIDL } from './grants.did';
 import { idlFactory as LedgerIDL } from './nns_ledger.did';
 import PlugWallet from '../utils/PlugWallet';
 import { Grant, AddGrantResult, Funder, FunderRecord } from './grantType';
+export { Grant, AddGrantResult, Funder, FunderRecord } from './grantType';
 
 /**
  * 下面注释的3行代码，演示如何从PrincipalId获取到对应的AccountId
