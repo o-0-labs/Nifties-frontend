@@ -4,9 +4,13 @@ import { Hackathon, fetchAllByStatus, IApiData } from '../../../api/hackahton';
 import PageError from 'components/500';
 import { Link } from "react-router-dom";
 import JoinNowDialog from './dialog';
-import { handleBreakpoints } from '@mui/system';
+import Tooltip from '@mui/material/Tooltip';
+import { getUserInfo } from "utils/Auth";
 
 
+
+// 获取到Session的用户信息
+const user = getUserInfo();
 
 const queryClient = new QueryClient();
 // const cover0Image = require('static/hackathons-list-cover-1.jpg');
@@ -88,7 +92,13 @@ function ListComponent(props: {
                         <a className="text-sm leading-snug text-brand w-[9.88rem] h-[1.75rem] py-1 bg-white border rounded border-brand mr-[0.81rem] text-center" href={discord_url} rel="external" title="Go to the Discroid channel" target="_blank">Join discord</a>
 
                         {join_flag === null ? (
-                            < button className="text-sm leading-snug bg-brand  w-[9.88rem] h-[1.75rem] py-1 border rounded text-white" onClick={() => { props.onOpenJoinNowDialogChange(); props.setHackathonId(hackathon_id) }}>Join now</button>
+                            user.userId ? (
+                                <button className="text-sm leading-snug bg-brand  w-[9.88rem] h-[1.75rem] py-1 border rounded text-white" onClick={() => { props.onOpenJoinNowDialogChange(); props.setHackathonId(hackathon_id) }}>Join now</button>
+                            ) : (
+                                <Tooltip title="This function requires you to be sign in, please click the sign in button in the top right hand corner." arrow>
+                                    <button className="text-sm leading-snug bg-brand  w-[9.88rem] h-[1.75rem] py-1 border rounded text-white">Join now</button>
+                                </Tooltip>
+                            )
                         ) : (
                             < button className="text-sm leading-snug bg-brand  w-[9.88rem] h-[1.75rem] py-1 border rounded text-white disabled" >Joined</button>
                         )

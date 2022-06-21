@@ -5,10 +5,16 @@ import { Hackathon, fetchById, IApiData } from '../../api/hackahton';
 import PageNotFound from 'components/404';
 import PageError from 'components/500';
 import JoinNowDialog from './components/dialog';
+import Tooltip from '@mui/material/Tooltip';
+import { getUserInfo } from "utils/Auth";
 
-const queryClient = new QueryClient();
 
 const bannerImage = require('static/hackathons-detail-banner.jpg');
+
+// 获取到Session的用户信息
+const user = getUserInfo();
+
+const queryClient = new QueryClient();
 export default function HackathonsDetail() {
     return (
         <QueryClientProvider client={queryClient}>
@@ -71,7 +77,13 @@ function Detail() {
                                 <a className={`text-sm leading-snug text-brand w-[10.88rem] h-7 py-1 bg-white border rounded border-brand text-center ${hackathon.discord_url != null ? '' : 'hidden'}`} href={hackathon.discord_url} rel="external" title="Go to the Discroid channel" target="_blank">Join discord</a>
 
                                 {hackathon.join_flag === null ? (
-                                    < button className="text-sm leading-snug bg-brand w-[10.88rem] h-7 py-1 border rounded text-white" onClick={handleOpenJoinNowDialogChange}>Join now</button>
+                                    user.userId ? (
+                                        < button className="text-sm leading-snug bg-brand w-[10.88rem] h-7 py-1 border rounded text-white" onClick={handleOpenJoinNowDialogChange}>Join now</button>
+                                    ) : (
+                                        <Tooltip title="This function requires you to be sign in, please click the sign in button in the top right hand corner." arrow>
+                                            < button className="text-sm leading-snug bg-brand w-[10.88rem] h-7 py-1 border rounded text-white">Join now</button>
+                                        </Tooltip>
+                                    )
                                 ) : (
                                     < button className="text-sm leading-snug bg-brand  w-[9.88rem] h-[1.75rem] py-1 border rounded text-white disabled" >Joined</button>
                                 )}
