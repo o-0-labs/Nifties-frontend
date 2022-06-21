@@ -24,12 +24,13 @@ export default function GrantsCart(props: {
     open: boolean;
     onOpenPayNowDialogChange: any;
     contractAddress: string;
-    grantContract: GrantContract;
 }) {
-
     // Dialog Props
-    const { children, open, onOpenPayNowDialogChange, contractAddress, grantContract } = { ...props };
-    // console.log(`contractAddress: ${contractAddress}`);
+    const { children, open, onOpenPayNowDialogChange, contractAddress } = { ...props };
+    console.log(`contractAddress: ${contractAddress}`);
+
+    // 众筹合约函数
+    const grantContract = new GrantContract(contractAddress, false);
 
 
     // Amount Text Field

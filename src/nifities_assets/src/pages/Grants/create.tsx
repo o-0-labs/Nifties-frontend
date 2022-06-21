@@ -39,12 +39,7 @@ export default function CreateGrant() {
 
     // Stepper
     const handleNext = () => {
-        if (activeStep < 2) {
-            setActiveStep((prevActiveStep) => prevActiveStep + 1);
-            return false;
-        }
-
-        //postSubmit();
+        setActiveStep((prevActiveStep) => prevActiveStep + 1);
     };
 
     const handleBack = () => {
@@ -63,8 +58,10 @@ export default function CreateGrant() {
                 showSnackbar('error', `Failed to submit(${res.data.msg})!`);
             } else {
                 showSnackbar('success', 'Submitted successfully!');
+                showSnackbar('info', 'Start configuring a smart contract.');
                 // 调用后端新增众筹后，接口返回分配的合约地址，前端调用合约函数初始化合约
                 const contractAddress = res.data.contract_address;
+                console.log(`postSumbit(), contractAddress: ${contractAddress}`);
                 ininContract(contractAddress, values);
             }
         });
@@ -88,12 +85,14 @@ export default function CreateGrant() {
             console.log(`grantContract.add(), res: ${res}`);
             setOpenLoading(false);
 
-            if('Err' in res) {
-                showSnackbar('error', 'Contract initialization failed!');
-            }
-
-            if('Ok' in res) {
+            if ('Err' in res) {
+                showSnackbar('error', `Contract initialization failed! Message: $(Err)`);
+            }else if ('Ok' in res) {
                 showSnackbar('success', 'The contract initialisation successful!');
+
+                handleNext();
+            }else {
+                showSnackbar('error', 'Contract initialization failed!');
             }
         }, (err) => {
             setOpenLoading(false);
@@ -191,6 +190,9 @@ export default function CreateGrant() {
                                         .required('Required'),
                                     description: Yup.string()
                                         .min(15, 'Must be 15 characters or more')
+                                        .required('Required'),
+                                    website: Yup.string()
+                                        .max(256, 'Must be 256 characters or less')
                                         .required('Required'),
                                     twitter: Yup.string()
                                         .max(50, 'Must be 50 characters or less')
@@ -428,15 +430,28 @@ export default function CreateGrant() {
 
                                         <div className='w-full h-auto py-[0.5rem]'>{isSubmitting && <LinearProgress />}</div>
                                         <Box className="w-full mx-auto flex flex-row justify-center">
-                                            <Button
-                                                color="inherit"
-                                                disabled={activeStep === 0}
-                                                onClick={handleBack}
-                                                sx={{ mr: 1 }}
-                                                variant="outlined"
-                                                className={`text-sm leading-snug w-[10.88rem] h-7 py-1 bg-white border rounded mr-[0.81rem] font-Urbanist ${activeStep !== 0 && 'text-brand border-brand'}`}>
-                                                Back
-                                            </Button>
+                                            {
+                                                activeStep === 0 ? (
+                                                    <Link to={`/grants`}>
+                                                        <Button
+                                                            color="inherit"
+                                                            sx={{ mr: 1 }}
+                                                            variant="outlined"
+                                                            className={`text-sm leading-snug w-[10.88rem] h-7 py-1 bg-white border rounded mr-[0.81rem] font-Urbanist text-brand border-brand`}>
+                                                            Back to List
+                                                        </Button>
+                                                    </Link>
+                                                ) : (
+                                                    <Button
+                                                        color="inherit"
+                                                        onClick={handleBack}
+                                                        sx={{ mr: 1 }}
+                                                        variant="outlined"
+                                                        className={`text-sm leading-snug w-[10.88rem] h-7 py-1 bg-white border rounded mr-[0.81rem] font-Urbanist text-brand border-brand`}>
+                                                        Back
+                                                    </Button>
+                                                )
+                                            }
                                             <Button className="text-sm leading-snug bg-brand w-[10.88rem] h-7 py-1 border rounded text-white font-Urbanist normal-case" disabled={isSubmitting}
                                                 onClick={
                                                     () => {
@@ -449,8 +464,7 @@ export default function CreateGrant() {
                                                                 handleNext();
                                                             }
                                                         } else if (activeStep === 1) {
-                                                            console.log(`uploadedAddress: ${uploadedAddress}`);
-                                                            if (JSON.stringify(errors) !== '{}' && !errors.title && !errors.description && !errors.title && !errors.twitter && uploadedAddress) {
+                                                            if (JSON.stringify(errors) !== '{}' && !errors.title && !errors.description && !errors.title && !errors.twitter && !errors.website && uploadedAddress) {
                                                                 handleNext();
                                                             }
                                                         }
