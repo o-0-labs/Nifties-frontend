@@ -52,8 +52,8 @@ export default class PlugWallet {
 
     async getActor(canisterId, interfaceFactory) {
         if (!this.actor) {
-            if (! await this.isConnected())
-                this.connect();
+            // if (! await this.isConnected())
+            //     this.connect();
             this.actor = await window.ic.plug.createActor({
                 canisterId: canisterId,
                 interfaceFactory: interfaceFactory
