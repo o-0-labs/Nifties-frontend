@@ -69,6 +69,7 @@
     "dayjs": "^1.11.3",
     "formik": "^2.2.9",
     "formik-mui": "^4.0.0-alpha.3",
+    "mathjs": "^10.6.1",
     "mobx": "^6.3.0",
     "mobx-react": "^7.1.0",
     "react": "^17.0.2",
