@@ -33,9 +33,6 @@ export default class GrantContract {
       this.ledgerContractAddress,
     ]);
 
-    // @ts-ignore
-    const publicKey = await this.plug.connect();
-
     // console.log(
     //   // @ts-ignore
     //   `principalId: ${this.plug.principalIdStr}, accountId: ${this.plug.accountId}`

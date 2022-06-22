@@ -7,6 +7,8 @@ export interface Grant {
   begin_time: bigint;
   total_ammount: bigint;
   min_ammount: bigint;
+  grants_id?: string;
+  contract_address?: string;
 }
 export type AddGrantResult = { Ok: number } | { Err: string };
 
