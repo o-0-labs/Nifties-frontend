@@ -23,12 +23,14 @@ class AccountListStore {
     }
 
     async checkTwitter() {
+        this.loading = true
         const [err, res] = await to(BuffService.checkTwitter() as Promise<IApiData>)
         if (err) {
             this.loading = false
             return
         }
         if (res && res.code === 0) {
+            this.loading = false
             this.authFlag = res.data.twitter_flag
             return
         }

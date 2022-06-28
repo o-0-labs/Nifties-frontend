@@ -4,6 +4,8 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 const Dotenv = require('dotenv-webpack');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 
 const isDevelopment = process.env.NODE_ENV !== "production";
@@ -22,7 +24,7 @@ function initEnvConfigPath() {
 };
 const envConfigPath = initEnvConfigPath();
 
-module.exports = {
+const config = {
   target: "web",
   mode: isDevelopment ? "development" : "production",
   entry: {
@@ -34,6 +36,42 @@ module.exports = {
   optimization: {
     minimize: !isDevelopment,
     minimizer: [new TerserPlugin()],
+    splitChunks: {
+      cacheGroups: {
+        default: false,
+        style: {
+          name: 'style_c',
+          test: /\.css$/,
+          chunks: 'all',
+        },
+        antd: {
+          name: 'antd',
+          test: /[\\/]node_modules[\\/](antd|rc-*|@ant-design)/,
+          chunks: 'all',
+          priority: 11,
+          enforce: true,
+          reuseExistingChunk: true,
+        },
+        common: {
+          name: 'common',
+          test: /[\\/]src[\\/]nifities_assets[\\/]src[\\/](components|utils)/,
+          chunks: 'all',
+          priority: 10,
+          minChunks: 2,
+          enforce: true,
+          reuseExistingChunk: true,
+        },
+        pagesCommon: {
+          name: 'pagesCommon',
+          test: /[\\/]src[\\/]nifities_assets[\\/]src[\\/](pages)/,
+          chunks: 'all',
+          priority: 8,
+          minChunks: 3,
+          enforce: true,
+          reuseExistingChunk: true,
+        },
+      }
+    }
   },
   resolve: {
     extensions: [".js", ".ts", ".jsx", ".tsx"],
@@ -74,9 +112,10 @@ module.exports = {
       { test: /\.css$/, use: ["style-loader", "css-loader", 'postcss-loader'] },
       {
         test: /\.(scss|sass)$/,
+        exclude: /node_modules/,
         use: [
           {
-            loader: 'style-loader',
+            loader: MiniCssExtractPlugin.loader,
           },
           {
             loader: 'css-loader',
@@ -108,7 +147,7 @@ module.exports = {
         test: /\.less$/,
         use: [
           {
-            loader: 'style-loader', // creates style nodes from JS strings
+            loader: MiniCssExtractPlugin.loader,
           },
           {
             loader: 'css-loader',
@@ -118,19 +157,19 @@ module.exports = {
             options: {
               lessOptions: {
                 modifyVars: {
-                  'primary-color': '#00BCC2', 
-                  'link-color': '#00BCC2', 
-                  'success-color': '#52c41a', 
-                  'warning-color': '#faad14', 
-                  'error-color': '#f5222d', 
-                  'font-size-base': '16px', 
+                  'primary-color': '#00BCC2',
+                  'link-color': '#00BCC2',
+                  'success-color': '#52c41a',
+                  'warning-color': '#faad14',
+                  'error-color': '#f5222d',
+                  'font-size-base': '16px',
                   'heading-color': '#04091E',
-                  'text-color': 'rgba(0, 0, 0, 0.65)', 
-                  'text-color-secondary': 'rgba(10, 6, 6, 0.45)', 
-                  'disabled-color': 'rgba(0, 0, 0, 0.25)', 
-                  'border-radius-base': '2px', 
-                  'border-color-base': '#d9d9d9', 
-                  'box-shadow-base': '0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05)', 
+                  'text-color': 'rgba(0, 0, 0, 0.65)',
+                  'text-color-secondary': 'rgba(10, 6, 6, 0.45)',
+                  'disabled-color': 'rgba(0, 0, 0, 0.25)',
+                  'border-radius-base': '2px',
+                  'border-color-base': '#d9d9d9',
+                  'box-shadow-base': '0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05)',
                 },
                 javascriptEnabled: true,
               },
@@ -151,6 +190,11 @@ module.exports = {
     ],
   },
   plugins: [
+    new MiniCssExtractPlugin({
+      filename: '[name].[contenthash:8].css',
+      chunkFilename: '[id].[contenthash:8].css',
+      ignoreOrder: true,
+    }),
     new HtmlWebpackPlugin({
       template: path.join(__dirname, asset_entry),
       cache: false,
@@ -189,3 +233,9 @@ module.exports = {
   },
   devtool: 'source-map',
 };
+
+if (process.env.MODE === 'analysis') {
+  config.plugins.push(new BundleAnalyzerPlugin());
+}
+
+module.exports = config

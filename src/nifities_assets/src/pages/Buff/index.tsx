@@ -31,9 +31,10 @@ const Buff = observer(() => {
     useEffect(() => {
         if (active === 1) {
             NFTStore.getNftList()
-        }
-        if (active === 2) {
+        } else if (active === 2) {
             AccountListStore.getTwitterList()
+        } else {
+            AccountListStore.checkTwitter()
         }
     }, [active])
 
@@ -89,7 +90,7 @@ const Buff = observer(() => {
         }
         return <NFEmpty />
     }
-    return <Spin spinning={AccountListStore.loading || NFTStore.loading} delay={300}>
+    return <Spin spinning={AccountListStore.loading || NFTStore.loading} delay={500}>
         <div className='pt-[32px] px-[16px] mb-60 xl:max-w-screen-2xl xl:m-auto md:px-[32px] 2xl:px-[108px] xl:px-[68px] xl:pt-[65px]'>
             <div className='flex flex-col items-center lg:flex-row lg:justify-between lg:items-start xl:items-center'>
                 <div className="mt-[1rem] w-[460px] md:w-[567px] lg:w-[589px]">
@@ -132,7 +133,7 @@ const Buff = observer(() => {
                             <div className="w-[245px] h-[276px] flex flex-col items-center rounded-lg shadow-lg">
                                 <img className="w-[72px] h-[72px] rounded-full mt-80" src={twitter} />
                                 <p className="text-xl font-semibold leading-relaxed text-center text-gray-900">Twitter</p>
-                                <p className="text-sm font-semibold leading-tight text-center text-gray-500" onClick={() => AccountListStore.removeTwitter()}>Disconnect</p>
+                                <p className="text-sm font-semibold leading-tight text-center text-gray-500 csp hover:text-[#00BCC2]" onClick={() => AccountListStore.removeTwitter()}>Disconnect</p>
                             </div>
                         </div>}
                     </div>
